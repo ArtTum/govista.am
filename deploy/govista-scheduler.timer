@@ -1,0 +1,10 @@
+[Unit]
+Description=Run GoVista Laravel scheduler every minute
+
+[Timer]
+OnCalendar=*-*-* *:*:00
+Persistent=true
+Unit=govista-scheduler.service
+
+[Install]
+WantedBy=timers.target

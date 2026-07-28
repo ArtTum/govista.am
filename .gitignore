@@ -1,0 +1,6 @@
+/branding
+/frontend/public/brand/*-chroma.png
+/.openai/site-archive.tar.gz
+/.runtime
+*.log
+.DS_Store

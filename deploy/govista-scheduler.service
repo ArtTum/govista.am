@@ -1,0 +1,10 @@
+[Unit]
+Description=GoVista Laravel scheduler
+
+[Service]
+Type=oneshot
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/govista/current/backend
+ExecStart=/usr/bin/php8.3 artisan schedule:run
+NoNewPrivileges=true

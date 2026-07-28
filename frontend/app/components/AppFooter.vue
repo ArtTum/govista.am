@@ -1,0 +1,47 @@
+<script setup>
+import { ArrowUpRight, Camera, Mail, MapPin, MessageCircle, Phone } from '@lucide/vue'
+
+defineProps({ settings: { type: Object, default: () => ({}) } })
+const { t, localePath } = useLocale()
+</script>
+
+<template>
+  <footer class="site-footer">
+    <div class="footer-shape"></div>
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <img src="/brand/govista-logo-light.png" alt="GoVista — Travel Beyond Limits" width="1528" height="426" loading="lazy" decoding="async">
+        <p>{{ t('home.servicesTitle') }} — Armenia, thoughtfully.</p>
+        <div class="footer-socials">
+          <a :href="settings.instagram || '#'" aria-label="Instagram"><Camera :size="18" /></a>
+          <a :href="settings.facebook || '#'" aria-label="Facebook"><MessageCircle :size="18" /></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>{{ t('nav.tours') }}</h4>
+        <NuxtLink :to="localePath('/tours')">{{ t('nav.tours') }}</NuxtLink>
+        <NuxtLink :to="`${localePath('/tours')}?type=private`">{{ t('nav.private') }}</NuxtLink>
+        <NuxtLink :to="`${localePath('/tours')}?type=package`">{{ t('nav.packages') }}</NuxtLink>
+        <NuxtLink :to="localePath('/destinations')">{{ t('nav.destinations') }}</NuxtLink>
+      </div>
+      <div class="footer-links">
+        <h4>GoVista</h4>
+        <NuxtLink :to="localePath('/about')">{{ t('nav.about') }}</NuxtLink>
+        <NuxtLink :to="localePath('/blog')">{{ t('nav.blog') }}</NuxtLink>
+        <NuxtLink :to="localePath('/privacy')">Privacy</NuxtLink>
+        <NuxtLink :to="localePath('/terms')">Terms</NuxtLink>
+      </div>
+      <div class="footer-contact">
+        <h4>{{ t('nav.contact') }}</h4>
+        <a v-if="settings.phone" :href="`tel:${settings.phone}`"><Phone :size="16" />{{ settings.phone }}</a>
+        <a v-if="settings.email" :href="`mailto:${settings.email}`"><Mail :size="16" />{{ settings.email }}</a>
+        <span v-if="settings.address"><MapPin :size="16" />{{ settings.address }}</span>
+        <a class="footer-cta" :href="settings.whatsapp || '#'">WhatsApp <ArrowUpRight :size="17" /></a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© {{ new Date().getFullYear() }} GoVista. Made with care in Armenia.</span>
+      <span>HY · RU · EN</span>
+    </div>
+  </footer>
+</template>

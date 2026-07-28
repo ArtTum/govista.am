@@ -1,0 +1,21 @@
+[Unit]
+Description=GoVista Nuxt frontend
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/govista/current/frontend
+Environment=NODE_ENV=production
+EnvironmentFile=/var/www/govista/current/frontend/.env.production
+ExecStart=/usr/bin/node .output/server/index.mjs
+Restart=always
+RestartSec=5
+TimeoutStopSec=20
+KillSignal=SIGTERM
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

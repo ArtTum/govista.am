@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+Sitemap: https://govista.am/sitemap.xml
+
+User-agent: Yandex
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Clean-param: search&type&date&guests /hy/tours
+Clean-param: search&type&date&guests /ru/tours
+Clean-param: search&type&date&guests /en/tours
+
+Sitemap: https://govista.am/sitemap.xml
