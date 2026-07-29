@@ -27,6 +27,22 @@ class PublicContentController extends Controller
                 Tour::query()->where('active', true)->where('featured', true)->orderBy('sort_order')->take(6)->get(),
                 $locale
             ),
+            'domestic_tours' => $this->localized(
+                Tour::query()->where('active', true)->where('travel_scope', 'domestic')->orderByDesc('featured')->orderBy('sort_order')->take(3)->get(),
+                $locale
+            ),
+            'international_tours' => $this->localized(
+                Tour::query()->where('active', true)->where('travel_scope', 'international')->orderByDesc('featured')->orderBy('sort_order')->take(3)->get(),
+                $locale
+            ),
+            'accommodations' => $this->localized(
+                Service::query()->where('active', true)->where('type', 'accommodation')->orderByDesc('featured')->orderBy('sort_order')->take(4)->get(),
+                $locale
+            ),
+            'cars' => $this->localized(
+                Service::query()->where('active', true)->where('type', 'transport')->orderByDesc('featured')->orderBy('sort_order')->take(4)->get(),
+                $locale
+            ),
             'destinations' => $this->localized(
                 Destination::query()->where('active', true)->where('featured', true)->orderBy('sort_order')->take(8)->get(),
                 $locale
@@ -117,6 +133,26 @@ class PublicContentController extends Controller
         }
 
         return response()->json($this->localized($query->get(), $this->locale($request)));
+    }
+
+    public function service(Request $request, string $slug): JsonResponse
+    {
+        $service = Service::query()->where('slug', $slug)->where('active', true)->firstOrFail();
+
+        return response()->json([
+            'service' => $service->toLocalizedArray($this->locale($request)),
+            'related' => $this->localized(
+                Service::query()
+                    ->where('active', true)
+                    ->where('id', '!=', $service->id)
+                    ->where('type', $service->type)
+                    ->orderByDesc('featured')
+                    ->orderBy('sort_order')
+                    ->take(3)
+                    ->get(),
+                $this->locale($request)
+            ),
+        ]);
     }
 
     public function posts(Request $request): JsonResponse

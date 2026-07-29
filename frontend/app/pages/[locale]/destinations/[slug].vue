@@ -7,6 +7,7 @@ const { openBooking } = useBooking()
 const route = useRoute()
 const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl).replace(/\/$/, '')
+const absoluteImage = value => value?.startsWith('/') ? `${siteUrl}${value}` : value
 const { data, error } = await useAsyncData(
   () => `destination-${locale.value}-${route.params.slug}`,
   () => api(`/v1/destinations/${route.params.slug}`, { query: { locale: locale.value } }),
@@ -19,11 +20,11 @@ useSeoMeta({
   ogTitle: () => `${data.value?.title || ''} — GoVista`,
   ogDescription: () => data.value?.description,
   ogType: 'website',
-  ogImage: () => data.value?.image,
+  ogImage: () => absoluteImage(data.value?.image),
   twitterCard: 'summary_large_image',
   twitterTitle: () => `${data.value?.title || ''} — GoVista`,
   twitterDescription: () => data.value?.description,
-  twitterImage: () => data.value?.image,
+  twitterImage: () => absoluteImage(data.value?.image),
 })
 useHead(() => ({
   script: [{
@@ -36,7 +37,7 @@ useHead(() => ({
           '@type': 'TouristDestination',
           name: data.value?.title,
           description: data.value?.description,
-          image: [data.value?.image, ...(data.value?.gallery || [])].filter(Boolean),
+          image: [data.value?.image, ...(data.value?.gallery || [])].filter(Boolean).map(absoluteImage),
           address: { '@type': 'PostalAddress', addressRegion: data.value?.region, addressCountry: 'AM' },
         },
         {

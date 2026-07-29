@@ -6,6 +6,7 @@ const { locale, t, localePath } = useLocale()
 const route = useRoute()
 const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl).replace(/\/$/, '')
+const absoluteImage = value => value?.startsWith('/') ? `${siteUrl}${value}` : value
 const { data, error } = await useAsyncData(
   () => `post-${locale.value}-${route.params.slug}`,
   () => api(`/v1/posts/${route.params.slug}`, { query: { locale: locale.value } }),
@@ -18,13 +19,13 @@ useSeoMeta({
   ogTitle: () => `${data.value?.title || ''} — GoVista Journal`,
   ogDescription: () => data.value?.excerpt,
   ogType: 'article',
-  ogImage: () => data.value?.image,
+  ogImage: () => absoluteImage(data.value?.image),
   articlePublishedTime: () => data.value?.published_at,
   articleModifiedTime: () => data.value?.updated_at,
   twitterCard: 'summary_large_image',
   twitterTitle: () => data.value?.title,
   twitterDescription: () => data.value?.excerpt,
-  twitterImage: () => data.value?.image,
+  twitterImage: () => absoluteImage(data.value?.image),
 })
 useHead(() => ({
   script: [{
@@ -37,7 +38,7 @@ useHead(() => ({
           '@type': 'BlogPosting',
           headline: data.value?.title,
           description: data.value?.excerpt,
-          image: data.value?.image,
+          image: absoluteImage(data.value?.image),
           datePublished: data.value?.published_at,
           dateModified: data.value?.updated_at,
           inLanguage: locale.value,

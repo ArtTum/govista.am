@@ -4,15 +4,21 @@ const { locale } = useLocale()
 const route = useRoute()
 const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl).replace(/\/$/, '')
-const indexableScope = computed(() => (
+const legacyScope = computed(() => (
   route.path.endsWith('/tours') && ['domestic', 'international'].includes(String(route.query.scope))
     ? String(route.query.scope)
     : ''
 ))
-const canonicalSuffix = computed(() => indexableScope.value ? `?scope=${indexableScope.value}` : '')
-const canonicalUrl = computed(() => `${siteUrl}${route.path}${canonicalSuffix.value}`)
-const localizedPath = (nextLocale) => `${route.path.replace(/^\/(hy|ru|en)(?=\/|$)/, `/${nextLocale}`)}${canonicalSuffix.value}`
-const shouldNoindex = computed(() => Boolean(route.query.search || route.query.type || route.query.date || route.query.guests))
+const canonicalPath = computed(() => (
+  legacyScope.value
+    ? route.path.replace(/\/tours$/, `/${legacyScope.value === 'domestic' ? 'domestic-tours' : 'international-tours'}`)
+    : route.path
+))
+const canonicalUrl = computed(() => `${siteUrl}${canonicalPath.value}`)
+const localizedPath = (nextLocale) => canonicalPath.value.replace(/^\/(hy|ru|en)(?=\/|$)/, `/${nextLocale}`)
+const shouldNoindex = computed(() => Boolean(
+  route.query.scope || route.query.search || route.query.type || route.query.date || route.query.guests,
+))
 
 useHead(() => ({
   htmlAttrs: { lang: locale.value },

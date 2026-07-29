@@ -15,6 +15,7 @@ Route::prefix('v1')->group(function () {
     Route::get('/destinations', [PublicContentController::class, 'destinations']);
     Route::get('/destinations/{slug}', [PublicContentController::class, 'destination']);
     Route::get('/services', [PublicContentController::class, 'services']);
+    Route::get('/services/{slug}', [PublicContentController::class, 'service']);
     Route::get('/posts', [PublicContentController::class, 'posts']);
     Route::get('/posts/{slug}', [PublicContentController::class, 'post']);
     Route::get('/pages/{slug}', [PublicContentController::class, 'page']);

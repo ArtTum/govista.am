@@ -211,11 +211,84 @@ img { max-width: 100%; display: block; }
 .tour-card-footer > button { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 14px; color: var(--navy); background: #fff; transition: .25s; }
 .tour-card:hover .tour-card-footer > button { color: var(--navy); border-color: var(--apricot); background: var(--apricot); }
 
+/* Journey hub and rental inventory */
+.journey-hub-section { position: relative; overflow: hidden; background: #fff; }
+.journey-hub-section::before { content: ""; position: absolute; width: 430px; height: 430px; top: -260px; right: -120px; border: 1px solid rgba(10,143,128,.1); border-radius: 50%; box-shadow: 0 0 0 70px rgba(10,143,128,.025), 0 0 0 140px rgba(10,143,128,.014); }
+.journey-hub-grid { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+.journey-hub-card { position: relative; min-height: 345px; overflow: hidden; display: flex; align-items: flex-end; padding: 30px; border-radius: 30px; color: #fff; background: var(--navy); box-shadow: 0 22px 60px rgba(7,28,44,.12); }
+.journey-hub-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.journey-hub-card:hover > img { transform: scale(1.06); }
+.journey-hub-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,18,29,.08) 15%, rgba(4,18,29,.88) 100%); }
+.journey-hub-icon { position: absolute; z-index: 2; top: 22px; left: 22px; width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.2); border-radius: 15px; color: var(--apricot); background: rgba(6,27,42,.36); backdrop-filter: blur(12px); }
+.journey-hub-card > div:last-of-type { position: relative; z-index: 2; max-width: 470px; }
+.journey-hub-card small { color: var(--apricot); font-size: 8px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.journey-hub-card h3 { margin: 8px 0; font-family: Manrope, "Noto Sans Armenian", sans-serif; font-size: 29px; letter-spacing: -.035em; }
+.journey-hub-card p { max-width: 410px; margin: 0; color: rgba(255,255,255,.7); font-size: 11px; line-height: 1.7; }
+.journey-hub-card > i { position: absolute; z-index: 2; right: 24px; top: 23px; width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; font-style: normal; transition: transform .3s, background .3s; }
+.journey-hub-card:hover > i { transform: rotate(45deg); color: var(--navy); border-color: var(--apricot); background: var(--apricot); }
+.outbound-home-section { background: radial-gradient(circle at 12% 12%, rgba(10,143,128,.1), transparent 24%), #edf8f6; }
+.home-collection-section .tour-card:first-child { grid-column: auto; display: block; }
+.home-collection-section .tour-card:first-child .tour-image { height: 275px; min-height: 0; }
+.home-collection-section .tour-card:first-child .tour-card-body { display: block; padding: 24px; }
+.home-collection-section .tour-card:first-child h3 { font-size: 21px; }
+.rental-showcase-section, .rental-listing-section { background: #fff; }
+.car-showcase-section { background: radial-gradient(circle at 90% 14%, rgba(255,173,90,.11), transparent 25%), var(--ivory); }
+.rental-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
+.rental-card { min-width: 0; overflow: hidden; border: 1px solid rgba(11,31,51,.08); border-radius: 25px; background: #fff; box-shadow: 0 17px 48px rgba(7,28,44,.07); transition: transform .35s var(--ease), box-shadow .35s, border-color .35s; }
+.rental-card:hover { transform: translateY(-8px); border-color: rgba(10,143,128,.24); box-shadow: 0 28px 68px rgba(7,28,44,.13); }
+.rental-card-image { position: relative; height: 225px; display: block; overflow: hidden; background: #dce5e6; }
+.rental-card-image::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(5,20,32,.48)); }
+.rental-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+.rental-card:hover .rental-card-image img { transform: scale(1.06); }
+.rental-kind, .rental-rating { position: absolute; z-index: 2; display: flex; align-items: center; gap: 6px; border-radius: 999px; font-size: 8px; font-weight: 800; }
+.rental-kind { top: 14px; left: 14px; padding: 8px 10px; color: var(--navy); background: rgba(255,255,255,.9); backdrop-filter: blur(9px); }
+.rental-rating { right: 14px; bottom: 13px; color: #fff; }
+.rental-rating svg { color: #ffca67; }
+.rental-card-body { padding: 20px; }
+.rental-location { display: flex; align-items: center; gap: 5px; color: var(--teal); font-size: 8px; font-weight: 750; }
+.rental-card h3 { margin: 10px 0 8px; font-family: Manrope, "Noto Sans Armenian", sans-serif; font-size: 18px; line-height: 1.35; letter-spacing: -.025em; }
+.rental-card h3 a:hover { color: var(--apricot-deep); }
+.rental-card-body > p { display: -webkit-box; min-height: 52px; overflow: hidden; margin: 0; color: var(--muted); font-size: 10px; line-height: 1.7; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.rental-features { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 15px; }
+.rental-features span { display: flex; align-items: center; gap: 3px; padding: 6px 8px; border-radius: 8px; color: #426173; background: #f0f6f6; font-size: 7px; font-weight: 700; }
+.rental-features svg { color: var(--teal); }
+.rental-card-footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; padding-top: 17px; margin-top: 17px; border-top: 1px solid var(--line); }
+.rental-card-footer > div { display: grid; gap: 1px; }
+.rental-card-footer small, .rental-card-footer span { color: #8a97a2; font-size: 7px; }
+.rental-card-footer strong { color: var(--navy); font-size: 16px; }
+.rental-card-footer button { min-height: 40px; display: inline-flex; align-items: center; gap: 6px; padding: 0 12px; border: 0; border-radius: 12px; color: var(--navy); background: var(--apricot); font-size: 8px; font-weight: 800; }
+.rental-listing-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 32px; }
+.rental-listing-toolbar > div { display: flex; align-items: baseline; gap: 9px; }
+.rental-listing-toolbar strong { color: var(--navy); font-family: Manrope, sans-serif; font-size: 28px; }
+.rental-listing-toolbar span { color: var(--muted); font-size: 9px; text-transform: uppercase; }
+.rental-page-hero .section-eyebrow { display: flex; align-items: center; gap: 7px; }
+.rental-page-hero.stay-hero { background: radial-gradient(circle at 75% 15%, rgba(255,173,90,.24), transparent 38%), linear-gradient(125deg, #071827, #284838); }
+.rental-page-hero.car-hero { background: radial-gradient(circle at 77% 12%, rgba(10,143,128,.28), transparent 37%), linear-gradient(125deg, #071827, #123c51); }
+.rental-detail-hero { position: relative; min-height: 680px; display: flex; align-items: flex-end; color: #fff; background: var(--navy); }
+.rental-detail-media { position: absolute; inset: 0; background-position: center; background-size: cover; }
+.rental-detail-hero-copy { position: relative; z-index: 1; padding-bottom: 62px; }
+.rental-detail-kind { display: flex; align-items: center; gap: 7px; margin: 24px 0 10px; color: var(--apricot); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.rental-detail-hero h1 { max-width: 900px; margin: 0 0 18px; font-family: Manrope, "Noto Sans Armenian", sans-serif; font-size: clamp(46px, 6vw, 74px); line-height: 1.08; letter-spacing: -.05em; }
+.rental-detail-section { background: #fff; }
+.rental-detail-layout { display: grid; grid-template-columns: minmax(0,1fr) 340px; align-items: start; gap: 70px; }
+.rental-detail-layout h2 { margin: 8px 0; font-family: Manrope, "Noto Sans Armenian", sans-serif; font-size: 42px; letter-spacing: -.04em; }
+.rental-detail-features { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin: 28px 0 42px; }
+.rental-detail-features span { display: flex; align-items: center; gap: 8px; padding: 14px 15px; color: var(--navy); background: var(--ivory); font-size: 10px; font-weight: 700; }
+.rental-detail-features svg { color: var(--teal); }
+.rental-detail-gallery { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+.rental-detail-gallery img { width: 100%; height: 300px; border-radius: 20px; object-fit: cover; }
+.rental-booking-note { display: flex; align-items: center; gap: 11px; padding: 14px; border-radius: 13px; background: var(--ivory); }
+.rental-booking-note svg { color: var(--teal); }
+.rental-booking-note span { display: grid; color: var(--muted); font-size: 8px; }
+.rental-booking-note strong { margin-top: 2px; color: var(--navy); font-size: 9px; }
+
 /* Experience */
 .experience-section { position: relative; overflow: hidden; color: #fff; background: radial-gradient(circle at 82% 15%, rgba(54,199,181,.18), transparent 28%), radial-gradient(circle at 8% 92%, rgba(255,173,90,.1), transparent 24%), var(--navy); }
 .experience-section::before { content: ""; position: absolute; width: 430px; height: 430px; right: -180px; bottom: -210px; border: 1px solid rgba(255,255,255,.06); border-radius: 50%; box-shadow: 0 0 0 60px rgba(255,255,255,.018), 0 0 0 120px rgba(255,255,255,.01); }
 .experience-section .section-eyebrow { color: var(--apricot); }
 .experience-grid { display: grid; grid-template-columns: 1.35fr .65fr .65fr; grid-template-rows: 275px 275px; gap: 14px; }
+.experience-grid.compact { grid-template-columns: repeat(2, minmax(0,1fr)); grid-template-rows: 390px; }
+.experience-grid.compact .experience-card { grid-row: auto; grid-column: auto; }
 .experience-card { position: relative; overflow: hidden; min-height: 0; border: 1px solid rgba(255,255,255,.09); border-radius: 25px; background: var(--navy-soft); box-shadow: 0 22px 60px rgba(0,0,0,.14); }
 .experience-1 { grid-row: 1 / 3; }
 .experience-4 { grid-column: 2 / 4; }
@@ -580,6 +653,7 @@ img { max-width: 100%; display: block; }
   .hero-content { grid-template-columns: minmax(0,1fr) 305px; gap: 44px; }
   .hero-feature-image { height: 220px; }
   .tours-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .rental-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .experience-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 310px 310px; }
   .experience-1 { grid-row: auto; }
   .experience-4 { grid-column: auto; }
@@ -592,6 +666,7 @@ img { max-width: 100%; display: block; }
   .footer-contact { grid-column: 1 / -1; grid-template-columns: repeat(4, auto); align-items: center; }
   .footer-contact h4 { display: none; }
   .detail-layout { gap: 45px; }
+  .rental-detail-layout { gap: 45px; }
 }
 
 @media (max-width: 880px) {
@@ -638,6 +713,7 @@ img { max-width: 100%; display: block; }
   .scope-switch button:first-child { grid-column: 1 / -1; }
   .destination-feature-card:nth-child(3n) { grid-column: auto; }
   .detail-layout { grid-template-columns: 1fr; }
+  .rental-detail-layout { grid-template-columns: 1fr; }
   .booking-card { position: static; }
   .blog-list-card { grid-template-columns: 300px 1fr; gap: 25px; }
 }
@@ -678,7 +754,19 @@ img { max-width: 100%; display: block; }
   .tour-card:first-child .tour-image { height: 260px; min-height: 0; }
   .tour-card:first-child .tour-card-body { display: block; padding: 24px; }
   .tour-card:first-child h3 { font-size: 23px; }
+  .journey-hub-grid, .rental-grid { grid-template-columns: 1fr; }
+  .journey-hub-card { min-height: 330px; padding: 25px; border-radius: 24px; }
+  .journey-hub-card h3 { padding-right: 45px; font-size: 25px; }
+  .rental-card-image { height: 260px; }
+  .rental-listing-toolbar { align-items: stretch; flex-direction: column; }
+  .rental-listing-toolbar .listing-search { width: 100%; }
+  .rental-detail-hero { min-height: 610px; }
+  .rental-detail-hero h1 { font-size: 44px; }
+  .rental-detail-gallery, .rental-detail-features { grid-template-columns: 1fr; }
+  .rental-detail-gallery { grid-template-rows: repeat(3, 230px); }
+  .rental-detail-gallery img:first-child { grid-row: auto; }
   .experience-grid { display: grid; grid-template-columns: 1fr; grid-template-rows: none; }
+  .experience-grid.compact { grid-template-columns: 1fr; grid-template-rows: none; }
   .experience-card { min-height: 340px; }
   .service-values { align-items: flex-start; flex-direction: column; gap: 13px; }
   .destination-rail { grid-template-columns: 1fr; }

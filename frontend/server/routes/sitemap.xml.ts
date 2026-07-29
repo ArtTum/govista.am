@@ -1,5 +1,6 @@
 type Resource = {
   slug?: string
+  type?: string
   updated_at?: string
 }
 
@@ -35,24 +36,29 @@ export default defineEventHandler(async (event) => {
   const entries: SitemapEntry[] = [
     { path: '', changefreq: 'daily', priority: '1.0' },
     { path: '/tours', changefreq: 'daily', priority: '0.9' },
-    { path: '/tours?scope=domestic', changefreq: 'daily', priority: '0.9' },
-    { path: '/tours?scope=international', changefreq: 'daily', priority: '0.9' },
+    { path: '/domestic-tours', changefreq: 'daily', priority: '0.9' },
+    { path: '/international-tours', changefreq: 'daily', priority: '0.9' },
+    { path: '/stays', changefreq: 'daily', priority: '0.9' },
+    { path: '/cars', changefreq: 'daily', priority: '0.9' },
     { path: '/destinations', changefreq: 'weekly', priority: '0.8' },
     { path: '/blog', changefreq: 'weekly', priority: '0.8' },
     { path: '/about', changefreq: 'monthly', priority: '0.6' },
     { path: '/privacy', changefreq: 'yearly', priority: '0.3' },
     { path: '/terms', changefreq: 'yearly', priority: '0.3' },
+    { path: '/photo-credits', changefreq: 'yearly', priority: '0.2' },
   ]
 
   let tours: PaginatedResource = {}
   let destinations: PaginatedResource = {}
   let posts: PaginatedResource = {}
+  let services: Resource[] = []
 
   try {
-    [tours, destinations, posts] = await Promise.all([
+    [tours, destinations, posts, services] = await Promise.all([
       $fetch<PaginatedResource>(`${apiBase}/v1/tours`, { query: { locale: 'en', per_page: 48 } }),
       $fetch<PaginatedResource>(`${apiBase}/v1/destinations`, { query: { locale: 'en', per_page: 48 } }),
       $fetch<PaginatedResource>(`${apiBase}/v1/posts`, { query: { locale: 'en', per_page: 48 } }),
+      $fetch<Resource[]>(`${apiBase}/v1/services`, { query: { locale: 'en' } }),
     ])
   }
   catch {
@@ -78,6 +84,14 @@ export default defineEventHandler(async (event) => {
       changefreq: 'monthly' as const,
       priority: '0.7',
     })),
+    ...services
+      .filter(item => item.slug && ['accommodation', 'transport'].includes(String(item.type)))
+      .map(item => ({
+          path: `/${item.type === 'accommodation' ? 'stays' : 'cars'}/${item.slug}`,
+          lastmod: dateOnly(item.updated_at),
+          changefreq: 'weekly' as const,
+          priority: '0.8',
+      })),
   )
 
   const body = entries.flatMap(entry => locales.map((locale) => {

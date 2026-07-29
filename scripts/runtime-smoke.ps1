@@ -121,6 +121,18 @@ $publicResources = @{
         'montenegro-adriatic'
     )
     destinations = @('yerevan', 'lake-sevan', 'dilijan', 'tatev', 'areni', 'garni')
+    services = @(
+        'handpicked-hotels',
+        'cascade-view-apartment',
+        'dilijan-forest-cottage',
+        'sevan-lake-house',
+        'airport-transfers',
+        'toyota-rav4-rental',
+        'mercedes-vito-rental',
+        'economy-city-car',
+        'business-events',
+        'custom-journey'
+    )
     posts = @('first-time-armenia-guide', 'best-season-armenia', 'armenian-flavors')
     pages = @('about', 'privacy', 'terms')
 }
@@ -156,6 +168,7 @@ Invoke-Api 'large pagination is clamped' GET "$ApiBase/api/v1/tours?per_page=999
 Invoke-Api 'invalid locale falls back safely' GET "$ApiBase/api/v1/home?locale=invalid" | Out-Null
 Invoke-Api 'missing tour' GET "$ApiBase/api/v1/tours/does-not-exist" 404 | Out-Null
 Invoke-Api 'missing destination' GET "$ApiBase/api/v1/destinations/does-not-exist" 404 | Out-Null
+Invoke-Api 'missing service' GET "$ApiBase/api/v1/services/does-not-exist" 404 | Out-Null
 Invoke-Api 'missing post' GET "$ApiBase/api/v1/posts/does-not-exist" 404 | Out-Null
 Invoke-Api 'missing page' GET "$ApiBase/api/v1/pages/does-not-exist" 404 | Out-Null
 

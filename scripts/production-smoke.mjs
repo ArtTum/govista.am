@@ -9,7 +9,7 @@ const origin = `http://127.0.0.1:${port}`
 const apiBase = process.env.PRODUCTION_SMOKE_API || 'http://127.0.0.1:8010/api'
 
 const locales = ['hy', 'ru', 'en']
-const staticPaths = ['', '/tours', '/tours?scope=domestic', '/tours?scope=international', '/destinations', '/blog', '/about', '/privacy', '/terms']
+const staticPaths = ['', '/tours', '/domestic-tours', '/international-tours', '/stays', '/cars', '/destinations', '/blog', '/about', '/privacy', '/terms', '/photo-credits']
 const tours = [
   'garni-geghard-symphony',
   'khor-virap-noravank-areni',
@@ -38,12 +38,16 @@ const tours = [
 ]
 const destinations = ['yerevan', 'lake-sevan', 'dilijan', 'tatev', 'areni', 'garni']
 const posts = ['first-time-armenia-guide', 'best-season-armenia', 'armenian-flavors']
+const stays = ['handpicked-hotels', 'cascade-view-apartment', 'dilijan-forest-cottage', 'sevan-lake-house']
+const cars = ['airport-transfers', 'toyota-rav4-rental', 'mercedes-vito-rental', 'economy-city-car']
 
 const localizedPaths = [
   ...staticPaths,
   ...tours.map(slug => `/tours/${slug}`),
   ...destinations.map(slug => `/destinations/${slug}`),
   ...posts.map(slug => `/blog/${slug}`),
+  ...stays.map(slug => `/stays/${slug}`),
+  ...cars.map(slug => `/cars/${slug}`),
 ]
 
 let passed = 0

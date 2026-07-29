@@ -11,11 +11,11 @@ const langOpen = ref(false)
 const scrolled = ref(false)
 
 const nav = computed(() => [
-  { label: t('nav.tours'), to: localePath('/tours') },
-  { label: t('nav.domestic'), to: `${localePath('/tours')}?scope=domestic` },
-  { label: t('nav.international'), to: `${localePath('/tours')}?scope=international` },
+  { label: t('nav.domestic'), to: localePath('/domestic-tours') },
+  { label: t('nav.international'), to: localePath('/international-tours') },
+  { label: t('nav.stays'), to: localePath('/stays') },
+  { label: t('nav.cars'), to: localePath('/cars') },
   { label: t('nav.destinations'), to: localePath('/destinations') },
-  { label: t('nav.blog'), to: localePath('/blog') },
   { label: t('nav.about'), to: localePath('/about') },
 ])
 

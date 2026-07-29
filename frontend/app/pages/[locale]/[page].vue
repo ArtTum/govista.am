@@ -7,6 +7,7 @@ const { openBooking } = useBooking()
 const route = useRoute()
 const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl).replace(/\/$/, '')
+const absoluteImage = value => value?.startsWith('/') ? `${siteUrl}${value}` : value
 const { data, error } = await useAsyncData(
   () => `page-${locale.value}-${route.params.page}`,
   () => api(`/v1/pages/${route.params.page}`, { query: { locale: locale.value } }),
@@ -19,7 +20,7 @@ useSeoMeta({
   ogTitle: () => data.value?.seo_title || `${data.value?.title || ''} — GoVista`,
   ogDescription: () => data.value?.seo_description || data.value?.content,
   ogType: 'website',
-  ogImage: () => data.value?.image,
+  ogImage: () => absoluteImage(data.value?.image),
   twitterCard: 'summary_large_image',
 })
 useHead(() => ({
@@ -46,7 +47,7 @@ useHead(() => ({
     </section>
     <section class="section">
       <div class="container prose-content">
-        <p v-for="paragraph in String(data.content).split('\\n')" :key="paragraph">{{ paragraph }}</p>
+        <p v-for="(paragraph, index) in String(data.content).split(/\r?\n/)" :key="`${index}-${paragraph}`">{{ paragraph }}</p>
         <button v-if="route.params.page === 'about'" class="primary-cta" @click="openBooking()">{{ t('common.book') }} <ArrowRight :size="18" /></button>
       </div>
     </section>

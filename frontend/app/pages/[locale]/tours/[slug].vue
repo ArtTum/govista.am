@@ -7,6 +7,7 @@ const { openBooking } = useBooking()
 const route = useRoute()
 const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl).replace(/\/$/, '')
+const absoluteImage = value => value?.startsWith('/') ? `${siteUrl}${value}` : value
 
 const { data, error } = await useAsyncData(
   () => `tour-${locale.value}-${route.params.slug}`,
@@ -28,11 +29,11 @@ useSeoMeta({
   ogTitle: () => `${tour.value.title || 'Tour'} — GoVista`,
   ogDescription: () => tour.value.subtitle || tour.value.description,
   ogType: 'website',
-  ogImage: () => tour.value.image,
+  ogImage: () => absoluteImage(tour.value.image),
   twitterCard: 'summary_large_image',
   twitterTitle: () => `${tour.value.title || 'Tour'} — GoVista`,
   twitterDescription: () => tour.value.subtitle || tour.value.description,
-  twitterImage: () => tour.value.image,
+  twitterImage: () => absoluteImage(tour.value.image),
 })
 
 const structuredData = computed(() => ({
@@ -43,7 +44,7 @@ const structuredData = computed(() => ({
       '@id': `${siteUrl}${localePath(`/tours/${tour.value.slug}`)}#trip`,
       name: tour.value.title,
       description: tour.value.description,
-      image: [tour.value.image, ...(tour.value.gallery || [])].filter(Boolean),
+      image: [tour.value.image, ...(tour.value.gallery || [])].filter(Boolean).map(absoluteImage),
       touristType: t(`tourTypes.${tour.value.type}`),
       itinerary: (tour.value.itinerary || []).join(' — '),
       provider: {

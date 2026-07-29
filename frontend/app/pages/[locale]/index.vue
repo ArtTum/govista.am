@@ -4,7 +4,9 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
+  BedDouble,
   CalendarDays,
+  CarFront,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -13,7 +15,9 @@ import {
   Globe2,
   Headphones,
   HeartHandshake,
+  House,
   MapPin,
+  PlaneTakeoff,
   Play,
   Search,
   ShieldCheck,
@@ -41,8 +45,13 @@ const { data, error } = await useAsyncData(
 
 const settings = computed(() => data.value?.settings || {})
 const featuredTours = computed(() => data.value?.featured_tours || [])
+const domesticTours = computed(() => data.value?.domestic_tours || [])
+const internationalTours = computed(() => data.value?.international_tours || [])
+const accommodations = computed(() => data.value?.accommodations || [])
+const cars = computed(() => data.value?.cars || [])
 const destinations = computed(() => data.value?.destinations || [])
 const services = computed(() => data.value?.services || [])
+const experienceServices = computed(() => services.value.filter(service => ['events', 'custom'].includes(service.type)))
 const posts = computed(() => data.value?.posts || [])
 const testimonials = computed(() => data.value?.testimonials || [])
 const faqs = computed(() => data.value?.faqs || [])
@@ -54,6 +63,40 @@ const trustIcons = [Globe2, Award, HeartHandshake, ShieldCheck]
 const heroImage = computed(() => settings.value.hero_image || featuredTours.value[1]?.image || featuredTours.value[0]?.image)
 const spotlightTour = computed(() => featuredTours.value[0] || null)
 const spotlightPrice = computed(() => String(Math.round(Number(spotlightTour.value?.price || 0))).replace(/\B(?=(\d{3})+(?!\d))/g, ' '))
+const journeyCategories = computed(() => [
+  {
+    title: t('nav.domestic'),
+    eyebrow: locale.value === 'hy' ? 'Հայաստանը ներսից' : locale.value === 'ru' ? 'Армения изнутри' : 'Inside Armenia',
+    copy: locale.value === 'hy' ? 'Օրվա տուրեր և բազմօրյա երթուղիներ Հայաստանի բոլոր մարզերում։' : locale.value === 'ru' ? 'Однодневные туры и многодневные маршруты по всей Армении.' : 'Day tours and multi-day routes across every region of Armenia.',
+    to: localePath('/domestic-tours'),
+    image: domesticTours.value[0]?.image,
+    icon: House,
+  },
+  {
+    title: t('nav.international'),
+    eyebrow: locale.value === 'hy' ? 'Աշխարհը մոտ է' : locale.value === 'ru' ? 'Мир ближе' : 'The world is close',
+    copy: locale.value === 'hy' ? 'Պատրաստ արտաքին փաթեթներ և անհատական ուղևորություններ Հայաստանից։' : locale.value === 'ru' ? 'Готовые зарубежные пакеты и индивидуальные поездки из Армении.' : 'Ready outbound packages and tailor-made travel from Armenia.',
+    to: localePath('/international-tours'),
+    image: internationalTours.value[0]?.image,
+    icon: PlaneTakeoff,
+  },
+  {
+    title: t('nav.stays'),
+    eyebrow: locale.value === 'hy' ? 'Ապրեք հարմարավետ' : locale.value === 'ru' ? 'Живите с комфортом' : 'Stay beautifully',
+    copy: locale.value === 'hy' ? 'Համարներ, բնակարաններ և տներ՝ ընտրված ու ստուգված GoVista-ի կողմից։' : locale.value === 'ru' ? 'Номера, апартаменты и дома, отобранные и проверенные GoVista.' : 'Rooms, apartments and homes selected and verified by GoVista.',
+    to: localePath('/stays'),
+    image: accommodations.value[0]?.image,
+    icon: BedDouble,
+  },
+  {
+    title: t('nav.cars'),
+    eyebrow: locale.value === 'hy' ? 'Ձեր ճանապարհը' : locale.value === 'ru' ? 'Ваша дорога' : 'Your road',
+    copy: locale.value === 'hy' ? 'Վարձով մեքենաներ՝ վարորդով կամ առանց վարորդի, պարզ պայմաններով։' : locale.value === 'ru' ? 'Автомобили с водителем или без, на понятных условиях.' : 'Rental cars with or without a chauffeur, on clear terms.',
+    to: localePath('/cars'),
+    image: cars.value[0]?.image,
+    icon: CarFront,
+  },
+])
 
 function submitSearch() {
   navigateTo({ path: localePath('/tours'), query: { search: searchForm.q, date: searchForm.date, guests: searchForm.guests } })
@@ -196,25 +239,77 @@ useHead(() => ({
       </div>
     </section>
 
-    <section id="tours" class="section section-tours">
+    <section id="tours" class="section journey-hub-section">
       <div class="container">
         <SectionHeader
-          :eyebrow="t('home.toursEyebrow')"
-          :title="t('home.toursTitle')"
-          :link="localePath('/tours')"
-          :link-label="t('common.viewAll')"
+          :eyebrow="locale === 'hy' ? 'Ամեն ինչ մեկ տեղում' : locale === 'ru' ? 'Всё в одном месте' : 'Everything in one place'"
+          :title="locale === 'hy' ? 'Ընտրեք ձեր ճանապարհորդության ձևը' : locale === 'ru' ? 'Выберите формат путешествия' : 'Choose how you want to travel'"
         />
-        <div class="tours-grid">
-          <TourCard v-for="(tour, index) in featuredTours.slice(0, 6)" :key="tour.id" :tour="tour" :index="index" />
+        <div class="journey-hub-grid">
+          <NuxtLink v-for="(category, index) in journeyCategories" :key="category.to" v-reveal="index * 70" :to="category.to" class="journey-hub-card">
+            <img :src="category.image" :alt="category.title" width="1200" height="900" loading="lazy">
+            <div class="journey-hub-overlay"></div>
+            <span class="journey-hub-icon"><component :is="category.icon" :size="21" /></span>
+            <div><small>{{ category.eyebrow }}</small><h3>{{ category.title }}</h3><p>{{ category.copy }}</p></div>
+            <i><ArrowUpRight :size="20" /></i>
+          </NuxtLink>
         </div>
       </div>
     </section>
 
-    <section class="section experience-section">
+    <section class="section section-tours home-collection-section">
+      <div class="container">
+        <SectionHeader
+          :eyebrow="locale === 'hy' ? 'Բացահայտեք Հայաստանը' : locale === 'ru' ? 'Откройте Армению' : 'Discover Armenia'"
+          :title="t('nav.domestic')"
+          :link="localePath('/domestic-tours')"
+          :link-label="t('common.viewAll')"
+        />
+        <div class="tours-grid"><TourCard v-for="(tour, index) in domesticTours" :key="tour.id" :tour="tour" :index="index" /></div>
+      </div>
+    </section>
+
+    <section class="section section-tours home-collection-section outbound-home-section">
+      <div class="container">
+        <SectionHeader
+          :eyebrow="locale === 'hy' ? 'Երևանից դեպի աշխարհ' : locale === 'ru' ? 'Из Еревана в мир' : 'From Yerevan to the world'"
+          :title="t('nav.international')"
+          :link="localePath('/international-tours')"
+          :link-label="t('common.viewAll')"
+        />
+        <div class="tours-grid"><TourCard v-for="(tour, index) in internationalTours" :key="tour.id" :tour="tour" :index="index" /></div>
+      </div>
+    </section>
+
+    <section class="section rental-showcase-section">
+      <div class="container">
+        <SectionHeader
+          :eyebrow="locale === 'hy' ? 'Ձեր տունը ճանապարհին' : locale === 'ru' ? 'Ваш дом в путешествии' : 'Your home on the road'"
+          :title="t('nav.stays')"
+          :link="localePath('/stays')"
+          :link-label="t('common.viewAll')"
+        />
+        <div class="rental-grid"><RentalCard v-for="(item, index) in accommodations" :key="item.id" :item="item" :index="index" /></div>
+      </div>
+    </section>
+
+    <section class="section rental-showcase-section car-showcase-section">
+      <div class="container">
+        <SectionHeader
+          :eyebrow="locale === 'hy' ? 'Ազատ շարժվեք' : locale === 'ru' ? 'Двигайтесь свободно' : 'Move freely'"
+          :title="t('nav.cars')"
+          :link="localePath('/cars')"
+          :link-label="t('common.viewAll')"
+        />
+        <div class="rental-grid"><RentalCard v-for="(item, index) in cars" :key="item.id" :item="item" :index="index" /></div>
+      </div>
+    </section>
+
+    <section v-if="experienceServices.length" class="section experience-section">
       <div class="container">
         <SectionHeader :eyebrow="t('home.servicesEyebrow')" :title="t('home.servicesTitle')" light />
-        <div class="experience-grid">
-          <article v-for="(service, index) in services" :key="service.id" v-reveal="index * 70" :class="['experience-card', `experience-${index + 1}`]">
+        <div class="experience-grid compact">
+          <article v-for="(service, index) in experienceServices" :key="service.id" v-reveal="index * 70" :class="['experience-card', `experience-${index + 1}`]">
             <img :src="service.image" :alt="service.title" width="1200" height="800" loading="lazy" decoding="async">
             <div class="experience-overlay"></div>
             <div class="experience-icon">

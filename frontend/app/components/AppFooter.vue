@@ -2,7 +2,7 @@
 import { ArrowUpRight, Camera, Mail, MapPin, MessageCircle, Phone } from '@lucide/vue'
 
 defineProps({ settings: { type: Object, default: () => ({}) } })
-const { t, localePath } = useLocale()
+const { t, locale, localePath } = useLocale()
 </script>
 
 <template>
@@ -19,9 +19,10 @@ const { t, localePath } = useLocale()
       </div>
       <div class="footer-links">
         <h4>{{ t('nav.tours') }}</h4>
-        <NuxtLink :to="localePath('/tours')">{{ t('nav.tours') }}</NuxtLink>
-        <NuxtLink :to="`${localePath('/tours')}?type=private`">{{ t('nav.private') }}</NuxtLink>
-        <NuxtLink :to="`${localePath('/tours')}?type=package`">{{ t('nav.packages') }}</NuxtLink>
+        <NuxtLink :to="localePath('/domestic-tours')">{{ t('nav.domestic') }}</NuxtLink>
+        <NuxtLink :to="localePath('/international-tours')">{{ t('nav.international') }}</NuxtLink>
+        <NuxtLink :to="localePath('/stays')">{{ t('nav.stays') }}</NuxtLink>
+        <NuxtLink :to="localePath('/cars')">{{ t('nav.cars') }}</NuxtLink>
         <NuxtLink :to="localePath('/destinations')">{{ t('nav.destinations') }}</NuxtLink>
       </div>
       <div class="footer-links">
@@ -30,6 +31,7 @@ const { t, localePath } = useLocale()
         <NuxtLink :to="localePath('/blog')">{{ t('nav.blog') }}</NuxtLink>
         <NuxtLink :to="localePath('/privacy')">Privacy</NuxtLink>
         <NuxtLink :to="localePath('/terms')">Terms</NuxtLink>
+        <NuxtLink :to="localePath('/photo-credits')">{{ locale === 'hy' ? 'Լուսանկարների հեղինակներ' : locale === 'ru' ? 'Авторы фотографий' : 'Photo credits' }}</NuxtLink>
       </div>
       <div class="footer-contact">
         <h4>{{ t('nav.contact') }}</h4>

@@ -87,19 +87,24 @@ const resources = {
         ],
     },
     services: {
-        label: 'Ծառայություններ',
+        label: 'Վարձույթ և ծառայություններ',
         singular: 'ծառայություն',
         icon: CarFront,
-        columns: ['title', 'type', 'price_from', 'active'],
+        columns: ['title', 'type', 'location', 'price_from', 'active'],
         fields: [
             ['slug', 'Slug', 'text', true],
-            ['type', 'Տեսակ', 'select', true, [['accommodation', 'Գիշերակաց'], ['transport', 'Տրանսպորտ'], ['events', 'Միջոցառումներ'], ['custom', 'Անհատական']]],
+            ['type', 'Տեսակ', 'select', true, [['accommodation', 'Կացարան / տուն'], ['transport', 'Վարձով ավտո / տրանսպորտ'], ['events', 'Միջոցառումներ'], ['custom', 'Անհատական']]],
             ['title', 'Անվանում', 'localized', true],
             ['description', 'Նկարագրություն', 'localized-textarea', true],
+            ['location', 'Գտնվելու վայր', 'localized'],
             ['icon', 'Icon անուն', 'text'],
             ['image', 'Գլխավոր նկար', 'image'],
+            ['gallery', 'Պատկերասրահ (URL-ներ)', 'list'],
             ['price_from', 'Գին՝ սկսած', 'number'],
             ['currency', 'Արժույթ', 'select', true, [['AMD', 'AMD'], ['USD', 'USD'], ['EUR', 'EUR'], ['RUB', 'RUB']]],
+            ['unit', 'Գնի միավոր (օր/գիշեր)', 'localized'],
+            ['rating', 'Գնահատական', 'number'],
+            ['review_count', 'Կարծիքների քանակ', 'number'],
             ['features', 'Առավելություններ', 'localized-list'],
             ['sort_order', 'Հերթականություն', 'number'],
             ['featured', 'Գլխավոր էջում', 'boolean'],
@@ -445,7 +450,7 @@ function displayValue(record, key) {
         return value === null ? '—' : new Intl.NumberFormat('hy-AM').format(value);
     }
     if (key === 'type') {
-        return { group: 'Խմբային', private: 'Անհատական', package: 'Փաթեթ', accommodation: 'Գիշերակաց', transport: 'Տրանսպորտ', events: 'Միջոցառում', custom: 'Անհատական' }[value] || value;
+        return { group: 'Խմբային', private: 'Անհատական', package: 'Փաթեթ', accommodation: 'Կացարան / տուն', transport: 'Վարձով ավտո / տրանսպորտ', events: 'Միջոցառում', custom: 'Անհատական' }[value] || value;
     }
     if (key === 'travel_scope') {
         return { domestic: 'Ներքին տուր', international: 'Արտաքին տուր' }[value] || value;

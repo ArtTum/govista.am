@@ -32,6 +32,18 @@ class ApiRegressionTest extends TestCase
             'montenegro-adriatic',
         ];
         $destinations = ['yerevan', 'lake-sevan', 'dilijan', 'tatev', 'areni', 'garni'];
+        $services = [
+            'handpicked-hotels',
+            'cascade-view-apartment',
+            'dilijan-forest-cottage',
+            'sevan-lake-house',
+            'airport-transfers',
+            'toyota-rav4-rental',
+            'mercedes-vito-rental',
+            'economy-city-car',
+            'business-events',
+            'custom-journey',
+        ];
         $posts = ['first-time-armenia-guide', 'best-season-armenia', 'armenian-flavors'];
         $pages = ['about', 'privacy', 'terms'];
 
@@ -44,6 +56,10 @@ class ApiRegressionTest extends TestCase
                 ->assertJsonStructure([
                     'settings',
                     'featured_tours',
+                    'domestic_tours',
+                    'international_tours',
+                    'accommodations',
+                    'cars',
                     'destinations',
                     'services',
                     'posts',
@@ -54,8 +70,12 @@ class ApiRegressionTest extends TestCase
 
             $this->assertNotEmpty($home['settings']['hero_title']);
             $this->assertCount(6, $home['featured_tours']);
+            $this->assertCount(3, $home['domestic_tours']);
+            $this->assertCount(3, $home['international_tours']);
+            $this->assertCount(4, $home['accommodations']);
+            $this->assertCount(4, $home['cars']);
             $this->assertCount(6, $home['destinations']);
-            $this->assertCount(4, $home['services']);
+            $this->assertCount(10, $home['services']);
             $localizedTitles[$locale] = $home['featured_tours'][0]['title'];
             $localizedDurations[$locale] = $home['featured_tours'][0]['duration'];
 
@@ -85,7 +105,14 @@ class ApiRegressionTest extends TestCase
 
             $this->getJson("/api/v1/services?locale={$locale}")
                 ->assertOk()
-                ->assertJsonCount(4);
+                ->assertJsonCount(10);
+
+            foreach ($services as $slug) {
+                $this->getJson("/api/v1/services/{$slug}?locale={$locale}")
+                    ->assertOk()
+                    ->assertJsonPath('service.slug', $slug)
+                    ->assertJsonStructure(['service' => ['title', 'description', 'location', 'unit'], 'related']);
+            }
 
             $this->getJson("/api/v1/posts?locale={$locale}")
                 ->assertOk()
@@ -132,10 +159,10 @@ class ApiRegressionTest extends TestCase
             }
         }
 
-        foreach (['accommodation', 'transport', 'events', 'custom'] as $type) {
+        foreach (['accommodation' => 4, 'transport' => 4, 'events' => 1, 'custom' => 1] as $type => $count) {
             $response = $this->getJson("/api/v1/services?type={$type}&locale=en")
                 ->assertOk()
-                ->assertJsonCount(1);
+                ->assertJsonCount($count);
 
             $this->assertSame($type, $response->json('0.type'));
         }
@@ -160,6 +187,7 @@ class ApiRegressionTest extends TestCase
         $this->getJson('/api/v1/tours/missing-tour')->assertNotFound();
         $this->getJson('/api/v1/destinations/missing-destination')->assertNotFound();
         $this->getJson('/api/v1/posts/missing-post')->assertNotFound();
+        $this->getJson('/api/v1/services/missing-service')->assertNotFound();
         $this->getJson('/api/v1/pages/missing-page')->assertNotFound();
     }
 
