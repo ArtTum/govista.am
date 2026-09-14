@@ -1,5 +1,6 @@
 <script setup>
 import { ArrowUpRight, ChevronDown, Menu, Phone, UserRound, X } from '@lucide/vue'
+import { toInternationalPhone } from '~/utils/phone'
 
 defineProps({ settings: { type: Object, default: () => ({}) } })
 
@@ -59,7 +60,7 @@ watch(() => route.fullPath, () => { menuOpen.value = false; langOpen.value = fal
 
       <div class="header-actions">
         <NuxtLink :to="localePath('/account')" class="header-account" :aria-label="travel.account" :title="travel.account"><UserRound :size="19" /></NuxtLink>
-        <a v-if="settings.phone" class="header-phone" :href="`tel:${settings.phone.replace(/\s/g, '')}`"><Phone :size="16" /> {{ settings.phone }}</a>
+        <a v-if="settings.phone" class="header-phone" :href="`tel:${toInternationalPhone(settings.phone)}`"><Phone :size="16" /> {{ settings.phone }}</a>
         <div ref="languageMenu" class="lang-switch" @keydown.esc.stop.prevent="langOpen = false; languageMenu?.querySelector('button')?.focus()">
           <button :aria-label="t('ui.language')" :aria-expanded="langOpen" aria-controls="language-options" @click="langOpen = !langOpen">{{ locale.toUpperCase() }} <ChevronDown :size="14" /></button>
           <div v-if="langOpen" id="language-options" class="lang-menu">

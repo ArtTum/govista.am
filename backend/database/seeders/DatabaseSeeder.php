@@ -687,8 +687,8 @@ class DatabaseSeeder extends Seeder
 
         $settings = [
             ['group' => 'general', 'key' => 'site_name', 'value' => 'GoVista', 'type' => 'text'],
-            ['group' => 'general', 'key' => 'phone', 'value' => '+374 44 60 60 60', 'type' => 'text'],
-            ['group' => 'general', 'key' => 'email', 'value' => 'hello@govista.am', 'type' => 'text'],
+            ['group' => 'general', 'key' => 'phone', 'value' => '041999033', 'type' => 'text'],
+            ['group' => 'general', 'key' => 'email', 'value' => 'info@govista.am', 'type' => 'text'],
             ['group' => 'general', 'key' => 'address', 'value' => $this->tr('Աբովյան 12, Երևան', 'Абовяна 12, Ереван', '12 Abovyan St, Yerevan'), 'type' => 'translated'],
             ['group' => 'hero', 'key' => 'hero_eyebrow', 'value' => $this->tr('Բացահայտեք Հայաստանը ներսից', 'Откройте Армению изнутри', 'Discover Armenia from within'), 'type' => 'translated'],
             ['group' => 'hero', 'key' => 'hero_title', 'value' => $this->tr('Ձեր պատմությունը սկսվում է Հայաստանից', 'Ваша история начинается в Армении', 'Your story begins in Armenia'), 'type' => 'translated'],
@@ -702,7 +702,7 @@ class DatabaseSeeder extends Seeder
             ], 'type' => 'json'],
             ['group' => 'social', 'key' => 'instagram', 'value' => 'https://instagram.com/govista.am', 'type' => 'url'],
             ['group' => 'social', 'key' => 'facebook', 'value' => 'https://facebook.com/govista.am', 'type' => 'url'],
-            ['group' => 'social', 'key' => 'whatsapp', 'value' => 'https://wa.me/37444606060', 'type' => 'url'],
+            ['group' => 'social', 'key' => 'whatsapp', 'value' => 'https://wa.me/37441999033', 'type' => 'url'],
         ];
 
         foreach ($settings as $setting) {

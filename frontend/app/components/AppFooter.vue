@@ -1,5 +1,6 @@
 <script setup>
 import { ArrowUpRight, Camera, Mail, MapPin, MessageCircle, Phone } from '@lucide/vue'
+import { toInternationalPhone } from '~/utils/phone'
 
 defineProps({ settings: { type: Object, default: () => ({}) } })
 const { t, locale, localePath } = useLocale()
@@ -38,7 +39,7 @@ const travel = useTravelText()
       </div>
       <div class="footer-contact">
         <h4>{{ t('nav.contact') }}</h4>
-        <a v-if="settings.phone" :href="`tel:${settings.phone}`"><Phone :size="16" />{{ settings.phone }}</a>
+        <a v-if="settings.phone" :href="`tel:${toInternationalPhone(settings.phone)}`"><Phone :size="16" />{{ settings.phone }}</a>
         <a v-if="settings.email" :href="`mailto:${settings.email}`"><Mail :size="16" />{{ settings.email }}</a>
         <span v-if="settings.address"><MapPin :size="16" />{{ settings.address }}</span>
         <a class="footer-cta" v-if="settings.whatsapp" :href="settings.whatsapp">WhatsApp <ArrowUpRight :size="17" /></a>

@@ -22,6 +22,7 @@ import {
   Star,
   Users,
 } from '@lucide/vue'
+import { toInternationalPhone } from '~/utils/phone'
 
 const api = useGovistaApi()
 const { locale, t, localePath } = useLocale()
@@ -125,7 +126,7 @@ const structuredData = computed(() => ({
       url: siteUrl,
       logo: `${siteUrl}/brand/govista-logo.png`,
       image: `${siteUrl}/og.png`,
-      telephone: settings.value.phone,
+      telephone: toInternationalPhone(settings.value.phone) || undefined,
       email: settings.value.email,
       address: settings.value.address
         ? { '@type': 'PostalAddress', streetAddress: settings.value.address, addressCountry: 'AM' }
