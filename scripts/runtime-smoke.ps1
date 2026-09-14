@@ -315,12 +315,11 @@ if ($null -ne $login -and $login.token) {
         $bookingRecord = $bookingList.data | Select-Object -First 1
 
         if ($null -ne $bookingRecord) {
-            $createdRecords.Add([pscustomobject]@{ Resource = 'bookings'; Id = $bookingRecord.id })
             Invoke-Api 'show booking in admin' GET "$ApiBase/api/admin/content/bookings/$($bookingRecord.id)" 200 $null $adminHeaders | Out-Null
-            Invoke-Api 'update booking in admin' PUT "$ApiBase/api/admin/content/bookings/$($bookingRecord.id)" 200 @{
-                status = 'confirmed'
-                message = 'Runtime QA confirmed'
-                total_price = 12345
+            Invoke-Api 'cancel QA request and preserve audit trail' PUT "$ApiBase/api/admin/travel/requests/$($bookingRecord.id)" 200 @{
+                action = 'cancel'
+                version = 1
+                note = 'Runtime QA completed; no supplier booking was made.'
             } $adminHeaders | Out-Null
         }
     }

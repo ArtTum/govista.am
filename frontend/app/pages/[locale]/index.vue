@@ -1,7 +1,6 @@
 <script setup>
 import {
   Award,
-  ArrowDown,
   ArrowRight,
   ArrowUpRight,
   BedDouble,
@@ -10,7 +9,6 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
-  Clock3,
   Compass,
   Globe2,
   Headphones,
@@ -18,7 +16,6 @@ import {
   House,
   MapPin,
   PlaneTakeoff,
-  Play,
   Search,
   ShieldCheck,
   Sparkles,
@@ -29,6 +26,7 @@ import {
 const api = useGovistaApi()
 const { locale, t, localePath } = useLocale()
 const { openBooking } = useBooking()
+const travel = useTravelText()
 const route = useRoute()
 const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl).replace(/\/$/, '')
@@ -42,6 +40,8 @@ const { data, error } = await useAsyncData(
   () => api('/v1/home', { query: { locale: locale.value } }),
   { watch: [locale] },
 )
+
+useContentError(error)
 
 const settings = computed(() => data.value?.settings || {})
 const featuredTours = computed(() => data.value?.featured_tours || [])
@@ -69,7 +69,6 @@ const journeyCategories = computed(() => [
     eyebrow: locale.value === 'hy' ? 'Հայաստանը ներսից' : locale.value === 'ru' ? 'Армения изнутри' : 'Inside Armenia',
     copy: locale.value === 'hy' ? 'Օրվա տուրեր և բազմօրյա երթուղիներ Հայաստանի բոլոր մարզերում։' : locale.value === 'ru' ? 'Однодневные туры и многодневные маршруты по всей Армении.' : 'Day tours and multi-day routes across every region of Armenia.',
     to: localePath('/domestic-tours'),
-    image: domesticTours.value[0]?.image,
     icon: House,
   },
   {
@@ -77,7 +76,6 @@ const journeyCategories = computed(() => [
     eyebrow: locale.value === 'hy' ? 'Աշխարհը մոտ է' : locale.value === 'ru' ? 'Мир ближе' : 'The world is close',
     copy: locale.value === 'hy' ? 'Պատրաստ արտաքին փաթեթներ և անհատական ուղևորություններ Հայաստանից։' : locale.value === 'ru' ? 'Готовые зарубежные пакеты и индивидуальные поездки из Армении.' : 'Ready outbound packages and tailor-made travel from Armenia.',
     to: localePath('/international-tours'),
-    image: internationalTours.value[0]?.image,
     icon: PlaneTakeoff,
   },
   {
@@ -85,7 +83,6 @@ const journeyCategories = computed(() => [
     eyebrow: locale.value === 'hy' ? 'Ապրեք հարմարավետ' : locale.value === 'ru' ? 'Живите с комфортом' : 'Stay beautifully',
     copy: locale.value === 'hy' ? 'Համարներ, բնակարաններ և տներ՝ ընտրված ու ստուգված GoVista-ի կողմից։' : locale.value === 'ru' ? 'Номера, апартаменты и дома, отобранные и проверенные GoVista.' : 'Rooms, apartments and homes selected and verified by GoVista.',
     to: localePath('/stays'),
-    image: accommodations.value[0]?.image,
     icon: BedDouble,
   },
   {
@@ -93,13 +90,12 @@ const journeyCategories = computed(() => [
     eyebrow: locale.value === 'hy' ? 'Ձեր ճանապարհը' : locale.value === 'ru' ? 'Ваша дорога' : 'Your road',
     copy: locale.value === 'hy' ? 'Վարձով մեքենաներ՝ վարորդով կամ առանց վարորդի, պարզ պայմաններով։' : locale.value === 'ru' ? 'Автомобили с водителем или без, на понятных условиях.' : 'Rental cars with or without a chauffeur, on clear terms.',
     to: localePath('/cars'),
-    image: cars.value[0]?.image,
     icon: CarFront,
   },
 ])
 
 function submitSearch() {
-  navigateTo({ path: localePath('/tours'), query: { search: searchForm.q, date: searchForm.date, guests: searchForm.guests } })
+  navigateTo({ path: localePath('/tours'), query: { search: searchForm.q.trim() || undefined, date: searchForm.date, guests: searchForm.guests } })
 }
 
 function testimonialMove(direction) {
@@ -164,10 +160,6 @@ useHead(() => ({
 <template>
   <div class="home-page">
     <section class="hero">
-      <div class="hero-media" :style="{ backgroundImage: `linear-gradient(90deg, rgba(5,20,32,.82) 0%, rgba(5,20,32,.47) 48%, rgba(5,20,32,.14) 100%), url('${heroImage}')` }"></div>
-      <div class="hero-grain"></div>
-      <div class="hero-aura hero-aura-one"></div>
-      <div class="hero-aura hero-aura-two"></div>
       <div class="container hero-content">
         <div class="hero-copy">
           <p class="hero-eyebrow"><Sparkles :size="14" />{{ settings.hero_eyebrow }}</p>
@@ -175,7 +167,7 @@ useHead(() => ({
           <p class="hero-lead">{{ settings.hero_subtitle }}</p>
           <div class="hero-actions">
             <NuxtLink :to="localePath('/tours')" class="primary-cta">{{ t('common.explore') }} <ArrowUpRight :size="19" /></NuxtLink>
-            <button class="watch-button" @click="openBooking()"><span><Play :size="15" fill="currentColor" /></span>{{ t('common.book') }}</button>
+            <button class="watch-button" @click="openBooking()"><span><ArrowUpRight :size="19" /></span>{{ t('common.book') }}</button>
           </div>
           <div class="hero-proof">
             <div class="hero-proof-icons">
@@ -190,24 +182,22 @@ useHead(() => ({
           </div>
         </div>
 
-        <aside v-if="spotlightTour" class="hero-feature-card">
-          <NuxtLink :to="localePath(`/tours/${spotlightTour.slug}`)" class="hero-feature-image">
-            <img :src="spotlightTour.image" :alt="spotlightTour.title" width="800" height="1000">
-            <span><Sparkles :size="13" />{{ t('common.featured') }}</span>
-            <i><ArrowUpRight :size="19" /></i>
-          </NuxtLink>
-          <div class="hero-feature-body">
-            <div class="hero-feature-meta">
-              <span><MapPin :size="14" />{{ spotlightTour.location }}</span>
-              <span><Star :size="13" fill="currentColor" />{{ spotlightTour.rating }}</span>
-            </div>
-            <h2><NuxtLink :to="localePath(`/tours/${spotlightTour.slug}`)">{{ spotlightTour.title }}</NuxtLink></h2>
-            <div class="hero-feature-footer">
-              <span><Clock3 :size="15" />{{ spotlightTour.duration }}</span>
-              <strong>{{ t('common.from') }} {{ spotlightPrice }} {{ spotlightTour.currency }}</strong>
-            </div>
+        <div class="hero-visual">
+          <div class="hero-scene">
+            <img v-if="heroImage" :src="heroImage" alt="" width="960" height="1080" fetchpriority="high">
+            <span class="hero-scene-label"><MapPin :size="15" />{{ locale === 'hy' ? 'Հայաստան' : locale === 'ru' ? 'Армения' : 'Armenia' }}</span>
           </div>
-        </aside>
+          <div class="hero-compass" aria-hidden="true"><Compass :size="36" :stroke-width="1.3" /></div>
+          <NuxtLink v-if="spotlightTour" :to="localePath(`/tours/${spotlightTour.slug}`)" class="hero-pick">
+            <img :src="spotlightTour.image" alt="" width="160" height="180">
+            <div>
+              <small><Sparkles :size="12" />{{ t('common.featured') }}</small>
+              <h2>{{ spotlightTour.title }}</h2>
+              <span>{{ t('common.from') }} <strong>{{ spotlightPrice }} {{ spotlightTour.currency }}</strong></span>
+            </div>
+            <i><ArrowUpRight :size="20" /></i>
+          </NuxtLink>
+        </div>
       </div>
 
       <form class="hero-search container" @submit.prevent="submitSearch">
@@ -223,10 +213,9 @@ useHead(() => ({
           <Users :size="20" />
           <span><small>{{ t('forms.guests') }}</small><GuestSelect v-model="searchForm.guests" placement="top" /></span>
         </label>
-        <button aria-label="Search"><Search :size="21" /><span>{{ t('common.explore') }}</span></button>
+        <button :aria-label="t('ui.search')"><Search :size="21" /><span>{{ t('common.explore') }}</span></button>
       </form>
 
-      <a href="#tours" class="hero-scroll"><span>{{ locale === 'hy' ? 'Իջնել ներքև' : locale === 'ru' ? 'Листать вниз' : 'Scroll to explore' }}</span><ArrowDown :size="17" /></a>
     </section>
 
     <section class="trust-strip">
@@ -235,7 +224,6 @@ useHead(() => ({
           <i><component :is="trustIcons[index % trustIcons.length]" :size="19" /></i>
           <div><strong>{{ stat.value }}</strong><span>{{ stat[locale] || stat.hy || stat.en }}</span></div>
         </div>
-        <div class="trust-award"><Headphones :size="23" /><span>24/7<br><strong>{{ t('common.book') }}</strong></span></div>
       </div>
     </section>
 
@@ -243,17 +231,16 @@ useHead(() => ({
       <div class="container">
         <SectionHeader
           :eyebrow="locale === 'hy' ? 'Ամեն ինչ մեկ տեղում' : locale === 'ru' ? 'Всё в одном месте' : 'Everything in one place'"
-          :title="locale === 'hy' ? 'Ընտրեք ձեր ճանապարհորդության ձևը' : locale === 'ru' ? 'Выберите формат путешествия' : 'Choose how you want to travel'"
+          :title="locale === 'hy' ? 'Ճամփորդեք ձեր ձևով' : locale === 'ru' ? 'Путешествуйте по-своему' : 'Travel your way'"
         />
         <div class="journey-hub-grid">
           <NuxtLink v-for="(category, index) in journeyCategories" :key="category.to" v-reveal="index * 70" :to="category.to" class="journey-hub-card">
-            <img :src="category.image" :alt="category.title" width="1200" height="900" loading="lazy">
-            <div class="journey-hub-overlay"></div>
             <span class="journey-hub-icon"><component :is="category.icon" :size="21" /></span>
             <div><small>{{ category.eyebrow }}</small><h3>{{ category.title }}</h3><p>{{ category.copy }}</p></div>
             <i><ArrowUpRight :size="20" /></i>
           </NuxtLink>
         </div>
+        <div class="home-travel-links"><NuxtLink v-for="key in ['flights', 'hotels', 'transfers', 'activities', 'places', 'packages']" :key="key" :to="localePath(`/travel/${key}`)">{{ travel.services[key] }} <ArrowUpRight :size="15" /></NuxtLink></div>
       </div>
     </section>
 
@@ -327,7 +314,7 @@ useHead(() => ({
         </div>
         <div class="service-values">
           <span><Check :size="17" /> {{ locale === 'hy' ? 'Անվճար խորհրդատվություն' : locale === 'ru' ? 'Бесплатная консультация' : 'Free consultation' }}</span>
-          <span><Check :size="17" /> 24/7 support</span>
+          <span><Check :size="17" /> {{ t('ui.support') }}</span>
           <span><Check :size="17" /> {{ locale === 'hy' ? 'Տեղական մասնագետներ' : locale === 'ru' ? 'Местные эксперты' : 'Local experts' }}</span>
         </div>
       </div>
@@ -358,7 +345,7 @@ useHead(() => ({
       <div class="container story-layout">
         <div class="story-image" v-reveal>
         <img :src="featuredTours[3]?.image || heroImage" alt="Armenia journey" width="1200" height="900" loading="lazy" decoding="async">
-        <div class="story-image-card"><Star :size="19" fill="currentColor" /><strong>4.9 / 5</strong><small>guest happiness</small></div>
+        <div class="story-image-card"><Star :size="19" fill="currentColor" /><strong>4.9 / 5</strong><small>{{ t('common.reviews') }}</small></div>
       </div>
         <div class="story-copy" v-reveal="100">
         <p class="section-eyebrow">{{ locale === 'hy' ? 'Ինչու GoVista' : locale === 'ru' ? 'Почему GoVista' : 'Why GoVista' }}</p>
@@ -380,8 +367,8 @@ useHead(() => ({
           <p class="section-eyebrow">{{ t('home.storiesEyebrow') }}</p>
           <h2>{{ t('home.storiesTitle') }}</h2>
           <div class="testimonial-controls">
-            <button aria-label="Previous testimonial" @click="testimonialMove(-1)"><ChevronLeft :size="20" /></button>
-            <button aria-label="Next testimonial" @click="testimonialMove(1)"><ChevronRight :size="20" /></button>
+            <button :aria-label="t('ui.previous')" @click="testimonialMove(-1)"><ChevronLeft :size="20" /></button>
+            <button :aria-label="t('ui.next')" @click="testimonialMove(1)"><ChevronRight :size="20" /></button>
           </div>
         </div>
         <div class="testimonial-card" v-reveal>
@@ -408,7 +395,7 @@ useHead(() => ({
           <article v-for="(post, index) in posts" :key="post.id" v-reveal="index * 80" class="journal-card" :class="{ featured: index === 0 }">
             <NuxtLink :to="localePath(`/blog/${post.slug}`)" class="journal-image"><img :src="post.image" :alt="post.title" width="1200" height="800" loading="lazy" decoding="async"><span>{{ post.category }}</span></NuxtLink>
             <div>
-              <small>{{ formatDate(post.published_at) }} · {{ post.reading_time }} min</small>
+              <small>{{ formatDate(post.published_at) }} · {{ post.reading_time }} {{ t('ui.minute') }}</small>
               <h3><NuxtLink :to="localePath(`/blog/${post.slug}`)">{{ post.title }}</NuxtLink></h3>
               <p>{{ post.excerpt }}</p>
               <NuxtLink :to="localePath(`/blog/${post.slug}`)">{{ t('common.readMore') }} <ArrowRight :size="16" /></NuxtLink>
@@ -427,8 +414,8 @@ useHead(() => ({
         </div>
         <div class="faq-list">
           <article v-for="(faq, index) in faqs" :key="faq.id" :class="{ open: openFaq === index }">
-            <button @click="openFaq = openFaq === index ? -1 : index"><span>{{ faq.question }}</span><i>{{ openFaq === index ? '−' : '+' }}</i></button>
-            <div v-if="openFaq === index"><p>{{ faq.answer }}</p></div>
+            <button :aria-expanded="openFaq === index" :aria-controls="`faq-answer-${faq.id}`" @click="openFaq = openFaq === index ? -1 : index"><span>{{ faq.question }}</span><i>{{ openFaq === index ? '−' : '+' }}</i></button>
+            <div v-if="openFaq === index" :id="`faq-answer-${faq.id}`"><p>{{ faq.answer }}</p></div>
           </article>
         </div>
       </div>

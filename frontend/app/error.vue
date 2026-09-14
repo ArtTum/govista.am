@@ -63,10 +63,8 @@ useHead(() => ({
 
 <template>
   <main class="error-page">
-    <div class="error-orb error-orb-one"></div>
-    <div class="error-orb error-orb-two"></div>
     <section>
-      <img src="/brand/govista-logo-light.png" alt="GoVista — Travel Beyond Limits" width="1528" height="426">
+      <img src="/brand/govista-logo.png" alt="GoVista — Travel Beyond Limits" width="1528" height="426">
       <p>{{ copy.eyebrow }} · {{ statusCode }}</p>
       <h1>{{ statusCode === 404 ? copy.title404 : copy.title500 }}</h1>
       <span>{{ copy.text }}</span>
@@ -85,18 +83,10 @@ useHead(() => ({
   overflow: hidden;
   display: grid;
   place-items: center;
-  padding: 32px;
-  color: #fff;
-  background: radial-gradient(circle at 70% 20%, #173f58 0, #0b2538 34%, #061725 100%);
-}
-.error-page::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  height: 36%;
-  opacity: .4;
-  background: linear-gradient(145deg, transparent 40%, #16384b 41%, #0a1e2c 70%);
-  clip-path: polygon(0 85%, 18% 43%, 31% 72%, 49% 18%, 64% 62%, 79% 31%, 100% 82%, 100% 100%, 0 100%);
+  padding: 48px 24px;
+  color: #17343d;
+  background: #f7f7f1;
+  font-family: Manrope, "Noto Sans Armenian", system-ui, sans-serif;
 }
 .error-page section {
   position: relative;
@@ -106,11 +96,13 @@ useHead(() => ({
 }
 .error-page img {
   width: min(250px, 65vw);
+  height: auto;
+  display: block;
   margin: 0 auto 42px;
 }
 .error-page p {
   margin: 0 0 18px;
-  color: #f4a35d;
+  color: #995323;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .2em;
@@ -118,17 +110,19 @@ useHead(() => ({
 }
 .error-page h1 {
   margin: 0;
-  font-family: "Playfair Display", "Noto Sans Armenian", Georgia, serif;
-  font-size: clamp(46px, 7vw, 82px);
-  font-weight: 500;
-  line-height: 1.05;
+  font: inherit;
+  font-size: clamp(30px, 4.5vw, 54px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
   text-wrap: balance;
 }
 .error-page span {
   display: block;
   max-width: 560px;
   margin: 24px auto 36px;
-  color: #c9d5dc;
+  color: #627476;
   line-height: 1.8;
 }
 .error-page section > div {
@@ -140,21 +134,21 @@ useHead(() => ({
 .error-page button {
   min-width: 160px;
   padding: 15px 24px;
-  border: 1px solid #f4a35d;
-  border-radius: 999px;
-  color: #0b1f33;
-  background: #f4a35d;
+  border: 1px solid #ffba75;
+  border-radius: 11px;
+  color: #102f38;
+  background: #ffba75;
+  font: inherit;
+  font-size: 13px;
   font-weight: 800;
 }
 .error-page button.secondary {
-  color: #fff;
+  color: #102f38;
+  border-color: #cbd7ce;
   background: transparent;
 }
-.error-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(10px);
+.error-page button:focus-visible {
+  outline: 3px solid #087f72;
+  outline-offset: 4px;
 }
-.error-orb-one { width: 320px; height: 320px; top: -120px; right: -80px; background: rgba(244, 163, 93, .15); }
-.error-orb-two { width: 260px; height: 260px; bottom: -90px; left: -70px; background: rgba(17, 167, 170, .12); }
 </style>

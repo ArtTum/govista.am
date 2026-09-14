@@ -6,6 +6,7 @@ type Resource = {
 
 type PaginatedResource = {
   data?: Resource[]
+  meta?: { last_page?: number }
 }
 
 type SitemapEntry = {
@@ -42,30 +43,52 @@ export default defineEventHandler(async (event) => {
     { path: '/cars', changefreq: 'daily', priority: '0.9' },
     { path: '/destinations', changefreq: 'weekly', priority: '0.8' },
     { path: '/blog', changefreq: 'weekly', priority: '0.8' },
-    { path: '/about', changefreq: 'monthly', priority: '0.6' },
-    { path: '/privacy', changefreq: 'yearly', priority: '0.3' },
-    { path: '/terms', changefreq: 'yearly', priority: '0.3' },
-    { path: '/photo-credits', changefreq: 'yearly', priority: '0.2' },
+    { path: '/travel', changefreq: 'weekly', priority: '0.9' },
   ]
 
   let tours: PaginatedResource = {}
   let destinations: PaginatedResource = {}
   let posts: PaginatedResource = {}
   let services: Resource[] = []
+  let pages: PaginatedResource = {}
+
+  const fetchCollection = async (resource: string): Promise<PaginatedResource> => {
+    const data: Resource[] = []
+    let page = 1
+    let lastPage = 1
+    do {
+      const response = await $fetch<PaginatedResource>(`${apiBase}/v1/${resource}`, {
+        query: { locale: 'en', per_page: 48, page }, timeout: 8000, retry: 1,
+      })
+      data.push(...(response.data || []))
+      lastPage = response.meta?.last_page || 1
+      page += 1
+    } while (page <= lastPage)
+    return { data }
+  }
 
   try {
-    [tours, destinations, posts, services] = await Promise.all([
-      $fetch<PaginatedResource>(`${apiBase}/v1/tours`, { query: { locale: 'en', per_page: 48 } }),
-      $fetch<PaginatedResource>(`${apiBase}/v1/destinations`, { query: { locale: 'en', per_page: 48 } }),
-      $fetch<PaginatedResource>(`${apiBase}/v1/posts`, { query: { locale: 'en', per_page: 48 } }),
-      $fetch<Resource[]>(`${apiBase}/v1/services`, { query: { locale: 'en' } }),
+    [tours, destinations, posts, services, pages] = await Promise.all([
+      fetchCollection('tours'),
+      fetchCollection('destinations'),
+      fetchCollection('posts'),
+      $fetch<Resource[]>(`${apiBase}/v1/services`, { query: { locale: 'en' }, timeout: 8000, retry: 1 }),
+      fetchCollection('pages'),
     ])
   }
   catch {
-    // Static and collection pages stay discoverable during a temporary API outage.
+    setResponseHeader(event, 'Cache-Control', 'no-store')
+    setResponseHeader(event, 'Retry-After', '60')
+    throw createError({ statusCode: 503, statusMessage: 'Sitemap temporarily unavailable' })
   }
 
   entries.push(
+    ...(pages.data || []).filter(item => item.slug).map(item => ({
+      path: `/${item.slug}`,
+      lastmod: dateOnly(item.updated_at),
+      changefreq: 'monthly' as const,
+      priority: '0.5',
+    })),
     ...(tours.data || []).filter(item => item.slug).map(item => ({
       path: `/tours/${item.slug}`,
       lastmod: dateOnly(item.updated_at),
@@ -85,9 +108,9 @@ export default defineEventHandler(async (event) => {
       priority: '0.7',
     })),
     ...services
-      .filter(item => item.slug && ['accommodation', 'transport'].includes(String(item.type)))
+      .filter(item => item.slug && ['accommodation', 'transport', 'transfer', 'activity'].includes(String(item.type)))
       .map(item => ({
-          path: `/${item.type === 'accommodation' ? 'stays' : 'cars'}/${item.slug}`,
+          path: `/${item.type === 'accommodation' ? 'stays' : item.type === 'transport' ? 'cars' : 'services'}/${item.slug}`,
           lastmod: dateOnly(item.updated_at),
           changefreq: 'weekly' as const,
           priority: '0.8',

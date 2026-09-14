@@ -13,7 +13,7 @@ const { data, error } = await useAsyncData(
   () => api(`/v1/destinations/${route.params.slug}`, { query: { locale: locale.value } }),
   { watch: [locale] },
 )
-if (error.value) throw createError({ statusCode: 404 })
+useContentError(error)
 useSeoMeta({
   title: () => `${data.value?.title || ''} — GoVista`,
   description: () => data.value?.description,

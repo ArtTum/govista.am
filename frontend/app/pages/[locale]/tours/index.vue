@@ -7,32 +7,7 @@ const route = useRoute()
 const router = useRouter()
 const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl).replace(/\/$/, '')
-const allowedScopes = ['all', 'domestic', 'international']
-const allowedTypes = ['all', 'group', 'private', 'package']
-const normalize = (value, allowed) => allowed.includes(String(value)) ? String(value) : 'all'
-const activeScope = ref(normalize(route.query.scope || 'all', allowedScopes))
-const activeType = ref(normalize(route.query.type || 'all', allowedTypes))
-const search = ref(String(route.query.search || ''))
-
-const { data, status } = await useAsyncData(
-  () => `tours-${locale.value}-${activeScope.value}-${activeType.value}`,
-  () => api('/v1/tours', {
-    query: {
-      locale: locale.value,
-      travel_scope: activeScope.value === 'all' ? undefined : activeScope.value,
-      type: activeType.value === 'all' ? undefined : activeType.value,
-      per_page: 48,
-    },
-  }),
-  { watch: [locale, activeScope, activeType] },
-)
-
-const tours = computed(() => {
-  const items = data.value?.data || []
-  if (!search.value.trim()) return items
-  const q = search.value.toLocaleLowerCase(locale.value)
-  return items.filter(tour => `${tour.title} ${tour.location} ${tour.description}`.toLocaleLowerCase(locale.value).includes(q))
-})
+const { data, status, error, refresh, activeScope, activeType, search, tours, resetFilters } = useTourCatalog()
 
 const scopeFilters = computed(() => [
   ['all', locale.value === 'hy' ? 'Բոլոր տուրերը' : locale.value === 'ru' ? 'Все туры' : 'All journeys', LayoutGrid],
@@ -67,19 +42,6 @@ const copy = computed(() => {
   }
   return content[locale.value][activeScope.value]
 })
-
-watch([activeScope, activeType], ([scope, type]) => {
-  router.replace({
-    query: {
-      ...route.query,
-      scope: scope === 'all' ? undefined : scope,
-      type: type === 'all' ? undefined : type,
-    },
-  })
-})
-
-watch(() => route.query.scope, value => { activeScope.value = normalize(value || 'all', allowedScopes) })
-watch(() => route.query.type, value => { activeType.value = normalize(value || 'all', allowedTypes) })
 
 useSeoMeta({
   title: () => copy.value[2],
@@ -134,13 +96,13 @@ useHead(() => ({
         <p>{{ copy[1] }}</p>
       </div>
     </section>
-    <section class="section listing-section">
+    <section id="catalog" class="section listing-section">
       <div class="container">
         <div class="scope-switch" aria-label="Tour direction">
           <button
             v-for="filter in scopeFilters"
             :key="filter[0]"
-            :class="{ active: activeScope === filter[0] }"
+            :class="{ active: activeScope === filter[0] }" :aria-pressed="activeScope === filter[0]"
             @click="activeScope = filter[0]"
           >
             <span><component :is="filter[2]" :size="20" /></span>
@@ -150,18 +112,16 @@ useHead(() => ({
         </div>
         <div class="listing-toolbar">
           <div class="filter-pills">
-            <button v-for="filter in typeFilters" :key="filter[0]" :class="{ active: activeType === filter[0] }" @click="activeType = filter[0]">{{ filter[1] }}</button>
+            <button v-for="filter in typeFilters" :key="filter[0]" :class="{ active: activeType === filter[0] }" :aria-pressed="activeType === filter[0]" @click="activeType = filter[0]">{{ filter[1] }}</button>
           </div>
-          <label class="listing-search"><Search :size="17" /><input v-model="search" :placeholder="locale === 'hy' ? 'Որոնել տուր...' : locale === 'ru' ? 'Найти тур...' : 'Search tours...'"></label>
+          <label class="listing-search"><Search :size="17" /><input v-model="search" type="search" :aria-label="t('ui.search')" :placeholder="locale === 'hy' ? 'Որոնել տուր...' : locale === 'ru' ? 'Найти тур...' : 'Search tours...'"></label>
         </div>
-        <div v-if="status === 'pending'" class="page-loading">{{ locale === 'hy' ? 'Բեռնվում է...' : locale === 'ru' ? 'Загрузка...' : 'Loading...' }}</div>
-        <div v-else-if="tours.length" class="tours-grid">
+        <p v-if="$route.query.date || $route.query.guests" class="catalog-note">{{ t('ui.availability') }}</p>
+        <CollectionState :status="status" :error="error" :empty="!tours.length" @retry="refresh"><button class="primary-cta" @click="resetFilters">{{ t('ui.reset') }}</button></CollectionState>
+        <div v-if="!error && status !== 'pending' && tours.length" class="tours-grid">
           <TourCard v-for="(tour, index) in tours" :key="tour.id" :tour="tour" :index="index" />
         </div>
-        <div v-else class="no-results">
-          <SlidersHorizontal :size="42" />
-          <h2>{{ locale === 'hy' ? 'Համապատասխան տուր չի գտնվել' : locale === 'ru' ? 'Подходящих туров не найдено' : 'No matching tours' }}</h2>
-        </div>
+        <CatalogPagination v-if="!error" :meta="data?.meta" />
       </div>
     </section>
   </div>

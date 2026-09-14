@@ -14,9 +14,8 @@ const { locale, t } = useLocale()
 const root = ref(null)
 const panel = ref(null)
 const isOpen = ref(false)
-const isMobilePanel = ref(false)
-const resolvedPlacement = ref(props.placement)
-const panelStyle = ref({})
+const panelId = useId()
+const { panelStyle, close, keydown } = useFloatingPanel(root, panel, isOpen, () => props.placement, 286)
 
 const copy = computed(() => ({
   hy: { title: 'Քանի՞ հյուր է մեկնելու', hint: 'Ընտրեք հյուրերի քանակը', guest: 'հյուր' },
@@ -54,92 +53,10 @@ function isSelected(option) {
 
 function selectOption(option) {
   model.value = valueOf(option)
-  isOpen.value = false
+  close()
 }
 
-function positionPanel() {
-  if (!isOpen.value || !root.value || !panel.value) return
-
-  const triggerRect = root.value.getBoundingClientRect()
-  const panelRect = panel.value.getBoundingClientRect()
-  const viewportWidth = window.innerWidth
-  const viewportHeight = window.innerHeight
-
-  if (viewportWidth <= 620) {
-    isMobilePanel.value = true
-    panelStyle.value = {
-      top: 'auto',
-      right: '14px',
-      bottom: '14px',
-      left: '14px',
-      width: 'auto',
-    }
-    return
-  }
-
-  isMobilePanel.value = false
-  const panelWidth = 286
-  const panelHeight = (panelRect.height || 367) + 18
-  const gap = 12
-  const edge = 14
-  const topSpace = triggerRect.top - gap
-  const bottomSpace = viewportHeight - triggerRect.bottom - gap
-
-  let placement = props.placement
-  if (placement === 'top' && topSpace < panelHeight && bottomSpace > topSpace) placement = 'bottom'
-  if (placement === 'bottom' && bottomSpace < panelHeight && topSpace > bottomSpace) placement = 'top'
-
-  let top = placement === 'top'
-    ? triggerRect.top - panelHeight - gap
-    : triggerRect.bottom + gap
-
-  top = Math.max(edge, Math.min(top, viewportHeight - panelHeight - edge))
-  const left = Math.max(edge, Math.min(triggerRect.right - panelWidth, viewportWidth - panelWidth - edge))
-
-  resolvedPlacement.value = placement
-  panelStyle.value = {
-    top: `${Math.round(top)}px`,
-    right: 'auto',
-    bottom: 'auto',
-    left: `${Math.round(left)}px`,
-    width: `${panelWidth}px`,
-  }
-}
-
-async function toggleSelect() {
-  isOpen.value = !isOpen.value
-  if (isOpen.value) {
-    await nextTick()
-    positionPanel()
-  }
-}
-
-function onPointerDown(event) {
-  if (
-    isOpen.value
-    && root.value
-    && !root.value.contains(event.target)
-    && (!panel.value || !panel.value.contains(event.target))
-  ) isOpen.value = false
-}
-
-function onKeyDown(event) {
-  if (event.key === 'Escape') isOpen.value = false
-}
-
-onMounted(() => {
-  document.addEventListener('pointerdown', onPointerDown)
-  document.addEventListener('keydown', onKeyDown)
-  window.addEventListener('resize', positionPanel)
-  window.addEventListener('scroll', positionPanel, true)
-})
-
-onBeforeUnmount(() => {
-  document.removeEventListener('pointerdown', onPointerDown)
-  document.removeEventListener('keydown', onKeyDown)
-  window.removeEventListener('resize', positionPanel)
-  window.removeEventListener('scroll', positionPanel, true)
-})
+function toggleSelect() { isOpen.value = !isOpen.value }
 </script>
 
 <template>
@@ -149,6 +66,7 @@ onBeforeUnmount(() => {
       class="guest-select-trigger"
       :aria-label="`${t('forms.guests')}: ${model} ${guestWord(model)}`"
       :aria-expanded="isOpen"
+      :aria-controls="isOpen ? panelId : undefined"
       aria-haspopup="listbox"
       @click="toggleSelect"
     >
@@ -162,7 +80,9 @@ onBeforeUnmount(() => {
           v-if="isOpen"
           ref="panel"
           class="guest-select-panel"
-          :class="[`guest-select-panel--${resolvedPlacement}`, { 'is-mobile': isMobilePanel }]"
+          :id="panelId"
+          data-overlay-popover
+          @keydown="keydown"
           :style="panelStyle"
         >
           <div class="guest-select-heading">

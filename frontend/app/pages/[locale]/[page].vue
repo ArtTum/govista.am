@@ -13,7 +13,7 @@ const { data, error } = await useAsyncData(
   () => api(`/v1/pages/${route.params.page}`, { query: { locale: locale.value } }),
   { watch: [locale] },
 )
-if (error.value) throw createError({ statusCode: 404, statusMessage: 'Page not found' })
+useContentError(error)
 useSeoMeta({
   title: () => data.value?.seo_title || `${data.value?.title || ''} — GoVista`,
   description: () => data.value?.seo_description || data.value?.content,

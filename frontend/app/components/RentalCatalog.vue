@@ -12,7 +12,7 @@ const search = ref('')
 const isStay = computed(() => props.type === 'accommodation')
 const routeSegment = computed(() => isStay.value ? 'stays' : 'cars')
 
-const { data, status } = await useAsyncData(
+const { data, status, error, refresh } = await useAsyncData(
   () => `rental-catalog-${props.type}-${locale.value}`,
   () => api('/v1/services', { query: { locale: locale.value, type: props.type } }),
   { watch: [locale] },
@@ -21,7 +21,7 @@ const { data, status } = await useAsyncData(
 const items = computed(() => {
   const list = data.value || []
   if (!search.value.trim()) return list
-  const query = search.value.toLocaleLowerCase(locale.value)
+  const query = search.value.trim().toLocaleLowerCase(locale.value)
   return list.filter(item => `${item.title} ${item.location} ${item.description}`.toLocaleLowerCase(locale.value).includes(query))
 })
 
@@ -96,10 +96,10 @@ useHead(() => ({
       <div class="container">
         <div class="rental-listing-toolbar">
           <div><strong>{{ items.length }}</strong><span>{{ isStay ? t('nav.stays') : t('nav.cars') }}</span></div>
-          <label class="listing-search"><Search :size="17" /><input v-model="search" :placeholder="locale === 'hy' ? 'Որոնել...' : locale === 'ru' ? 'Поиск...' : 'Search...'"></label>
+          <label class="listing-search"><Search :size="17" /><input v-model="search" type="search" :aria-label="t('ui.search')" :placeholder="locale === 'hy' ? 'Որոնել...' : locale === 'ru' ? 'Поиск...' : 'Search...'"></label>
         </div>
-        <div v-if="status === 'pending'" class="page-loading">Loading...</div>
-        <div v-else class="rental-grid">
+        <CollectionState :status="status" :error="error" :empty="!items.length" @retry="refresh"><button class="primary-cta" @click="search = ''">{{ t('ui.reset') }}</button></CollectionState>
+        <div v-if="!error && status !== 'pending' && items.length" class="rental-grid">
           <RentalCard v-for="(item, index) in items" :key="item.id" :item="item" :index="index" />
         </div>
       </div>

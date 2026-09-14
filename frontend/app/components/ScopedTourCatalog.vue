@@ -8,28 +8,7 @@ const api = useGovistaApi()
 const { locale, t, localePath } = useLocale()
 const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl).replace(/\/$/, '')
-const activeType = ref('all')
-const search = ref('')
-
-const { data, status } = await useAsyncData(
-  () => `scoped-tours-${props.scope}-${locale.value}-${activeType.value}`,
-  () => api('/v1/tours', {
-    query: {
-      locale: locale.value,
-      travel_scope: props.scope,
-      type: activeType.value === 'all' ? undefined : activeType.value,
-      per_page: 48,
-    },
-  }),
-  { watch: [locale, activeType] },
-)
-
-const tours = computed(() => {
-  const items = data.value?.data || []
-  if (!search.value.trim()) return items
-  const query = search.value.toLocaleLowerCase(locale.value)
-  return items.filter(tour => `${tour.title} ${tour.location} ${tour.description}`.toLocaleLowerCase(locale.value).includes(query))
-})
+const { data, status, error, refresh, activeScope, activeType, search, tours, resetFilters } = useTourCatalog(() => props.scope)
 
 const typeFilters = computed(() => [
   ['all', locale.value === 'hy' ? 'Բոլոր ձևաչափերը' : locale.value === 'ru' ? 'Все форматы' : 'All formats'],
@@ -107,16 +86,17 @@ useHead(() => ({
         <p>{{ copy[1] }}</p>
       </div>
     </section>
-    <section class="section listing-section">
+    <section id="catalog" class="section listing-section">
       <div class="container">
         <div class="listing-toolbar">
-          <div class="filter-pills"><button v-for="filter in typeFilters" :key="filter[0]" :class="{ active: activeType === filter[0] }" @click="activeType = filter[0]">{{ filter[1] }}</button></div>
-          <label class="listing-search"><Search :size="17" /><input v-model="search" :placeholder="locale === 'hy' ? 'Որոնել տուր...' : locale === 'ru' ? 'Найти тур...' : 'Search tours...'"></label>
+          <div class="filter-pills"><button v-for="filter in typeFilters" :key="filter[0]" :class="{ active: activeType === filter[0] }" :aria-pressed="activeType === filter[0]" @click="activeType = filter[0]">{{ filter[1] }}</button></div>
+          <label class="listing-search"><Search :size="17" /><input v-model="search" type="search" :aria-label="t('ui.search')" :placeholder="locale === 'hy' ? 'Որոնել տուր...' : locale === 'ru' ? 'Найти тур...' : 'Search tours...'"></label>
         </div>
-        <div v-if="status === 'pending'" class="page-loading">Loading...</div>
-        <div v-else class="tours-grid">
+        <CollectionState :status="status" :error="error" :empty="!tours.length" @retry="refresh"><button class="primary-cta" @click="resetFilters">{{ t('ui.reset') }}</button></CollectionState>
+        <div v-if="!error && status !== 'pending' && tours.length" class="tours-grid">
           <TourCard v-for="(tour, index) in tours" :key="tour.id" :tour="tour" :index="index" />
         </div>
+        <CatalogPagination v-if="!error" :meta="data?.meta" />
       </div>
     </section>
   </div>

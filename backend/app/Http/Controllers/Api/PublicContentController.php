@@ -52,7 +52,7 @@ class PublicContentController extends Controller
                 $locale
             ),
             'posts' => $this->localized(
-                Post::query()->where('active', true)->whereNotNull('published_at')->latest('published_at')->take(3)->get(),
+                Post::query()->where('active', true)->where('published_at', '<=', now())->latest('published_at')->take(3)->get(),
                 $locale
             ),
             'testimonials' => $this->localized(
@@ -69,6 +69,16 @@ class PublicContentController extends Controller
     public function tours(Request $request): JsonResponse
     {
         $query = Tour::query()->where('active', true)->orderBy('sort_order');
+
+        if ($request->filled('search')) {
+            $search = trim(mb_substr($request->string('search')->toString(), 0, 200));
+            $locale = $this->locale($request);
+            $query->where(function (Builder $builder) use ($search, $locale) {
+                foreach (['title', 'subtitle', 'location', 'description'] as $field) {
+                    $builder->orWhere($field.'->'.$locale, 'like', '%'.$search.'%');
+                }
+            });
+        }
 
         if ($request->filled('type')) {
             $query->where('type', $request->string('type'));
@@ -158,14 +168,14 @@ class PublicContentController extends Controller
     public function posts(Request $request): JsonResponse
     {
         return $this->paginated(
-            Post::query()->where('active', true)->whereNotNull('published_at')->latest('published_at'),
+            Post::query()->where('active', true)->where('published_at', '<=', now())->latest('published_at'),
             $request
         );
     }
 
     public function post(Request $request, string $slug): JsonResponse
     {
-        $post = Post::query()->where('slug', $slug)->where('active', true)->firstOrFail();
+        $post = Post::query()->where('slug', $slug)->where('active', true)->where('published_at', '<=', now())->firstOrFail();
 
         return response()->json($post->toLocalizedArray($this->locale($request)));
     }
@@ -177,11 +187,21 @@ class PublicContentController extends Controller
         return response()->json($page->toLocalizedArray($this->locale($request)));
     }
 
+    public function pages(Request $request): JsonResponse
+    {
+        return $this->paginated(Page::query()->where('active', true)->orderBy('id'), $request);
+    }
+
+    public function siteSettings(Request $request): JsonResponse
+    {
+        return response()->json($this->settings($this->locale($request)));
+    }
+
     private function paginated(Builder $query, Request $request): JsonResponse
     {
         $locale = $this->locale($request);
         $perPage = max(1, min($request->integer('per_page', 12), 48));
-        $pagination = $query->paginate($perPage);
+        $pagination = $query->orderBy('id')->paginate($perPage);
 
         return response()->json([
             'data' => $this->localized(collect($pagination->items()), $locale),

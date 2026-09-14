@@ -1,6 +1,6 @@
 <script setup>
 const api = useGovistaApi()
-const { locale } = useLocale()
+const { locale, t } = useLocale()
 const route = useRoute()
 const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl).replace(/\/$/, '')
@@ -17,7 +17,7 @@ const canonicalPath = computed(() => (
 const canonicalUrl = computed(() => `${siteUrl}${canonicalPath.value}`)
 const localizedPath = (nextLocale) => canonicalPath.value.replace(/^\/(hy|ru|en)(?=\/|$)/, `/${nextLocale}`)
 const shouldNoindex = computed(() => Boolean(
-  route.query.scope || route.query.search || route.query.type || route.query.date || route.query.guests,
+  route.query.page || route.query.scope || route.query.search || route.query.type || route.query.date || route.query.guests || /^\/(hy|ru|en)\/(account|travel\/.+)/.test(route.path),
 ))
 
 useHead(() => ({
@@ -48,18 +48,19 @@ useHead(() => ({
 
 const { data: globalData } = await useAsyncData(
   () => `global-content-${locale.value}`,
-  () => api('/v1/home', { query: { locale: locale.value } }),
+  () => api('/v1/settings', { query: { locale: locale.value } }),
   { watch: [locale] },
 )
 </script>
 
 <template>
   <div class="site-shell">
-    <AppHeader :settings="globalData?.settings || {}" />
-    <main>
+    <a href="#main-content" class="skip-link">{{ t('ui.skip') }}</a>
+    <AppHeader :settings="globalData || {}" />
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
-    <AppFooter :settings="globalData?.settings || {}" />
+    <AppFooter :settings="globalData || {}" />
     <BookingDrawer />
   </div>
 </template>

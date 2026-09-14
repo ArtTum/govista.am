@@ -12,7 +12,8 @@ trait HasLocalizedContent
             $value = $this->getAttribute($field);
 
             if (is_array($value)) {
-                $data[$field] = $value[$locale] ?? $value['hy'] ?? $value['en'] ?? reset($value);
+                $translations = array_filter($value, fn ($translation) => $translation !== null && $translation !== '' && $translation !== []);
+                $data[$field] = $translations[$locale] ?? $translations['hy'] ?? $translations['en'] ?? (reset($translations) ?: (in_array($field, ['highlights', 'itinerary', 'included', 'excluded', 'features'], true) ? [] : ''));
             }
         }
 

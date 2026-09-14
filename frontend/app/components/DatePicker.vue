@@ -3,6 +3,7 @@ import { CalendarDays, ChevronDown, ChevronLeft, ChevronRight } from '@lucide/vu
 
 const props = defineProps({
   min: { type: String, default: '' },
+  label: { type: String, default: '' },
   placement: { type: String, default: 'bottom' },
 })
 
@@ -10,6 +11,9 @@ const model = defineModel({ type: String, default: '' })
 const { locale, t } = useLocale()
 const root = ref(null)
 const isOpen = ref(false)
+const panel = ref(null)
+const panelId = useId()
+const { panelStyle, close, keydown } = useFloatingPanel(root, panel, isOpen, () => props.placement)
 
 function toDateKey(date) {
   const year = date.getFullYear()
@@ -27,7 +31,7 @@ function dateFromKey(value) {
 
 const today = new Date()
 const todayKey = toDateKey(today)
-const minimumDate = computed(() => props.min || todayKey)
+const minimumDate = computed(() => props.min && props.min > todayKey ? props.min : todayKey)
 const view = ref({ year: today.getFullYear(), month: today.getMonth() })
 
 const localeData = computed(() => ({
@@ -118,38 +122,21 @@ function selectDate(day) {
     year: dateFromKey(day.value).getFullYear(),
     month: dateFromKey(day.value).getMonth(),
   }
-  isOpen.value = false
+  close()
 }
 
 function selectToday() {
   if (todayKey < minimumDate.value) return
   model.value = todayKey
   syncView()
-  isOpen.value = false
+  close()
 }
 
 function clearDate() {
   model.value = ''
-  isOpen.value = false
+  close()
 }
 
-function onPointerDown(event) {
-  if (isOpen.value && root.value && !root.value.contains(event.target)) isOpen.value = false
-}
-
-function onKeyDown(event) {
-  if (event.key === 'Escape') isOpen.value = false
-}
-
-onMounted(() => {
-  document.addEventListener('pointerdown', onPointerDown)
-  document.addEventListener('keydown', onKeyDown)
-})
-
-onBeforeUnmount(() => {
-  document.removeEventListener('pointerdown', onPointerDown)
-  document.removeEventListener('keydown', onKeyDown)
-})
 </script>
 
 <template>
@@ -157,8 +144,9 @@ onBeforeUnmount(() => {
     <button
       type="button"
       class="date-picker-trigger"
-      :aria-label="`${t('forms.date')}: ${formattedValue || copy.choose}`"
+      :aria-label="`${label || t('forms.date')}: ${formattedValue || copy.choose}`"
       :aria-expanded="isOpen"
+      :aria-controls="isOpen ? panelId : undefined"
       aria-haspopup="dialog"
       @click="toggleCalendar"
     >
@@ -166,13 +154,19 @@ onBeforeUnmount(() => {
       <ChevronDown :size="16" />
     </button>
 
+    <Teleport to="body">
     <Transition name="calendar-popover">
       <div
         v-if="isOpen"
+        ref="panel"
+        :id="panelId"
+        data-overlay-popover
+        :style="panelStyle"
+        @keydown="keydown"
         class="date-picker-popover"
         :class="`date-picker-popover--${placement}`"
         role="dialog"
-        :aria-label="t('forms.date')"
+        :aria-label="label || t('forms.date')"
       >
         <div class="date-picker-heading">
           <div>
@@ -212,9 +206,10 @@ onBeforeUnmount(() => {
         <div class="date-picker-actions">
           <button v-if="model" type="button" @click="clearDate">{{ copy.clear }}</button>
           <span v-else></span>
-          <button type="button" class="date-picker-today" @click="selectToday">{{ copy.today }}</button>
+          <button type="button" class="date-picker-today" :disabled="todayKey < minimumDate" @click="selectToday">{{ copy.today }}</button>
         </div>
       </div>
     </Transition>
+    </Teleport>
   </div>
 </template>

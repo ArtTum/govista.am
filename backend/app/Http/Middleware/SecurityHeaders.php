@@ -20,6 +20,9 @@ class SecurityHeaders
         if ($request->is('admin', 'admin/*', 'api/admin', 'api/admin/*')) {
             $response->headers->set('X-Robots-Tag', 'noindex, nofollow');
         }
+        if ($request->is('api/admin/*', 'api/v1/account/*', 'api/v1/bookings')) {
+            $response->headers->set('Cache-Control', 'private, no-store');
+        }
 
         if (app()->environment('production') && $request->isSecure()) {
             $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');

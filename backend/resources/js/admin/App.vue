@@ -1,6 +1,9 @@
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue';
+import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue';
 import axios from 'axios';
+import ProvidersPanel from './ProvidersPanel.vue';
+import TravelRequestsPanel from './TravelRequestsPanel.vue';
+import PackageOffersPanel from './PackageOffersPanel.vue';
 import {
     AlertCircle,
     BedDouble,
@@ -93,7 +96,7 @@ const resources = {
         columns: ['title', 'type', 'location', 'price_from', 'active'],
         fields: [
             ['slug', 'Slug', 'text', true],
-            ['type', 'Տեսակ', 'select', true, [['accommodation', 'Կացարան / տուն'], ['transport', 'Վարձով ավտո / տրանսպորտ'], ['events', 'Միջոցառումներ'], ['custom', 'Անհատական']]],
+            ['type', 'Տեսակ', 'select', true, [['accommodation', 'Կացարան / տուն'], ['transport', 'Վարձով ավտո / տրանսպորտ'], ['transfer', 'Տրանսֆեր'], ['activity', 'Էքսկուրսիա'], ['events', 'Միջոցառումներ'], ['custom', 'Անհատական']]],
             ['title', 'Անվանում', 'localized', true],
             ['description', 'Նկարագրություն', 'localized-textarea', true],
             ['location', 'Գտնվելու վայր', 'localized'],
@@ -186,7 +189,7 @@ const resources = {
         ],
     },
     bookings: {
-        label: 'Ամրագրումներ',
+        label: 'Հայտեր և պատվերներ',
         singular: 'ամրագրում',
         icon: CalendarCheck2,
         columns: ['reference', 'name', 'item_title', 'start_date', 'status'],
@@ -232,7 +235,30 @@ const toast = reactive({ show: false, type: 'success', message: '' });
 const errors = ref({});
 const uploadField = ref('');
 
-const api = axios.create({ baseURL: '/api' });
+const api = axios.create({ baseURL: '/api', timeout: 15000 });
+let requestSequence = 0;
+const editor = ref(null);
+let previousFocus = null;
+const closeEditor = () => { if (!saving.value && !uploadField.value) modalOpen.value = false; };
+watch(modalOpen, async (open) => {
+    document.body.classList.toggle('editor-open', open);
+    const shell = document.querySelector('.admin-shell');
+    if (shell) shell.inert = open;
+    if (open) {
+        previousFocus = document.activeElement;
+        await nextTick();
+        editor.value?.querySelector('button')?.focus();
+    } else if (previousFocus?.isConnected) previousFocus.focus();
+});
+function editorKeys(event) {
+    if (event.key === 'Escape') { event.preventDefault(); closeEditor(); }
+    if (event.key !== 'Tab') return;
+    const controls = [...editor.value.querySelectorAll('button:not(:disabled), input:not(:disabled), select, textarea')].filter(element => element.getClientRects().length);
+    const first = controls[0], last = controls.at(-1);
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+}
+onBeforeUnmount(() => { clearTimeout(searchTimer); document.body.classList.remove('editor-open'); });
 const publicSiteUrl = document.querySelector('meta[name="govista-site-url"]')?.content || '/';
 
 api.interceptors.request.use((config) => {
@@ -249,7 +275,7 @@ api.interceptors.response.use(
 );
 
 const currentResource = computed(() => resources[activeView.value]);
-const pageTitle = computed(() => activeView.value === 'dashboard' ? 'Կառավարման վահանակ' : currentResource.value?.label);
+const pageTitle = computed(() => activeView.value === 'dashboard' ? 'Կառավարման վահանակ' : activeView.value === 'providers' ? 'Մատակարարների կապեր' : activeView.value === 'package-offers' ? 'Պատրաստի տուրփաթեթներ' : currentResource.value?.label);
 
 onMounted(async () => {
     if (token.value) {
@@ -265,6 +291,7 @@ onMounted(async () => {
 });
 
 async function login() {
+    if (loginLoading.value) return;
     loginLoading.value = true;
     loginError.value = '';
     try {
@@ -272,6 +299,8 @@ async function login() {
         token.value = data.token;
         user.value = data.user;
         localStorage.setItem('govista_admin_token', data.token);
+        credentials.password = '';
+        activeView.value = 'dashboard';
         await loadDashboard();
     } catch (error) {
         loginError.value = error.response?.data?.message || error.response?.data?.errors?.email?.[0] || 'Չհաջողվեց մուտք գործել։';
@@ -287,42 +316,55 @@ async function logout(callApi = true) {
     token.value = '';
     user.value = null;
     localStorage.removeItem('govista_admin_token');
+    modalOpen.value = false;
+    data.value = [];
+    dashboard.value = null;
+    requestSequence += 1;
 }
 
 async function selectView(key) {
+    clearTimeout(searchTimer);
+    data.value = [];
     activeView.value = key;
     mobileMenu.value = false;
     search.value = '';
     page.value = 1;
     if (key === 'dashboard') await loadDashboard();
-    else await loadResource();
+    else if (!['providers', 'bookings', 'package-offers'].includes(key)) await loadResource();
 }
 
 async function loadDashboard() {
+    const sequence = ++requestSequence;
     loading.value = true;
     try {
         const response = await api.get('/admin/dashboard');
-        dashboard.value = response.data;
+        if (sequence === requestSequence) dashboard.value = response.data;
+    } catch {
+        if (sequence === requestSequence) notify('error', 'Չհաջողվեց բեռնել տվյալները։ Փորձեք կրկին։');
     } finally {
-        loading.value = false;
+        if (sequence === requestSequence) loading.value = false;
     }
 }
 
 async function loadResource() {
     if (!currentResource.value) return;
+    const sequence = ++requestSequence;
     loading.value = true;
     try {
         const response = await api.get(`/admin/content/${activeView.value}`, {
             params: { page: page.value, search: search.value, per_page: 20 },
         });
+        if (sequence !== requestSequence) return;
         data.value = response.data.data;
         Object.assign(pagination, {
             current_page: response.data.current_page,
             last_page: response.data.last_page,
             total: response.data.total,
         });
+    } catch {
+        if (sequence === requestSequence) notify('error', 'Չհաջողվեց բեռնել ցանկը։ Փորձեք կրկին։');
     } finally {
-        loading.value = false;
+        if (sequence === requestSequence) loading.value = false;
     }
 }
 
@@ -398,6 +440,7 @@ function payload() {
 }
 
 async function save() {
+    if (saving.value || uploadField.value) return;
     saving.value = true;
     errors.value = {};
     try {
@@ -419,14 +462,24 @@ async function save() {
 
 async function remove(record) {
     if (!confirm(`Ջնջե՞լ «${displayValue(record, currentResource.value.columns[0])}» գրառումը։`)) return;
-    await api.delete(`/admin/content/${activeView.value}/${record.id}`);
-    notify('success', 'Գրառումը ջնջված է։');
-    await loadResource();
+    try {
+        await api.delete(`/admin/content/${activeView.value}/${record.id}`);
+        notify('success', 'Գրառումը ջնջված է։');
+        if (data.value.length === 1 && page.value > 1) page.value -= 1;
+        await loadResource();
+    } catch {
+        notify('error', 'Չհաջողվեց ջնջել գրառումը։ Փորձեք կրկին։');
+    }
 }
 
 async function uploadImage(event, field) {
     const file = event.target.files?.[0];
     if (!file) return;
+    if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size > 8 * 1024 * 1024) {
+        notify('error', 'Ընտրեք JPG, PNG կամ WebP նկար՝ առավելագույնը 8 ՄԲ։');
+        event.target.value = '';
+        return;
+    }
     uploadField.value = field;
     const body = new FormData();
     body.append('file', file);
@@ -532,10 +585,10 @@ function changePage(next) {
     </main>
 
     <div v-else class="admin-shell">
-        <aside class="sidebar" :class="{ open: mobileMenu }">
+        <aside id="admin-navigation" class="sidebar" :class="{ open: mobileMenu }">
             <div class="sidebar-brand">
                 <img class="sidebar-logo" :src="'/brand/govista-logo-light.png'" alt="GoVista — Travel Beyond Limits">
-                <button class="sidebar-close" @click="mobileMenu = false"><X :size="21" /></button>
+                <button class="sidebar-close" aria-label="Փակել ընտրացանկը" @click="mobileMenu = false"><X :size="21" /></button>
             </div>
             <nav>
                 <p class="nav-section">Հիմնական</p>
@@ -543,6 +596,8 @@ function changePage(next) {
                     <LayoutDashboard :size="19" /><span>Վահանակ</span>
                 </button>
                 <p class="nav-section">Բովանդակություն</p>
+                <button :class="{ active: activeView === 'providers' }" @click="selectView('providers')"><Settings :size="19" /><span>Մատակարարների կապեր</span></button>
+                <button :class="{ active: activeView === 'package-offers' }" @click="selectView('package-offers')"><Compass :size="19" /><span>Պատրաստի տուրփաթեթներ</span></button>
                 <button v-for="(resource, key) in resources" :key="key" :class="{ active: activeView === key }" @click="selectView(key)">
                     <component :is="resource.icon" :size="19" /><span>{{ resource.label }}</span>
                     <span v-if="key === 'bookings' && dashboard?.stats?.[2]?.value" class="nav-count">{{ dashboard.stats[2].value }}</span>
@@ -559,7 +614,7 @@ function changePage(next) {
 
         <section class="admin-main">
             <header class="topbar">
-                <button class="menu-button" @click="mobileMenu = true"><Menu :size="22" /></button>
+                <button class="menu-button" aria-label="Բացել ընտրացանկը" :aria-expanded="mobileMenu" aria-controls="admin-navigation" @click="mobileMenu = true"><Menu :size="22" /></button>
                 <div>
                     <p class="breadcrumb">GoVista / {{ pageTitle }}</p>
                     <h1>{{ pageTitle }}</h1>
@@ -612,6 +667,9 @@ function changePage(next) {
                     </div>
                 </template>
 
+                <ProvidersPanel v-else-if="activeView === 'providers'" :api="api" />
+                <PackageOffersPanel v-else-if="activeView === 'package-offers'" :api="api" />
+                <TravelRequestsPanel v-else-if="activeView === 'bookings'" :api="api" />
                 <template v-else>
                     <div class="resource-toolbar">
                         <div class="search-box"><Search :size="18" /><input v-model="search" placeholder="Որոնել..." @input="scheduleSearch"></div>
@@ -658,14 +716,14 @@ function changePage(next) {
         </section>
     </div>
 
-    <div v-if="modalOpen" class="modal-layer" @mousedown.self="modalOpen = false">
-        <div class="editor-modal">
+    <div v-if="modalOpen" class="modal-layer" @mousedown.self="closeEditor">
+        <div ref="editor" class="editor-modal" role="dialog" aria-modal="true" aria-labelledby="editor-title" @keydown="editorKeys">
             <header>
                 <div>
                     <p class="eyebrow">{{ editingId ? 'Խմբագրում' : 'Նոր գրառում' }}</p>
-                    <h2>{{ editingId ? `${currentResource.singular} #${editingId}` : `Ավելացնել ${currentResource.singular}` }}</h2>
+                    <h2 id="editor-title">{{ editingId ? `${currentResource.singular} #${editingId}` : `Ավելացնել ${currentResource.singular}` }}</h2>
                 </div>
-                <button @click="modalOpen = false"><X :size="22" /></button>
+                <button aria-label="Փակել" :disabled="saving || Boolean(uploadField)" @click="closeEditor"><X :size="22" /></button>
             </header>
 
             <div class="editor-body">
@@ -709,7 +767,7 @@ function changePage(next) {
                                         <Loader2 v-if="uploadField === field[0]" class="spin" :size="17" />
                                         <Upload v-else :size="17" />
                                         Բեռնել
-                                        <input type="file" accept="image/*" @change="uploadImage($event, field[0])">
+                                        <input type="file" accept="image/jpeg,image/png,image/webp" @change="uploadImage($event, field[0])">
                                     </label>
                                 </div>
                             </div>
@@ -739,8 +797,8 @@ function changePage(next) {
                 </div>
             </div>
             <footer>
-                <button class="button button-ghost" @click="modalOpen = false">Չեղարկել</button>
-                <button class="button button-primary" :disabled="saving" @click="save">
+                <button class="button button-ghost" :disabled="saving || Boolean(uploadField)" @click="closeEditor">Չեղարկել</button>
+                <button class="button button-primary" :disabled="saving || Boolean(uploadField)" @click="save">
                     <Loader2 v-if="saving" class="spin" :size="18" />
                     <Save v-else :size="18" /> {{ saving ? 'Պահպանվում է...' : 'Պահպանել' }}
                 </button>

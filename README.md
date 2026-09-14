@@ -81,7 +81,7 @@ cd D:\projects\htdocs\domains\govista.am
 
 The runtime smoke test deletes every QA record and uploaded QA image it creates.
 
-Validate the compiled Nuxt server, all 63 localized public URLs, SEO metadata,
+Validate the compiled Nuxt server, all 159 seeded localized public URLs, SEO metadata,
 sitemap, robots, assets and error pages:
 
 ```powershell
@@ -94,3 +94,23 @@ Chrome and create `.runtime/mobile-home-exact.png` for visual review:
 ```powershell
 node scripts\mobile-visual-smoke.mjs
 ```
+
+The detailed review and fixes from September 2026 are documented in
+[`SITE_AUDIT.md`](./SITE_AUDIT.md). Additional isolated regression checks:
+
+```powershell
+node scripts/audit-smoke.mjs
+```
+
+Run `runtime-smoke.ps1` separately from the production smoke test; it briefly
+creates QA content before removing it.
+
+## Travel platform update (2026-09-10)
+
+The frontend now includes `/hy/travel` (also `ru` and `en`) and `/hy/account`. Admin has **Մատակարարների կապեր** and **Հայտեր և պատվերներ**. See [TRAVEL_PLATFORM_IMPLEMENTATION.md](TRAVEL_PLATFORM_IMPLEMENTATION.md) for the implemented scope, provider setup, and the remaining live booking/payment requirements.
+
+Apply the additive migration with PHP 8.3: `php artisan migrate --force` from `backend`. Run `node scripts/travel-smoke.mjs` against the running local build for the new route checks. Supplier credentials belong in the dedicated admin screen; preserve `APP_KEY` when moving the database. No supplier or payment account is activated by migration.
+
+## Outbound package catalogue
+
+ANRIVA, Maratuk, World Voyage, TravelOne Armenia, TEZ TOUR, Tourvisor, Sletat and TBO Packages are available as managed package suppliers. The admin supports manual offers and CSV preview/import; the multilingual public catalogue supports filtered offers and requests. Tourvisor has a public search adapter, disabled until contractual access and destination mapping are configured. ANRIVA, Maratuk, World Voyage and TravelOne have separate encrypted sandbox/live API profiles. TravelOne also has a TourVisio adapter for admin authentication, location dictionaries and package search previews; its public API search and booking are not enabled. The other three still require supplier-specific adapters. See [PROVIDER_API_SETUP.md](PROVIDER_API_SETUP.md) and [PACKAGE_PLATFORM_IMPLEMENTATION.md](PACKAGE_PLATFORM_IMPLEMENTATION.md).

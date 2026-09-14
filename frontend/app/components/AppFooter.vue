@@ -3,6 +3,7 @@ import { ArrowUpRight, Camera, Mail, MapPin, MessageCircle, Phone } from '@lucid
 
 defineProps({ settings: { type: Object, default: () => ({}) } })
 const { t, locale, localePath } = useLocale()
+const travel = useTravelText()
 </script>
 
 <template>
@@ -11,10 +12,10 @@ const { t, locale, localePath } = useLocale()
     <div class="container footer-main">
       <div class="footer-brand">
         <img src="/brand/govista-logo-light.png" alt="GoVista — Travel Beyond Limits" width="1528" height="426" loading="lazy" decoding="async">
-        <p>{{ t('home.servicesTitle') }} — Armenia, thoughtfully.</p>
+        <p>{{ t('home.servicesTitle') }}.</p>
         <div class="footer-socials">
-          <a :href="settings.instagram || '#'" aria-label="Instagram"><Camera :size="18" /></a>
-          <a :href="settings.facebook || '#'" aria-label="Facebook"><MessageCircle :size="18" /></a>
+          <a v-if="settings.instagram" :href="settings.instagram" aria-label="Instagram"><Camera :size="18" /></a>
+          <a v-if="settings.facebook" :href="settings.facebook" aria-label="Facebook"><MessageCircle :size="18" /></a>
         </div>
       </div>
       <div class="footer-links">
@@ -27,10 +28,12 @@ const { t, locale, localePath } = useLocale()
       </div>
       <div class="footer-links">
         <h4>GoVista</h4>
+        <NuxtLink :to="localePath('/travel')">{{ travel.allServices }}</NuxtLink>
+        <NuxtLink :to="localePath('/account')">{{ travel.account }}</NuxtLink>
         <NuxtLink :to="localePath('/about')">{{ t('nav.about') }}</NuxtLink>
         <NuxtLink :to="localePath('/blog')">{{ t('nav.blog') }}</NuxtLink>
-        <NuxtLink :to="localePath('/privacy')">Privacy</NuxtLink>
-        <NuxtLink :to="localePath('/terms')">Terms</NuxtLink>
+        <NuxtLink :to="localePath('/privacy')">{{ t('ui.privacy') }}</NuxtLink>
+        <NuxtLink :to="localePath('/terms')">{{ t('ui.terms') }}</NuxtLink>
         <NuxtLink :to="localePath('/photo-credits')">{{ locale === 'hy' ? 'Լուսանկարների հեղինակներ' : locale === 'ru' ? 'Авторы фотографий' : 'Photo credits' }}</NuxtLink>
       </div>
       <div class="footer-contact">
@@ -38,11 +41,11 @@ const { t, locale, localePath } = useLocale()
         <a v-if="settings.phone" :href="`tel:${settings.phone}`"><Phone :size="16" />{{ settings.phone }}</a>
         <a v-if="settings.email" :href="`mailto:${settings.email}`"><Mail :size="16" />{{ settings.email }}</a>
         <span v-if="settings.address"><MapPin :size="16" />{{ settings.address }}</span>
-        <a class="footer-cta" :href="settings.whatsapp || '#'">WhatsApp <ArrowUpRight :size="17" /></a>
+        <a class="footer-cta" v-if="settings.whatsapp" :href="settings.whatsapp">WhatsApp <ArrowUpRight :size="17" /></a>
       </div>
     </div>
     <div class="container footer-bottom">
-      <span>© {{ new Date().getFullYear() }} GoVista. Made with care in Armenia.</span>
+      <span>© {{ new Date().getFullYear() }} GoVista. {{ t('ui.made') }}</span>
       <span>HY · RU · EN</span>
     </div>
   </footer>

@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-07-18',
   devtools: { enabled: process.env.NODE_ENV !== 'production' },
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/design.css', '~/assets/css/travel.css', '~/assets/css/packages.css'],
   runtimeConfig: {
     apiBaseInternal: process.env.NUXT_API_BASE_INTERNAL
       || process.env.NUXT_PUBLIC_API_BASE

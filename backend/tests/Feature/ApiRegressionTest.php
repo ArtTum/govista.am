@@ -200,8 +200,8 @@ class ApiRegressionTest extends TestCase
         $this->postJson('/api/v1/bookings', [
             'name' => 'QA Guest',
             'email' => 'qa-booking@govista.test',
-            'start_date' => '2026-08-10',
-            'end_date' => '2026-08-09',
+            'start_date' => now()->addDays(10)->toDateString(),
+            'end_date' => now()->addDays(9)->toDateString(),
             'participants' => 0,
             'locale' => 'de',
         ])
@@ -215,8 +215,8 @@ class ApiRegressionTest extends TestCase
             'name' => 'QA Guest',
             'email' => 'qa-booking@govista.test',
             'phone' => '+374 99 000 000',
-            'start_date' => '2026-08-10',
-            'end_date' => '2026-08-12',
+            'start_date' => now()->addDays(10)->toDateString(),
+            'end_date' => now()->addDays(12)->toDateString(),
             'participants' => 3,
             'locale' => 'en',
             'message' => 'Regression booking',
@@ -499,8 +499,9 @@ class ApiRegressionTest extends TestCase
             'message' => 'Confirmed by QA',
             'total_price' => 12345,
         ])
-            ->assertOk()
-            ->assertJsonPath('status', 'confirmed');
+            ->assertStatus(405);
+        $this->putJson("/api/admin/travel/requests/{$booking->id}", ['action' => 'review', 'version' => 1])
+            ->assertOk()->assertJsonPath('status', 'reviewing');
 
         $this->getJson("/api/admin/content/contact-messages/{$contact->id}")
             ->assertOk()
@@ -512,9 +513,9 @@ class ApiRegressionTest extends TestCase
             ->assertOk()
             ->assertJsonPath('status', 'replied');
 
-        $this->deleteJson("/api/admin/content/bookings/{$booking->id}")->assertOk();
+        $this->deleteJson("/api/admin/content/bookings/{$booking->id}")->assertStatus(405);
         $this->deleteJson("/api/admin/content/contact-messages/{$contact->id}")->assertOk();
-        $this->assertDatabaseMissing('bookings', ['id' => $booking->id]);
+        $this->assertDatabaseHas('bookings', ['id' => $booking->id, 'status' => 'reviewing']);
         $this->assertDatabaseMissing('contact_messages', ['id' => $contact->id]);
 
         Storage::fake('public');

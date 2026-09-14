@@ -20,7 +20,8 @@ const { data, error } = await useAsyncData(
   { watch: [locale] },
 )
 
-if (error.value || (data.value?.service && data.value.service.type !== props.type)) {
+useContentError(error)
+if (data.value?.service && data.value.service.type !== props.type) {
   throw createError({ statusCode: 404, statusMessage: 'Rental not found' })
 }
 
@@ -94,7 +95,7 @@ useHead(() => ({
     <section class="section rental-detail-section">
       <div class="container rental-detail-layout">
         <div>
-          <p class="section-eyebrow">GoVista verified</p>
+          <p class="section-eyebrow">{{ t('ui.verified') }}</p>
           <h2>{{ locale === 'hy' ? 'Ամեն ինչ այս տարբերակի մասին' : locale === 'ru' ? 'Всё об этом варианте' : 'Everything about this option' }}</h2>
           <p class="detail-description">{{ item.description }}</p>
           <div class="rental-detail-features">
@@ -111,14 +112,14 @@ useHead(() => ({
           <div class="booking-divider"></div>
           <div class="rental-booking-note"><CalendarDays :size="18" /><span>{{ isStay ? t('forms.checkIn') : t('forms.date') }}<strong>{{ locale === 'hy' ? 'Ընտրեք ամրագրման ժամանակ' : locale === 'ru' ? 'Выберите при бронировании' : 'Choose while booking' }}</strong></span></div>
           <button @click="openBooking(item)">{{ isStay ? t('common.book') : t('common.rent') }}</button>
-          <div class="booking-assurance"><ShieldCheck :size="18" /><span>GoVista verified<br><strong>Local support 24/7</strong></span></div>
+          <div class="booking-assurance"><ShieldCheck :size="18" /><span>{{ t('ui.verified') }}<br><strong>{{ t('ui.support') }}</strong></span></div>
         </aside>
       </div>
     </section>
 
     <section v-if="related.length" class="section related-section">
       <div class="container">
-        <SectionHeader :eyebrow="isStay ? 'More stays' : 'More cars'" :title="locale === 'hy' ? 'Այլ տարբերակներ' : locale === 'ru' ? 'Другие варианты' : 'More options for you'" />
+        <SectionHeader :eyebrow="t('ui.related')" :title="locale === 'hy' ? 'Այլ տարբերակներ' : locale === 'ru' ? 'Другие варианты' : 'More options for you'" />
         <div class="rental-grid"><RentalCard v-for="(relatedItem, index) in related" :key="relatedItem.id" :item="relatedItem" :index="index" /></div>
       </div>
     </section>

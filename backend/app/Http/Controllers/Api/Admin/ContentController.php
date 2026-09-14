@@ -49,6 +49,13 @@ class ContentController extends Controller
                         $builder->orWhere($column, 'like', $search);
                     }
                 }
+                foreach (['title', 'question'] as $column) {
+                    if (Schema::hasColumn($table, $column)) {
+                        foreach (['hy', 'ru', 'en'] as $locale) {
+                            $builder->orWhere($column.'->'.$locale, 'like', $search);
+                        }
+                    }
+                }
             });
         }
 
@@ -68,6 +75,7 @@ class ContentController extends Controller
     public function store(Request $request, string $resource): JsonResponse
     {
         $model = $this->model($resource);
+        abort_if(in_array($resource, ['bookings', 'contact-messages'], true), 405);
         $record = $model::query()->create($request->validate($this->rules($resource)));
 
         return response()->json($record, 201);
@@ -75,6 +83,7 @@ class ContentController extends Controller
 
     public function update(Request $request, string $resource, int $id): JsonResponse
     {
+        abort_if($resource === 'bookings', 405, 'Օգտագործեք հայտերի կառավարման բաժինը։');
         $model = $this->model($resource);
         /** @var Model $record */
         $record = $model::query()->findOrFail($id);
@@ -85,6 +94,7 @@ class ContentController extends Controller
 
     public function destroy(string $resource, int $id): JsonResponse
     {
+        abort_if($resource === 'bookings', 405, 'Հայտը կարելի է չեղարկել՝ պահպանելով պատմությունը։');
         $model = $this->model($resource);
         $model::query()->findOrFail($id)->delete();
 
@@ -104,7 +114,7 @@ class ContentController extends Controller
         $translatedNullable = ['nullable', 'array:hy,ru,en'];
         $active = ['nullable', 'boolean'];
 
-        return match ($resource) {
+        $rules = match ($resource) {
             'tours' => [
                 'slug' => ['required', 'alpha_dash', 'max:190', Rule::unique('tours', 'slug')->ignore($id)],
                 'travel_scope' => ['required', Rule::in(['domestic', 'international'])],
@@ -142,7 +152,7 @@ class ContentController extends Controller
             ],
             'services' => [
                 'slug' => ['required', 'alpha_dash', 'max:190', Rule::unique('services', 'slug')->ignore($id)],
-                'type' => ['required', Rule::in(['accommodation', 'transport', 'events', 'custom'])],
+                'type' => ['required', Rule::in(['accommodation', 'transport', 'events', 'custom', 'transfer', 'activity'])],
                 'title' => $translated,
                 'description' => $translated,
                 'location' => $translatedNullable,
@@ -213,5 +223,25 @@ class ContentController extends Controller
             ],
             default => [],
         };
+
+        foreach ($rules as $field => $fieldRules) {
+            if (! in_array('array:hy,ru,en', $fieldRules, true)) {
+                continue;
+            }
+
+            $isList = in_array($field, ['highlights', 'itinerary', 'included', 'excluded', 'features'], true);
+            $rules[$field.'.*'] = $isList ? ['nullable', 'array'] : ['nullable', 'string', 'max:50000'];
+            if (in_array('required', $fieldRules, true)) {
+                $rules[$field.'.hy'] = ['required', 'string', 'max:50000'];
+            }
+            if ($isList) {
+                $rules[$field.'.*.*'] = ['string', 'max:2000'];
+            }
+        }
+        if (isset($rules['gallery'])) {
+            $rules['gallery.*'] = ['string', 'max:1000'];
+        }
+
+        return $rules;
     }
 }

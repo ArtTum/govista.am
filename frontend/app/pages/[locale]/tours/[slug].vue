@@ -15,12 +15,12 @@ const { data, error } = await useAsyncData(
   { watch: [locale] },
 )
 
-if (error.value) throw createError({ statusCode: 404, statusMessage: 'Tour not found' })
+useContentError(error)
 const tour = computed(() => data.value?.tour || {})
 const related = computed(() => data.value?.related || [])
-const selectedDate = ref('')
-const selectedGuests = ref(2)
-const guestOptions = [2, 3, 4, '5+']
+const selectedDate = ref(String(route.query.date || ''))
+const selectedGuests = ref(Math.min(100, Math.max(1, Number.parseInt(String(route.query.guests || 2), 10) || 2)))
+const guestOptions = Array.from({ length: 10 }, (_, i) => i + 1)
 const formattedPrice = computed(() => String(Math.round(Number(tour.value.price || 0))).replace(/\B(?=(\d{3})+(?!\d))/g, ' '))
 
 useSeoMeta({
@@ -103,7 +103,7 @@ useHead(() => ({
     <section class="section detail-section">
       <div class="container detail-layout">
         <div class="detail-content">
-          <p class="section-eyebrow">The experience</p>
+          <p class="section-eyebrow">{{ t('ui.experience') }}</p>
           <h2>{{ locale === 'hy' ? 'Այս ճանապարհորդության մասին' : locale === 'ru' ? 'Об этом путешествии' : 'About this journey' }}</h2>
           <p class="detail-description">{{ tour.description }}</p>
 
@@ -116,7 +116,7 @@ useHead(() => ({
           </div>
 
           <div v-if="tour.itinerary?.length" class="itinerary">
-            <p class="section-eyebrow">Itinerary</p>
+            <p class="section-eyebrow">{{ t('ui.itinerary') }}</p>
             <h2>{{ locale === 'hy' ? 'Օրվա ծրագիրը' : locale === 'ru' ? 'Программа дня' : 'How the day unfolds' }}</h2>
             <div v-for="(item, index) in tour.itinerary" :key="item" class="itinerary-row"><span>{{ String(index + 1).padStart(2, '0') }}</span><div><strong>{{ item }}</strong><p>{{ locale === 'hy' ? 'Ժամանակը կարող է ճկվել՝ ըստ խմբի ռիթմի։' : locale === 'ru' ? 'Время может меняться в соответствии с ритмом группы.' : 'Timing may flex naturally with the pace of the group.' }}</p></div></div>
           </div>
@@ -134,15 +134,15 @@ useHead(() => ({
           <div class="booking-divider"></div>
           <label><CalendarDays :size="17" /><span>{{ t('forms.date') }}</span><DatePicker v-model="selectedDate" /></label>
           <label><Users :size="17" /><span>{{ t('forms.guests') }}</span><GuestSelect v-model="selectedGuests" :options="guestOptions" /></label>
-          <button @click="openBooking(tour)">{{ t('common.book') }}</button>
-          <div class="booking-assurance"><ShieldCheck :size="18" /><span>Free cancellation options<br><strong>Local support 24/7</strong></span></div>
+          <button @click="openBooking(tour, { start_date: selectedDate, participants: selectedGuests })">{{ t('common.book') }}</button>
+          <div class="booking-assurance"><ShieldCheck :size="18" /><span>{{ t('ui.requestNote') }}<br><strong>{{ t('ui.support') }}</strong></span></div>
         </aside>
       </div>
     </section>
 
     <section v-if="related.length" class="section related-section">
       <div class="container">
-        <SectionHeader eyebrow="You may also like" :title="locale === 'hy' ? 'Նմանատիպ տուրեր' : locale === 'ru' ? 'Похожие туры' : 'More journeys to consider'" />
+        <SectionHeader :eyebrow="t('ui.related')" :title="locale === 'hy' ? 'Նմանատիպ տուրեր' : locale === 'ru' ? 'Похожие туры' : 'More journeys to consider'" />
         <div class="tours-grid"><TourCard v-for="(item, index) in related" :key="item.id" :tour="item" :index="index" /></div>
       </div>
     </section>

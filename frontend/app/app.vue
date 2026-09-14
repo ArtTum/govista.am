@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-const requestUrl = useRequestURL()
-const socialImage = `${requestUrl.origin}/og.png`
+const config = useRuntimeConfig()
+const socialImage = `${String(config.public.siteUrl).replace(/\/$/, '')}/og.png`
 
 useSeoMeta({
   ogImage: socialImage,

@@ -9,7 +9,7 @@ const origin = `http://127.0.0.1:${port}`
 const apiBase = process.env.PRODUCTION_SMOKE_API || 'http://127.0.0.1:8010/api'
 
 const locales = ['hy', 'ru', 'en']
-const staticPaths = ['', '/tours', '/domestic-tours', '/international-tours', '/stays', '/cars', '/destinations', '/blog', '/about', '/privacy', '/terms', '/photo-credits']
+const staticPaths = ['', '/tours', '/domestic-tours', '/international-tours', '/stays', '/cars', '/destinations', '/blog', '/about', '/privacy', '/terms', '/photo-credits', '/travel']
 const tours = [
   'garni-geghard-symphony',
   'khor-virap-noravank-areni',

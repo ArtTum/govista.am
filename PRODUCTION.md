@@ -190,10 +190,32 @@ node scripts/mobile-visual-smoke.mjs
 The smoke scripts expect a Laravel API at `127.0.0.1:8010`; override their
 documented environment variables when a different QA endpoint is used.
 
-At the time of this handoff, all direct Composer and npm dependencies are at
-their latest compatible releases. npm reports the `brace-expansion` advisory
-through Nuxt → Nitro → Archiver. It belongs to Nitro's archive/build toolchain
-and is not referenced by the generated `.output` server. Do not run
-`npm audit fix --force`: npm currently resolves that command by downgrading
-Nuxt. Update Nuxt/Nitro normally when their upstream dependency moves to the
-patched Archiver line.
+The 2026-09-09 audit updated Nuxt to 4.5.2 and refreshed vulnerable
+compatible npm and Composer dependencies. Both npm projects and the locked
+production Composer dependencies reported zero known advisories after the
+update. Keep using the committed lockfiles and rerun audits before release.
+Do not use `npm audit fix --force` to resolve future advisories without
+reviewing the resulting version changes.
+
+Run `node scripts/audit-smoke.mjs` after the frontend build to verify complete
+sitemap pagination, dynamic CMS pages, locale redirects, and correct 404/503
+responses. It uses an isolated fixture API and does not modify real records.
+The broader runtime smoke script modifies and cleans up QA records, so run it
+separately from checks that expect exact catalog or sitemap counts.
+
+## Travel service launch requirements
+
+- Apply `2026_09_10_000400_add_travel_platform` with `php artisan migrate --force`; preserve the current database and `APP_KEY`.
+- Set `FRONTEND_URL` to the public frontend origin for password recovery, and configure a working SMTP mailer. Log/array mailers deliberately cannot send recovery links.
+- Configure suppliers through the dedicated admin panel. Validate sandbox responses and contractual permissions before enabling a live connection. `TRAVEL_DAILY_SEARCH_LIMIT` defaults to 200 public searches per provider per day, including Geoapify autocomplete traffic.
+- The current product supports requests, manual proposals, partner redirects and manual confirmation records. It does not take payments, issue tickets, book suppliers automatically or automate refunds. Do not advertise those operations as available.
+- Run `php artisan test`, both frontend builds, and the travel/production smoke scripts. Use a separate seeded test database for browser workflow testing. `runtime-smoke.ps1` now retains a cancelled QA request to preserve its audit trail.
+- Detailed scope and remaining requirements: [TRAVEL_PLATFORM_IMPLEMENTATION.md](TRAVEL_PLATFORM_IMPLEMENTATION.md).
+
+## Outbound packages
+
+Apply `2026_09_10_001000_add_package_offers` with the normal non-destructive migration command. Rebuild both applications and restart Nuxt. Run `node scripts/package-smoke.mjs`. Configure approved supplier relationships before publishing their offers; all CSV rows start as drafts. Tourvisor search requires an account token, confirmed EVN coverage and dictionary mappings. ANRIVA, TEZ TOUR, Sletat and TBO remain manual/CSV workflows until their account-specific API adapters are implemented. Package payments and automatic booking are not enabled. See [PACKAGE_PLATFORM_IMPLEMENTATION.md](PACKAGE_PLATFORM_IMPLEMENTATION.md).
+
+## Armenian supplier API profiles
+
+Apply `2026_09_11_001000_add_provider_integration_profiles` and rebuild the admin. Keep `APP_KEY` unchanged: the new sandbox/live profiles are encrypted with it. ANRIVA, Maratuk, World Voyage and TravelOne have separate environment settings. Only TravelOne has a TourVisio implementation for admin authentication, location dictionaries and package search previews. Supplier-issued API addresses, credentials and permission confirmation are required; public search, booking and payments are not enabled by these profiles. Other supplier adapters still need their protocol documentation. PHP cURL and public HTTPS access are required; private/reserved destinations, redirects and proxy routing are blocked. Run `php artisan test` and `node scripts/package-smoke.mjs`. See [PROVIDER_API_SETUP.md](PROVIDER_API_SETUP.md).
