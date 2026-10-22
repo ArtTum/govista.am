@@ -278,3 +278,18 @@ Apply `2026_09_10_001000_add_package_offers` with the normal non-destructive mig
 ## Armenian supplier API profiles
 
 Apply `2026_09_11_001000_add_provider_integration_profiles` and rebuild the admin. Keep `APP_KEY` unchanged: the new sandbox/live profiles are encrypted with it. ANRIVA, Maratuk, World Voyage and TravelOne have separate environment settings. Only TravelOne has a TourVisio implementation for admin authentication, location dictionaries and package search previews. Supplier-issued API addresses, credentials and permission confirmation are required; public search, booking and payments are not enabled by these profiles. Other supplier adapters still need their protocol documentation. PHP cURL and public HTTPS access are required; private/reserved destinations, redirects and proxy routing are blocked. Run `php artisan test` and `node scripts/package-smoke.mjs`. See [PROVIDER_API_SETUP.md](PROVIDER_API_SETUP.md).
+
+## IndexNow notifications
+
+The public ownership key is `9362af3e1c8f10ef89db21efb643ec18`. Deploy `frontend/public/9362af3e1c8f10ef89db21efb643ec18.txt` before submitting; it must return the same plain-text key at `https://govista.am/9362af3e1c8f10ef89db21efb643ec18.txt`.
+
+From the repository root with Node 24, review a dry run first:
+
+```sh
+node scripts/indexnow-submit.mjs https://govista.am/hy
+node scripts/indexnow-submit.mjs --sitemap
+```
+
+For a sitewide change affecting all public pages, submit the live sitemap after review with `node scripts/indexnow-submit.mjs --sitemap --submit`. For individual changes, pass only the affected canonical URLs and `--submit`. The script checks the live key before one POST to Yandex, accepts only public localized HTTPS URLs without query strings or fragments, and caps submissions at 10,000 distinct URLs. HTTP 200 means submitted (exit 0); HTTP 202 means key verification is pending (exit 2). Errors exit 1. No automatic retries or scheduled submissions are configured, and submission does not guarantee indexing. See the [Yandex IndexNow reference](https://yandex.com/support/webmaster/en/indexnow/reference) and [IndexNow FAQ](https://www.indexnow.org/faq).
+
+Status on 2026-10-23: the CLI and key are prepared; no IndexNow submission has been made yet. GA4 is linked to Search Console for stream `16184382955`, with Queries and Organic search traffic reports available. Webmaster is linked to Metrica counter `113741781`; its overview has received pageviews. Webmaster's tag-crawl switch is unavailable during the provider outage.
