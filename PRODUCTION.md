@@ -153,8 +153,8 @@ After DNS and HTTPS are live:
 1. Add and verify `https://govista.am` in Google Search Console and Yandex
    Webmaster.
 2. Submit `https://govista.am/sitemap.xml` in both tools.
-3. Request indexing for `/hy`, `/hy/tours?scope=domestic` and
-   `/hy/tours?scope=international`, then repeat for the Russian and English
+3. Request indexing for `/hy`, `/hy/domestic-tours` and
+   `/hy/international-tours`, then repeat for the Russian and English
    landing pages.
 4. Keep only one canonical host. The supplied Nginx profile redirects
    `www.govista.am` to `govista.am`.
@@ -163,6 +163,65 @@ After DNS and HTTPS are live:
 
 Sitemaps and indexing requests improve discovery, but search engines decide
 when pages are indexed and how they rank.
+
+### Google and Yandex verification and analytics
+
+Manage the site's Search Console, Analytics, Webmaster and Metrica entries
+with the owner's `artur999033@gmail.com` account. Check existing entries before
+creating another property or tag. A configured verification token is not proof
+that ownership has been verified in the provider's dashboard.
+
+The frontend renders verification meta tags in the initial server HTML. The
+Google and Yandex tokens for `https://govista.am/`, the GA4 measurement ID, and
+the Metrica tag ID are included in the runtime defaults.
+Declare the provider-issued values in the frontend environment file used by
+the running service (the sample systemd unit uses `.env.production`):
+
+```dotenv
+NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION=vrUzvsty2BfpMzPBfBU8iid3T9xAM6DTUujMJh5gbx4
+NUXT_PUBLIC_YANDEX_VERIFICATION=f100d1cbaa3add23
+NUXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-CG9985MZ90
+NUXT_PUBLIC_YANDEX_METRICA_ID=113741781
+```
+
+Use the GA4 web stream measurement ID beginning with `G-`, and the numeric
+Metrica tag ID. These are public identifiers, not account passwords or API
+secrets. Never put account credentials in public runtime configuration.
+
+The GoVista.am Google Analytics account is `413072034`, its GoVista property is
+`560301302`, and the GoVista website stream is `16184382955` (measurement ID
+`G-CG9985MZ90`). Enhanced Measurement was confirmed off during setup.
+The GoVista Yandex Metrica tag is `113741781`. Advanced Matching and automatic
+goals were explicitly turned off and saved; Session Replay is not set up.
+
+For the manual page-view integration, turn off **Enhanced Measurement** in
+the GA4 web stream, including browser-history changes, form interactions and
+outbound clicks. In Metrica, turn off automatic goals, advanced matching and
+session replay. The integration explicitly sends sanitized public-page views:
+it strips URL queries and fragments, omits account/recovery/error pages, and
+does not initialize on localhost or preview origins. It does not pass booking
+form values or push ecommerce events. Metrica uses its own empty
+`govistaMetricaDataLayer` so it cannot fall back to Google's shared `dataLayer`.
+The dashboard's separate automatic ecommerce collection was not confirmed off;
+provider libraries may send additional automatic or service events. The trackers
+stay off when their IDs are blank.
+
+The current server checkout reported by the owner is `/var/domains/govista.am`.
+After the code has been pushed and pulled into that checkout, build the frontend
+and restart the service that runs it:
+
+```bash
+cd /var/domains/govista.am/frontend
+npm run build && sudo systemctl restart govista-nuxt
+```
+
+Confirm the Google/Yandex verification tags appear in the live page source,
+then complete **Verify** in each webmaster dashboard and submit
+`https://govista.am/sitemap.xml`. Confirm actual page views in GA4 Realtime and
+Metrica after configuring their IDs. A successful build alone does not prove
+that a counter is collecting visits or that webmaster ownership is verified.
+
+Run the focused local tracking checks with `node scripts/site-analytics-test.mjs`.
 
 ## 8. Pre-deployment quality gate
 

@@ -10,6 +10,10 @@ export default defineNuxtConfig({
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://127.0.0.1:8000/api',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://govista.am',
+      googleSiteVerification: 'vrUzvsty2BfpMzPBfBU8iid3T9xAM6DTUujMJh5gbx4',
+      yandexVerification: 'f100d1cbaa3add23',
+      googleAnalyticsId: 'G-CG9985MZ90',
+      yandexMetricaId: '113741781',
     },
   },
   app: {
