@@ -13,6 +13,12 @@ const fixtureApi = createServer((request, response) => {
   if (outage) { response.writeHead(503); response.end('{}'); return }
   if (url.pathname === '/v1/settings') { response.end('{"site_name":"GoVista"}'); return }
   if (url.pathname === '/v1/services') { response.end('[]'); return }
+  const fixtureServices = { 'seo-stay': 'accommodation', 'seo-car': 'transport', 'seo-transfer': 'transfer' }
+  const serviceSlug = url.pathname.match(/^\/v1\/services\/([^/]+)$/)?.[1]
+  if (fixtureServices[serviceSlug]) {
+    response.end(JSON.stringify({ service: { id: 1, slug: serviceSlug, type: fixtureServices[serviceSlug], title: 'SEO fixture service', description: 'Public service details', features: [] }, related: [] }))
+    return
+  }
   if (url.pathname === '/v1/home' || /\/v1\/(tours|posts|services|pages)\/.+/.test(url.pathname)) {
     response.writeHead(404); response.end('{}'); return
   }
@@ -55,6 +61,38 @@ try {
   check(!xml.includes('/en/about</loc>'), 'Inactive/unavailable static content should not appear in sitemap')
   const redirect = await request('/de/tours?search=Armenia')
   check(redirect.status === 301 && redirect.headers.get('location') === '/hy/tours?search=Armenia', 'Invalid locales should redirect while keeping search')
+  const rootRedirect = await request('/')
+  check(rootRedirect.status === 301 && rootRedirect.headers.get('location') === '/hy', 'Root locale redirect must be permanent')
+  for (const locale of ['hy', 'ru', 'en']) {
+    for (const route of ['', '/tours']) {
+      const trailing = await request(`/${locale}${route}/?utm_source=seo-check`)
+      check(trailing.status === 301 && trailing.headers.get('location') === `/${locale}${route}?utm_source=seo-check`, `${locale}${route}: trailing slash must consolidate while preserving query`)
+    }
+    for (const scope of ['domestic', 'international']) {
+      const legacy = await request(`/${locale}/tours/?scope=${scope}&type=group&page=2`)
+      check(legacy.status === 301 && legacy.headers.get('location') === `/${locale}/${scope}-tours?type=group&page=2`, `${locale}: legacy scope must redirect to its catalog without losing filters`)
+    }
+  }
+  for (const [slug, section] of [['seo-stay', 'stays'], ['seo-car', 'cars']]) {
+    const alias = await request(`/en/services/${slug}?date=2026-12-12&guests=3`)
+    check(alias.status === 301 && alias.headers.get('location') === `/en/${section}/${slug}?date=2026-12-12&guests=3`, `${slug}: duplicate service route must consolidate without losing booking preferences`)
+    check((await request(`/en/${section}/${slug}`)).status === 200, `${slug}: canonical rental target must remain accessible`)
+  }
+  check((await request('/en/services/seo-transfer')).status === 200, 'A transfer service must keep its own public details page')
+  const catalog = await request('/en/tours')
+  check(catalog.status === 200, 'Canonical tour catalog must remain accessible')
+  const catalogHtml = await catalog.text()
+  check(catalogHtml.includes(`rel="canonical" href="${origin}/en/tours"`) && !/content="noindex/.test(catalogHtml), 'Canonical tour catalog must stay self-canonical and indexable')
+  const filtered = await request('/en/tours?page=2&type=group&search=lake&date=2026-12-12&guests=3')
+  check(filtered.status === 200, 'Filtered catalog must remain usable')
+  const filteredHtml = await filtered.text()
+  const tourLinks = [...filteredHtml.matchAll(/<a\b[^>]*href="([^\"]*\/tours\/audit-tours-[^\"]*)"/g)].map(match => new URL(match[1].replaceAll('&amp;', '&'), origin))
+  check(tourLinks.length > 0, 'Fixture must exercise rendered tour links')
+  check(tourLinks.every(url => !['page', 'scope', 'search', 'type'].some(key => url.searchParams.has(key))), 'Tour details links must not inherit catalog filters that cause noindex duplicates')
+  check(tourLinks.every(url => url.searchParams.get('date') === '2026-12-12' && url.searchParams.get('guests') === '3'), 'Tour details links must preserve booking date and guest count')
+  check(/content="noindex/.test(filteredHtml), 'Search/filter results must keep their intentional noindex')
+  const account = await request('/en/account')
+  check(account.status === 200 && /content="noindex/.test(await account.text()), 'Private account page must remain excluded from indexing')
   check((await request('/en/tours/missing')).status === 404, 'Missing content should be 404')
   outage = true
   const failedSitemap = await request('/sitemap.xml')

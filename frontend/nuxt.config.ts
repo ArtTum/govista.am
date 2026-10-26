@@ -39,7 +39,7 @@ export default defineNuxtConfig({
     compressPublicAssets: true,
   },
   routeRules: {
-    '/': { redirect: '/hy' },
+    '/': { redirect: { to: '/hy', statusCode: 301 } },
     '/**': {
       headers: {
         'X-Content-Type-Options': 'nosniff',

@@ -5,7 +5,12 @@ const props = defineProps({ tour: { type: Object, required: true }, index: { typ
 const { t, localePath } = useLocale()
 const { openBooking } = useBooking()
 const { savedSlugs, toggle } = useSavedTours()
+const route = useRoute()
 const saved = computed(() => savedSlugs.value.includes(props.tour.slug))
+const tourLink = computed(() => ({
+  path: localePath(`/tours/${props.tour.slug}`),
+  query: { date: route.query.date || undefined, guests: route.query.guests || undefined },
+}))
 
 const formattedPrice = computed(() => String(Math.round(Number(props.tour.price || 0))).replace(/\B(?=(\d{3})+(?!\d))/g, ' '))
 </script>
@@ -13,7 +18,7 @@ const formattedPrice = computed(() => String(Math.round(Number(props.tour.price 
 <template>
   <article class="tour-card" v-reveal="index * 80">
     <div class="tour-image">
-      <NuxtLink :to="{ path: localePath(`/tours/${tour.slug}`), query: $route.query }" class="tour-image-link">
+      <NuxtLink :to="tourLink" class="tour-image-link">
       <img :src="tour.image" :alt="tour.title" width="1200" height="800" loading="lazy" decoding="async">
       </NuxtLink>
       <div class="tour-badge-stack">
@@ -25,7 +30,7 @@ const formattedPrice = computed(() => String(Math.round(Number(props.tour.price 
     </div>
     <div class="tour-card-body">
       <div class="tour-meta"><span><MapPin :size="14" />{{ tour.location }}</span><span><Clock3 :size="14" />{{ tour.duration }}</span></div>
-      <h3><NuxtLink :to="{ path: localePath(`/tours/${tour.slug}`), query: $route.query }">{{ tour.title }}</NuxtLink></h3>
+      <h3><NuxtLink :to="tourLink">{{ tour.title }}</NuxtLink></h3>
       <p>{{ tour.subtitle || tour.description }}</p>
       <div class="tour-card-footer">
         <div class="tour-price"><small>{{ t('common.from') }}</small><strong>{{ formattedPrice }} <span>{{ tour.currency }}</span></strong><small>{{ t('common.perPerson') }}</small></div>

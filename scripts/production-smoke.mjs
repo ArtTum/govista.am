@@ -124,7 +124,7 @@ try {
   await waitUntilReady(server)
 
   const root = await request(`${origin}/`)
-  check(root.response.status === 307, `Root route must redirect with HTTP 307, got ${root.response.status}`)
+  check(root.response.status === 301, `Root route must redirect with HTTP 301, got ${root.response.status}`)
   check(root.response.headers.get('location') === '/hy', 'Root route must redirect to /hy')
 
   const expectedUrls = []

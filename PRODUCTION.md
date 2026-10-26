@@ -223,6 +223,14 @@ that a counter is collecting visits or that webmaster ownership is verified.
 
 Run the focused local tracking checks with `node scripts/site-analytics-test.mjs`.
 
+Canonical URL handling uses permanent redirects for the root locale, trailing
+slashes on localized routes, legacy `/tours?scope=domestic|international` URLs,
+and old `/services/:slug` aliases for stays and cars. Tour cards carry booking
+date and guest count, without propagating catalog filters into detail URLs.
+Account pages, search/filter results and travel-search forms intentionally keep
+`noindex`; they do not belong in the public sitemap. Run `node scripts/audit-smoke.mjs`
+after building to verify these redirects, rendered links and indexing boundaries.
+
 ## 8. Pre-deployment quality gate
 
 Run these from the project root before packaging a release:
