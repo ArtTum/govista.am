@@ -33,17 +33,17 @@ const copy = computed(() => {
     hy: {
       accommodation: ['Կացարաններ Հայաստանում', 'Ընտրված համարներ, բնակարաններ և առանձնատներ՝ պարզ պայմաններով ու GoVista-ի աջակցությամբ։', 'Կացարանների վարձույթ Հայաստանում | GoVista'],
       transport: ['Ավտոմեքենաների վարձույթ', 'Economy մեքենաներից մինչև ամենագնաց և մինիվեն՝ վարորդով կամ առանց վարորդի։', 'Ավտոմեքենաների վարձույթ Հայաստանում | GoVista'],
-      transfer: ['Անհատական տրանսֆերներ', 'Swift Rent-ի վարորդներով՝ Զվարթնոցից քաղաքներ, հյուրանոցներ և հանգստավայրեր Հայաստանում ու Վրաստանում։', 'Օդանավակայանի տրանսֆերներ | GoVista'],
+      transfer: ['Անհատական տրանսֆերներ', 'Անհատական տրանսֆերներ վարորդով՝ Զվարթնոցից քաղաքներ, հյուրանոցներ և հանգստավայրեր Հայաստանում ու Վրաստանում։', 'Օդանավակայանի տրանսֆերներ | GoVista'],
     },
     ru: {
       accommodation: ['Жильё в Армении', 'Отобранные номера, апартаменты и дома с понятными условиями и поддержкой GoVista.', 'Аренда жилья в Армении | GoVista'],
       transport: ['Аренда автомобилей', 'От экономичных машин до внедорожников и минивэнов — с водителем или без.', 'Аренда автомобилей в Армении | GoVista'],
-      transfer: ['Индивидуальные трансферы', 'С водителями Swift Rent из Звартноца в города, отели и курорты Армении и Грузии.', 'Трансферы из аэропорта | GoVista'],
+      transfer: ['Индивидуальные трансферы', 'Трансферы с водителем из Звартноца в города, отели и курорты Армении и Грузии.', 'Трансферы из аэропорта | GoVista'],
     },
     en: {
       accommodation: ['Places to stay in Armenia', 'Handpicked rooms, apartments and private homes with clear terms and GoVista support.', 'Stays & Holiday Rentals in Armenia | GoVista'],
       transport: ['Car rental in Armenia', 'From efficient city cars to SUVs and minivans, with or without a chauffeur.', 'Car Rental in Armenia | GoVista'],
-      transfer: ['Private transfers', 'Swift Rent drivers from Zvartnots Airport to cities, hotels and resorts in Armenia and Georgia.', 'Airport Transfers | GoVista'],
+      transfer: ['Private transfers', 'Private transfers with a driver from Zvartnots Airport to cities, hotels and resorts in Armenia and Georgia.', 'Airport Transfers | GoVista'],
     },
   }
   return messages[locale.value][props.type]

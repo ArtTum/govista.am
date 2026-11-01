@@ -46,6 +46,19 @@ class SwiftCatalogImportTest extends TestCase
         }
     }
 
+    public function test_rebranding_updates_existing_supplier_records_without_changing_booking_ids(): void
+    {
+        $catalog = $this->catalog();
+        $old = $catalog['records'][0];
+        $old['slug'] = 'swift-'.$old['slug'];
+        $service = Service::create($old);
+        app(SwiftCatalogImport::class)->run($catalog, true);
+
+        $this->assertSame($catalog['records'][0]['slug'], $service->fresh()->slug);
+        $this->assertSame(1, Service::where('supplier->reference', $old['supplier']['reference'])->count());
+        $this->getJson('/api/v1/services/'.$old['slug'])->assertOk()->assertJsonPath('service.id', $service->id)->assertJsonPath('service.slug', $catalog['records'][0]['slug']);
+    }
+
     public function test_manual_slug_collision_rolls_back_the_entire_import(): void
     {
         $catalog = $this->catalog();
@@ -68,6 +81,10 @@ class SwiftCatalogImportTest extends TestCase
         foreach (['hy', 'ru', 'en'] as $locale) {
             $this->getJson('/api/v1/services?type=transport&locale='.$locale)->assertOk()->assertJsonCount($existingCars + 21);
             $this->getJson('/api/v1/services?type=transfer&locale='.$locale)->assertOk()->assertJsonCount($existingTransfers + 23);
+            foreach (['/api/v1/services', '/api/v1/home', '/api/v1/services/'.$this->catalog()['records'][0]['slug']] as $path) {
+                $response = $this->getJson($path.'?locale='.$locale)->assertOk();
+                $this->assertDoesNotMatchRegularExpression('/swift(?:\\.rent|\\s+rent|-car-|-transfer-)/i', $response->getContent());
+            }
         }
         $transfer = Service::where('type', 'transfer')->where('supplier->code', 'swift')->firstOrFail();
         $payload = ['type' => 'transfer', 'item_id' => $transfer->id, 'item_title' => 'Untrusted client title', 'name' => 'Catalog QA', 'email' => 'catalog-test@example.test', 'participants' => 2, 'locale' => 'hy'];
@@ -77,5 +94,8 @@ class SwiftCatalogImportTest extends TestCase
         $this->assertSame('swift', data_get($booking->request_details, 'supplier.code'));
         $this->assertSame($transfer->supplier['reference'], data_get($booking->request_details, 'supplier.reference'));
         $this->assertSame($transfer->title['hy'], $booking->item_title);
+        $this->assertArrayNotHasKey('supplier', $transfer->toLocalizedArray());
+        $this->assertSame($transfer->supplier['tariffs'], $transfer->toLocalizedArray()['rental_terms']['tariffs']);
+        $this->assertArrayNotHasKey('supplier', $booking->customerData()['request_details']);
     }
 }

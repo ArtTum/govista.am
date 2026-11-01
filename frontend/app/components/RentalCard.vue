@@ -24,7 +24,6 @@ const formattedPrice = computed(() => String(Math.round(Number(props.item.price_
     </NuxtLink>
     <div class="rental-card-body">
       <span class="rental-location"><MapPin :size="14" />{{ item.location }}</span>
-      <small v-if="item.supplier?.name" class="supplier-name">{{ item.supplier.name }}</small>
       <h3><NuxtLink :to="detailPath">{{ item.title }}</NuxtLink></h3>
       <p>{{ item.description }}</p>
       <div class="rental-features">

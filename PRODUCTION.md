@@ -273,13 +273,19 @@ separately from checks that expect exact catalog or sitemap counts.
 ## Swift Rent public catalog
 
 Swift cars and transfer routes are imported as GoVista inquiry services. They
-retain supplier references for operators; no customer data is sent to Swift and
+retain private supplier references for operators; no customer data is sent to Swift and
 no supplier booking or payment is performed by this import.
 
 Refresh the reviewed snapshot with `node scripts/sync-swift-catalog.mjs --write`.
-The fixed public APIs supply English/Russian content, already discounted AMD
-rental tariffs and per-vehicle transfer rates. Armenian content is localized
-for GoVista. The displayed car starting rate is the published 7+ day tariff;
+The fixed public APIs supply vehicle/route details, already discounted AMD
+rental tariffs and per-vehicle transfer rates. Public descriptions are written
+for GoVista in three languages. The refresh also downloads the 44 catalog images
+into `frontend/public/catalog/rentals`; deploy those assets with the frontend.
+Supplier names, references and source URLs stay out of public API responses,
+customer booking data, page copy and metadata. Public slugs contain no supplier
+name; old supplier-prefixed detail links redirect permanently to the new slugs.
+Reimports match private supplier references to preserve service/booking IDs.
+The displayed car starting rate is the published 7+ day tariff;
 seasonal discounts must not be applied a second time. Transfer class/capacity
 tables preserve each route's published prices. Ratings are not fabricated.
 

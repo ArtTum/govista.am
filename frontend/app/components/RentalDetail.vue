@@ -27,6 +27,9 @@ useContentError(error)
 if (data.value?.service && data.value.service.type !== props.type) {
   throw createError({ statusCode: 404, statusMessage: 'Rental not found' })
 }
+if (data.value?.service?.slug && data.value.service.slug !== route.params.slug) {
+  await navigateTo({ path: localePath(`/${routeSegment.value}/${data.value.service.slug}`), query: route.query, hash: route.hash }, { redirectCode: 301, replace: true })
+}
 
 const item = computed(() => data.value?.service || {})
 const related = computed(() => data.value?.related || [])
@@ -66,8 +69,8 @@ useHead(() => ({
             url: `${siteUrl}${localePath(`/${routeSegment.value}/${item.value.slug}`)}`,
             price: Number(item.value.price_from || 0),
             priceCurrency: item.value.currency,
-            availability: item.value.supplier ? undefined : 'https://schema.org/InStock',
-            eligibleDuration: item.value.supplier?.minimum_days ? { '@type': 'QuantitativeValue', minValue: item.value.supplier.minimum_days, unitCode: 'DAY' } : undefined,
+            availability: item.value.rental_terms ? undefined : 'https://schema.org/InStock',
+            eligibleDuration: item.value.rental_terms?.minimum_days ? { '@type': 'QuantitativeValue', minValue: item.value.rental_terms.minimum_days, unitCode: 'DAY' } : undefined,
           },
         },
         {
@@ -92,7 +95,7 @@ useHead(() => ({
         <NuxtLink :to="localePath(`/${routeSegment}`)" class="back-link"><ArrowLeft :size="17" />{{ kindLabel }}</NuxtLink>
         <p class="rental-detail-kind"><BedDouble v-if="isStay" :size="16" /><CarFront v-else :size="16" />{{ kindLabel }}</p>
         <h1>{{ item.title }}</h1>
-        <div class="detail-meta"><span><MapPin :size="18" />{{ item.location }}</span><span v-if="Number(item.review_count) > 0"><Star :size="17" fill="currentColor" />{{ item.rating }} ({{ item.review_count }} {{ t('common.reviews') }})</span><span v-if="item.supplier?.name">{{ item.supplier.name }}</span></div>
+        <div class="detail-meta"><span><MapPin :size="18" />{{ item.location }}</span><span v-if="Number(item.review_count) > 0"><Star :size="17" fill="currentColor" />{{ item.rating }} ({{ item.review_count }} {{ t('common.reviews') }})</span></div>
       </div>
     </section>
 
@@ -102,7 +105,7 @@ useHead(() => ({
           <p class="section-eyebrow">{{ t('ui.verified') }}</p>
           <h2>{{ locale === 'hy' ? 'Ամեն ինչ այս տարբերակի մասին' : locale === 'ru' ? 'Всё об этом варианте' : 'Everything about this option' }}</h2>
           <p class="detail-description">{{ item.description }}</p>
-          <SupplierDetails v-if="item.supplier" :item="item" />
+          <SupplierDetails v-if="item.rental_terms" :item="item" />
           <div class="rental-detail-features">
             <span v-for="feature in item.features || []" :key="feature"><Check :size="17" />{{ feature }}</span>
           </div>
@@ -116,7 +119,7 @@ useHead(() => ({
           <small>{{ item.unit }}</small>
           <div class="booking-divider"></div>
           <div class="rental-booking-note"><CalendarDays :size="18" /><span>{{ isStay ? t('forms.checkIn') : t('forms.date') }}<strong>{{ locale === 'hy' ? 'Ընտրեք ամրագրման ժամանակ' : locale === 'ru' ? 'Выберите при бронировании' : 'Choose while booking' }}</strong></span></div>
-          <p v-if="item.supplier" class="supplier-request-note">{{ travel.requestNote }}</p>
+          <p v-if="item.rental_terms" class="supplier-request-note">{{ travel.requestNote }}</p>
           <button @click="openBooking(item)">{{ isStay || isTransfer ? t('common.book') : t('common.rent') }}</button>
           <div class="booking-assurance"><ShieldCheck :size="18" /><span>{{ t('ui.verified') }}<br><strong>{{ t('ui.support') }}</strong></span></div>
         </aside>

@@ -7,11 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    use HasLocalizedContent;
+    use HasLocalizedContent {
+        toLocalizedArray as private localizedContentArray;
+    }
 
     protected $guarded = [];
 
     protected array $translatable = ['title', 'description', 'location', 'unit', 'features'];
+
+    public function toLocalizedArray(string $locale = 'hy'): array
+    {
+        $data = $this->localizedContentArray($locale);
+        unset($data['supplier']);
+        if ($this->supplier) {
+            $data['rental_terms'] = collect($this->supplier)->only([
+                'tariffs', 'minimum_days', 'deposit', 'passengers', 'luggage', 'distance_km',
+            ])->all();
+        }
+
+        return $data;
+    }
 
     protected function casts(): array
     {

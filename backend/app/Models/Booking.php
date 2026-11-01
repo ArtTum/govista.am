@@ -21,7 +21,7 @@ class Booking extends Model
     {
         $data = $this->only(['id', 'reference', 'type', 'item_title', 'start_date', 'end_date', 'participants', 'message', 'status', 'total_price', 'currency', 'quote_terms', 'quote_expires_at', 'confirmation_reference', 'request_details', 'version', 'created_at']);
         $data['components'] = collect($this->components ?? [])->map(fn ($item) => Arr::only($item, ['type', 'title', 'sell_price', 'currency', 'status']))->all();
-        $data['request_details'] = Arr::except($this->request_details ?? [], ['supplier_reference', 'search_token']);
+        $data['request_details'] = Arr::except($this->request_details ?? [], ['supplier_reference', 'supplier', 'search_token']);
         $data['events'] = $this->events()->where('internal', false)->oldest('id')->get(['id', 'status', 'message', 'snapshot', 'created_at']);
 
         return $data;

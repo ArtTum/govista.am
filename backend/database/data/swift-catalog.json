@@ -1,13 +1,13 @@
 {
   "supplier": "swift",
-  "captured_at": "2026-11-01T18:26:34.903Z",
+  "captured_at": "2026-11-01T18:51:44.774Z",
   "sources": [
     "https://swift.rent/backend/api/fleet",
     "https://transfer.swift.rent/api/transfers"
   ],
   "records": [
     {
-      "slug": "swift-car-ford-fiesta",
+      "slug": "car-ford-fiesta",
       "type": "transport",
       "title": {
         "hy": "Ford Fiesta կամ համարժեք",
@@ -15,16 +15,16 @@
         "en": "Ford Fiesta or similar"
       },
       "description": {
-        "hy": "Ford Fiesta կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 2 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Ford Fiesta - практичный и экономичный вариант для поездок по городу и повседневных маршрутов по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Ford Fiesta или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля конкретно не указаны.",
-        "en": "Ford Fiesta is a practical and fuel-efficient choice for city driving and everyday travel across Armenia and Georgia. \nBy booking this category, you may receive a Ford Fiesta or another vehicle of the same or a higher category, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price shows the minimum rental rate for bookings of 7+ days and is valid for the current month when pick-up and drop-off dates are not specified."
+        "hy": "Ford Fiesta կամ համարժեք՝ 5 նստատեղով և 2 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Форд Фиеста или подобная: 5 мест, 2 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Ford Fiesta or similar with 5 seats and space for 2 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-10-image-89.webp?v=3",
+      "image": "/catalog/rentals/car-ford-fiesta.webp",
       "gallery": [],
       "price_from": 12600,
       "currency": "AMD",
@@ -64,7 +64,8 @@
         "name": "Swift Rent",
         "reference": "car:10",
         "url": "https://swift.rent/car/ford-fiesta",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-10-image-89.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -110,7 +111,7 @@
       }
     },
     {
-      "slug": "swift-car-kia-rio",
+      "slug": "car-kia-rio",
       "type": "transport",
       "title": {
         "hy": "Kia Rio կամ համարժեք",
@@ -118,16 +119,16 @@
         "en": "Kia Rio or similar"
       },
       "description": {
-        "hy": "Kia Rio կամ համարժեք՝ Swift Rent-ից։ 4 նստատեղ, 3 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Kia Rio - надежный и экономичный вариант для комфортных поездок по городу и повседневных маршрутов по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Kia Rio или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля конкретно не указаны.",
-        "en": "Kia Rio is a reliable and economical choice for comfortable city driving and everyday travel across Armenia and Georgia. \nBy booking this category, you may receive a Kia Rio or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Kia Rio կամ համարժեք՝ 4 նստատեղով և 3 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Киа Рио или подобная: 4 мест, 3 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Kia Rio or similar with 4 seats and space for 3 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2025/12/fleet-product-6-image-269.webp?v=3",
+      "image": "/catalog/rentals/car-kia-rio.webp",
       "gallery": [],
       "price_from": 13200,
       "currency": "AMD",
@@ -167,7 +168,8 @@
         "name": "Swift Rent",
         "reference": "car:6",
         "url": "https://swift.rent/car/kia-rio",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2025/12/fleet-product-6-image-269.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -213,7 +215,7 @@
       }
     },
     {
-      "slug": "swift-car-ford-focus",
+      "slug": "car-ford-focus",
       "type": "transport",
       "title": {
         "hy": "Ford Focus կամ համարժեք",
@@ -221,16 +223,16 @@
         "en": "Ford Focus or similar"
       },
       "description": {
-        "hy": "Ford Focus կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 3 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Ford Focus - комфортный и практичный вариант как для поездок по городу, так и для более длительных путешествий по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Ford Focus или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля конкретно не указаны.",
-        "en": "Ford Focus is a comfortable and practical choice for both city driving and longer trips across Armenia and Georgia. \nBy booking this category, you may receive a Ford Focus or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Ford Focus կամ համարժեք՝ 5 նստատեղով և 3 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Форд Фокус или подобная: 5 мест, 3 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Ford Focus or similar with 5 seats and space for 3 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-22-image-231.webp?v=3",
+      "image": "/catalog/rentals/car-ford-focus.webp",
       "gallery": [],
       "price_from": 13200,
       "currency": "AMD",
@@ -270,7 +272,8 @@
         "name": "Swift Rent",
         "reference": "car:22",
         "url": "https://swift.rent/car/ford-focus",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-22-image-231.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -316,7 +319,7 @@
       }
     },
     {
-      "slug": "swift-car-kia-rio-x-line",
+      "slug": "car-kia-rio-x-line",
       "type": "transport",
       "title": {
         "hy": "Kia Rio X-Line կամ համարժեք",
@@ -324,16 +327,16 @@
         "en": "Kia Rio X-Line or similar"
       },
       "description": {
-        "hy": "Kia Rio X-Line կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 4 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Kia Rio X-Line - практичный и комфортный вариант для поездок по городу и путешествий по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Kia Rio X-Line или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Kia Rio X-Line is a practical and comfortable choice for city driving and trips across Armenia and Georgia. \nBy booking this category, you may receive a Kia Rio X-Line or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Kia Rio X-Line կամ համարժեք՝ 5 նստատեղով և 4 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Киа Рио Икс-Лайн или подобная: 5 мест, 4 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Kia Rio X-Line or similar with 5 seats and space for 4 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-20-image-209.webp?v=3",
+      "image": "/catalog/rentals/car-kia-rio-x-line.webp",
       "gallery": [],
       "price_from": 14400,
       "currency": "AMD",
@@ -373,7 +376,8 @@
         "name": "Swift Rent",
         "reference": "car:20",
         "url": "https://swift.rent/car/kia-rio-x-line",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-20-image-209.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -419,7 +423,7 @@
       }
     },
     {
-      "slug": "swift-car-hyundai-elantra",
+      "slug": "car-hyundai-elantra",
       "type": "transport",
       "title": {
         "hy": "Hyundai Elantra կամ համարժեք",
@@ -427,16 +431,16 @@
         "en": "Hyundai Elantra or similar"
       },
       "description": {
-        "hy": "Hyundai Elantra կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 3 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Hyundai Elantra - комфортный и надежный вариант для поездок по городу и более длительных путешествий по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Hyundai Elantra или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля конкретно не указаны.",
-        "en": "Hyundai Elantra is a comfortable and reliable choice for city driving and longer trips across Armenia and Georgia. \nBy booking this category, you may receive a Hyundai Elantra or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Hyundai Elantra կամ համարժեք՝ 5 նստատեղով և 3 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Хендай Элантра или подобная: 5 мест, 3 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Hyundai Elantra or similar with 5 seats and space for 3 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2025/12/fleet-product-9-image-293.webp?v=3",
+      "image": "/catalog/rentals/car-hyundai-elantra.webp",
       "gallery": [],
       "price_from": 15000,
       "currency": "AMD",
@@ -476,7 +480,8 @@
         "name": "Swift Rent",
         "reference": "car:9",
         "url": "https://swift.rent/car/hyundai-elantra",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2025/12/fleet-product-9-image-293.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -522,7 +527,7 @@
       }
     },
     {
-      "slug": "swift-car-nissan-kicks",
+      "slug": "car-nissan-kicks",
       "type": "transport",
       "title": {
         "hy": "Nissan Kicks կամ համարժեք",
@@ -530,16 +535,16 @@
         "en": "Nissan Kicks or similar"
       },
       "description": {
-        "hy": "Nissan Kicks կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 4 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Nissan Kicks - современный и практичный кроссовер для комфортных поездок по городу и более длительных путешествий по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Nissan Kicks или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Nissan Kicks is a modern and practical crossover choice for comfortable city driving and longer trips across Armenia and Georgia. \nBy booking this category, you may receive a Nissan Kicks or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Nissan Kicks կամ համարժեք՝ 5 նստատեղով և 4 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Ниссан Кикс или подобная: 5 мест, 4 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Nissan Kicks or similar with 5 seats and space for 4 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-19-image-198.webp?v=3",
+      "image": "/catalog/rentals/car-nissan-kicks.webp",
       "gallery": [],
       "price_from": 16200,
       "currency": "AMD",
@@ -579,7 +584,8 @@
         "name": "Swift Rent",
         "reference": "car:19",
         "url": "https://swift.rent/car/nissan-kicks",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-19-image-198.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -625,7 +631,7 @@
       }
     },
     {
-      "slug": "swift-car-renault-duster",
+      "slug": "car-renault-duster",
       "type": "transport",
       "title": {
         "hy": "Renault Duster կամ համարժեք",
@@ -633,16 +639,16 @@
         "en": "Renault Duster or similar"
       },
       "description": {
-        "hy": "Renault Duster կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 4 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Renault Duster - практичный и просторный внедорожник для поездок по городу, региональных маршрутов и путешествий по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Renault Duster или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Renault Duster is a practical and spacious SUV choice for city driving, regional trips, and travel across Armenia and Georgia. \nBy booking this category, you may receive a Renault Duster or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Renault Duster կամ համարժեք՝ 5 նստատեղով և 4 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Рено Дастер или подобная: 5 мест, 4 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Renault Duster or similar with 5 seats and space for 4 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-18-image-176.webp?v=3",
+      "image": "/catalog/rentals/car-renault-duster.webp",
       "gallery": [],
       "price_from": 17400,
       "currency": "AMD",
@@ -682,7 +688,8 @@
         "name": "Swift Rent",
         "reference": "car:18",
         "url": "https://swift.rent/car/renault-duster",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-18-image-176.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -728,7 +735,7 @@
       }
     },
     {
-      "slug": "swift-car-jeep-renegade",
+      "slug": "car-jeep-renegade",
       "type": "transport",
       "title": {
         "hy": "Jeep Renegade կամ համարժեք",
@@ -736,16 +743,16 @@
         "en": "Jeep Renegade or similar"
       },
       "description": {
-        "hy": "Jeep Renegade կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 3 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Jeep Renegade - комфортный и универсальный внедорожник для поездок по городу и путешествий по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Jeep Renegade или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Jeep Renegade is a comfortable and versatile SUV choice for city driving and travel across Armenia and Georgia. \nBy booking this category, you may receive a Jeep Renegade or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Jeep Renegade կամ համարժեք՝ 5 նստատեղով և 3 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Джип Ренегейт или подобная: 5 мест, 3 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Jeep Renegade or similar with 5 seats and space for 3 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-7-image-47.webp?v=3",
+      "image": "/catalog/rentals/car-jeep-renegade.webp",
       "gallery": [],
       "price_from": 18000,
       "currency": "AMD",
@@ -785,7 +792,8 @@
         "name": "Swift Rent",
         "reference": "car:7",
         "url": "https://swift.rent/car/jeep-renegade",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-7-image-47.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -831,7 +839,7 @@
       }
     },
     {
-      "slug": "swift-car-lada-niva-urban",
+      "slug": "car-lada-niva-urban",
       "type": "transport",
       "title": {
         "hy": "Lada Niva",
@@ -839,16 +847,16 @@
         "en": "Lada Niva"
       },
       "description": {
-        "hy": "Lada Niva՝ Swift Rent-ից։ 4 նստատեղ, 2 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Лада Нива практичный вариант для горных маршрутов, поездок по сельской местности и дорог с более сложными условиями в Армении и Грузии. \nПри отсутствии автомобиля в наличии менеджер может предложить вам автомобиль другой категории. Обратите внимание: для Лада Нива действует топливная политика same-to-same - автомобиль необходимо вернуть с тем же уровнем топлива, с которым он был получен. \nУказанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля конкретно не указаны.",
-        "en": "Lada Niva is a practical choice for mountain routes, countryside travel, and more challenging roads across Armenia and Georgia. \nThis model is rented without a similar category option, but if it is not available, our manager may offer you a vehicle from a different category. Please note that Lada Niva is provided on a same-to-same fuel basis. \nThe displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Lada Niva՝ 4 նստատեղով և 2 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Лада Нива: 4 мест, 2 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Lada Niva with 4 seats and space for 2 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-23-image-242.webp?v=3",
+      "image": "/catalog/rentals/car-lada-niva-urban.webp",
       "gallery": [],
       "price_from": 15000,
       "currency": "AMD",
@@ -888,7 +896,8 @@
         "name": "Swift Rent",
         "reference": "car:23",
         "url": "https://swift.rent/car/lada-niva-urban",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-23-image-242.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -934,7 +943,7 @@
       }
     },
     {
-      "slug": "swift-car-toyota-camry",
+      "slug": "car-toyota-camry",
       "type": "transport",
       "title": {
         "hy": "Toyota Camry կամ համարժեք",
@@ -942,16 +951,16 @@
         "en": "Toyota Camry or similar"
       },
       "description": {
-        "hy": "Toyota Camry կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 4 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Toyota Camry - комфортный и просторный автомобиль для деловых поездок, городского передвижения и более длительных путешествий по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Toyota Camry или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля конкретно не указаны.",
-        "en": "Toyota Camry is a comfortable and spacious choice for business trips, city driving, and longer journeys across Armenia and Georgia. \nBy booking this category, you may receive a Toyota Camry or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Toyota Camry կամ համարժեք՝ 5 նստատեղով և 4 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Тойота Камри или подобная: 5 мест, 4 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Toyota Camry or similar with 5 seats and space for 4 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2025/12/fleet-product-12-image-265.webp?v=3",
+      "image": "/catalog/rentals/car-toyota-camry.webp",
       "gallery": [],
       "price_from": 19200,
       "currency": "AMD",
@@ -991,7 +1000,8 @@
         "name": "Swift Rent",
         "reference": "car:12",
         "url": "https://swift.rent/car/toyota-camry",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2025/12/fleet-product-12-image-265.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -1037,7 +1047,7 @@
       }
     },
     {
-      "slug": "swift-car-mazda-ez6",
+      "slug": "car-mazda-ez6",
       "type": "transport",
       "title": {
         "hy": "Mazda EZ-6 կամ համարժեք",
@@ -1045,16 +1055,16 @@
         "en": "Mazda EZ-6 or similar"
       },
       "description": {
-        "hy": "Mazda EZ-6 կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 3 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Mazda EZ-6 - современный и комфортный вариант для поездок по городу и более длительных путешествий по Армении и Грузии. При бронировании автомобиля этой категории вам может быть предоставлен Mazda EZ-6 или другой автомобиль той же либо более высокой категории - в зависимости от наличия. Все автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля не указаны.",
-        "en": "Mazda EZ-6 is a modern and comfortable choice for city driving and longer trips across Armenia and Georgia. By booking this category, you may receive a Mazda EZ-6 or another vehicle of the same category or higher, depending on availability. All cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Mazda EZ-6 կամ համարժեք՝ 5 նստատեղով և 3 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Мазда ЕЗ-6 или подобная: 5 мест, 3 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Mazda EZ-6 or similar with 5 seats and space for 3 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2026/6/fleet-product-30-image-335.webp?v=3",
+      "image": "/catalog/rentals/car-mazda-ez6.webp",
       "gallery": [],
       "price_from": 19800,
       "currency": "AMD",
@@ -1094,7 +1104,8 @@
         "name": "Swift Rent",
         "reference": "car:30",
         "url": "https://swift.rent/car/mazda-ez6",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2026/6/fleet-product-30-image-335.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -1140,7 +1151,7 @@
       }
     },
     {
-      "slug": "swift-car-jeep-compass",
+      "slug": "car-jeep-compass",
       "type": "transport",
       "title": {
         "hy": "Jeep Compass կամ համարժեք",
@@ -1148,16 +1159,16 @@
         "en": "Jeep Compass or similar"
       },
       "description": {
-        "hy": "Jeep Compass կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 4 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Jeep Compass - комфортный и практичный SUV для поездок по городу, региональных маршрутов и более длительных путешествий по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Jeep Compass или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Jeep Compass is a comfortable and practical SUV choice for city travel, regional routes, and longer trips across Armenia and Georgia. \nBy booking this category, you may receive a Jeep Compass or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Jeep Compass կամ համարժեք՝ 5 նստատեղով և 4 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Джип Компасс или подобная: 5 мест, 4 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Jeep Compass or similar with 5 seats and space for 4 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-13-image-122.webp?v=3",
+      "image": "/catalog/rentals/car-jeep-compass.webp",
       "gallery": [],
       "price_from": 20400,
       "currency": "AMD",
@@ -1197,7 +1208,8 @@
         "name": "Swift Rent",
         "reference": "car:13",
         "url": "https://swift.rent/car/jeep-compass",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-13-image-122.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -1243,7 +1255,7 @@
       }
     },
     {
-      "slug": "swift-car-mazda-ez60",
+      "slug": "car-mazda-ez60",
       "type": "transport",
       "title": {
         "hy": "Mazda EZ-60 կամ համարժեք",
@@ -1251,16 +1263,16 @@
         "en": "Mazda EZ-60 or similar"
       },
       "description": {
-        "hy": "Mazda EZ-60 կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 3 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Mazda EZ-60 - современный и комфортный вариант для поездок по городу и более длительных путешествий по Армении и Грузии. При бронировании автомобиля этой категории вам может быть предоставлен Mazda EZ-60 или другой автомобиль той же либо более высокой категории — в зависимости от наличия. Все автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля не указаны.",
-        "en": "Mazda EZ-60 is a modern and comfortable choice for city driving and longer trips across Armenia and Georgia. By booking this category, you may receive a Mazda EZ-60 or another vehicle of the same category or higher, depending on availability. All cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Mazda EZ-60 կամ համարժեք՝ 5 նստատեղով և 3 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Мазда ЕЗ-60 или подобная: 5 мест, 3 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Mazda EZ-60 or similar with 5 seats and space for 3 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2026/6/fleet-product-29-image-308.webp?v=3",
+      "image": "/catalog/rentals/car-mazda-ez60.webp",
       "gallery": [],
       "price_from": 21600,
       "currency": "AMD",
@@ -1300,7 +1312,8 @@
         "name": "Swift Rent",
         "reference": "car:29",
         "url": "https://swift.rent/car/mazda-ez60",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2026/6/fleet-product-29-image-308.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -1346,7 +1359,7 @@
       }
     },
     {
-      "slug": "swift-car-kia-sorento",
+      "slug": "car-kia-sorento",
       "type": "transport",
       "title": {
         "hy": "Kia Sorento կամ համարժեք",
@@ -1354,16 +1367,16 @@
         "en": "Kia Sorento or similar"
       },
       "description": {
-        "hy": "Kia Sorento կամ համարժեք՝ Swift Rent-ից։ 7 նստատեղ, 4 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Kia Sorento - просторный и комфортный внедорожник для семейных поездок, трансферов из аэропорта и более длительных путешествий по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Kia Sorento или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Kia Sorento is a spacious and comfortable SUV choice for family travel, airport transfers, and longer journeys across Armenia and Georgia. \nBy booking this category, you may receive a Kia Sorento or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Kia Sorento կամ համարժեք՝ 7 նստատեղով և 4 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Киа Соренто или подобная: 7 мест, 4 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Kia Sorento or similar with 7 seats and space for 4 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-11-image-99.webp?v=3",
+      "image": "/catalog/rentals/car-kia-sorento.webp",
       "gallery": [],
       "price_from": 24000,
       "currency": "AMD",
@@ -1403,7 +1416,8 @@
         "name": "Swift Rent",
         "reference": "car:11",
         "url": "https://swift.rent/car/kia-sorento",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-11-image-99.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -1449,7 +1463,7 @@
       }
     },
     {
-      "slug": "swift-car-honda-pilot",
+      "slug": "car-honda-pilot",
       "type": "transport",
       "title": {
         "hy": "Honda Pilot կամ համարժեք",
@@ -1457,16 +1471,16 @@
         "en": "Honda Pilot or similar"
       },
       "description": {
-        "hy": "Honda Pilot կամ համարժեք՝ Swift Rent-ից։ 7 նստատեղ, 4 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Honda Pilot - просторный и надежный внедорожник для семейных поездок, путешествий в компании и более длительных маршрутов по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Honda Pilot или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Honda Pilot is a spacious and dependable SUV choice for family travel, group trips, and longer journeys across Armenia and Georgia. \nBy booking this category, you may receive a Honda Pilot or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Honda Pilot կամ համարժեք՝ 7 նստատեղով և 4 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Хонда Пилот или подобная: 7 мест, 4 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Honda Pilot or similar with 7 seats and space for 4 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-21-image-220.webp?v=3",
+      "image": "/catalog/rentals/car-honda-pilot.webp",
       "gallery": [],
       "price_from": 25800,
       "currency": "AMD",
@@ -1506,7 +1520,8 @@
         "name": "Swift Rent",
         "reference": "car:21",
         "url": "https://swift.rent/car/honda-pilot",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-21-image-220.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -1552,7 +1567,7 @@
       }
     },
     {
-      "slug": "swift-car-honda-odyssey",
+      "slug": "car-honda-odyssey",
       "type": "transport",
       "title": {
         "hy": "Honda Odyssey կամ համարժեք",
@@ -1560,16 +1575,16 @@
         "en": "Honda Odyssey or similar"
       },
       "description": {
-        "hy": "Honda Odyssey կամ համարժեք՝ Swift Rent-ից։ 8 նստատեղ, 5 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Honda Odyssey - просторный и практичный вариант для семейных поездок, путешествий в компании, трансферов из аэропорта и более длительных маршрутов по Армении и Грузии. \nПри бронировании автомобиля этой категории вам может быть предоставлен Honda Odyssey или другой автомобиль той же либо более высокой категории - в зависимости от наличия. \nВсе автомобили передаются клиенту в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Honda Odyssey is a spacious and practical choice for family travel, group trips, airport transfers, and longer journeys across Armenia and Georgia. \nBy booking this category, you may receive a Honda Odyssey or another vehicle of the same category or higher, depending on availability. \nAll cars are provided clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Honda Odyssey կամ համարժեք՝ 8 նստատեղով և 5 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Хонда Одиссей или подобная: 8 мест, 5 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Honda Odyssey or similar with 8 seats and space for 5 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-1-image-24.webp?v=3",
+      "image": "/catalog/rentals/car-honda-odyssey.webp",
       "gallery": [],
       "price_from": 27000,
       "currency": "AMD",
@@ -1609,7 +1624,8 @@
         "name": "Swift Rent",
         "reference": "car:1",
         "url": "https://swift.rent/car/honda-odyssey",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-1-image-24.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -1655,7 +1671,7 @@
       }
     },
     {
-      "slug": "swift-car-jeep-wrangler",
+      "slug": "car-jeep-wrangler",
       "type": "transport",
       "title": {
         "hy": "Jeep Wrangler կամ համարժեք",
@@ -1663,16 +1679,16 @@
         "en": "Jeep Wrangler or similar"
       },
       "description": {
-        "hy": "Jeep Wrangler կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 4 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Jeep Wrangler - отличный выбор для тех, кто ищет мощный и универсальный внедорожник для путешествий по Армении и Грузии. Эта категория хорошо подходит для горных маршрутов, региональных поездок и повседневного вождения, сочетая комфорт, универсальность и уверенное поведение на самых разных дорогах. \nПри бронировании автомобиля этой категории вам может быть предоставлен Jeep Wrangler или другой автомобиль той же либо более высокой категории - в зависимости от наличия. Все автомобили передаются клиенту в чистом состоянии и с полным баком топлива. \nУказанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Jeep Wrangler is a strong choice for drivers looking for a capable and adventurous SUV for travel across Armenia and Georgia. Well suited for mountain routes, regional trips, and everyday driving, this category offers comfort, versatility, and confident performance on a wide range of roads. \nBy booking this category, you may receive a Jeep Wrangler or another vehicle of the same category or higher, depending on availability. All cars are provided clean and with a full tank. \nThe displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Jeep Wrangler կամ համարժեք՝ 5 նստատեղով և 4 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Джип Вранглер или подобная: 5 мест, 4 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Jeep Wrangler or similar with 5 seats and space for 4 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2026/3/fleet-product-28-image-297.webp?v=3",
+      "image": "/catalog/rentals/car-jeep-wrangler.webp",
       "gallery": [],
       "price_from": 36000,
       "currency": "AMD",
@@ -1712,7 +1728,8 @@
         "name": "Swift Rent",
         "reference": "car:28",
         "url": "https://swift.rent/car/jeep-wrangler",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2026/3/fleet-product-28-image-297.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -1758,7 +1775,7 @@
       }
     },
     {
-      "slug": "swift-car-mercedes-benz-vito",
+      "slug": "car-mercedes-benz-vito",
       "type": "transport",
       "title": {
         "hy": "Mercedes-Benz Vito կամ համարժեք",
@@ -1766,16 +1783,16 @@
         "en": "Mercedes-Benz Vito or similar"
       },
       "description": {
-        "hy": "Mercedes-Benz Vito կամ համարժեք՝ Swift Rent-ից։ 8 նստատեղ, 5 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Mercedes-Benz Vito - просторный и комфортный вариант для групповых поездок, семейных путешествий, трансферов из аэропорта и деловых маршрутов по Армении и Грузии. \nАвтомобиль предоставляется только с водителем и доступен при наличии. На борту бесплатно предоставляются Wi-Fi и бутилированная вода, а водитель владеет русским и английским языками для удобного общения. \nАвтомобиль подается в чистом состоянии и с полным баком топлива. Указанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Mercedes-Benz Vito is a spacious and comfortable choice for group travel, family trips, airport transfers, and business journeys across Armenia and Georgia. \nThis vehicle is available only with driver and is offered subject to availability. Free Wi-Fi and bottled water are provided onboard, and the driver speaks Russian and English for convenient communication. \nThe vehicle is delivered clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Mercedes-Benz Vito կամ համարժեք՝ 8 նստատեղով և 5 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Мерседес-Бенз Вито или подобная: 8 мест, 5 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Mercedes-Benz Vito or similar with 8 seats and space for 5 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-15-image-144.webp?v=3",
+      "image": "/catalog/rentals/car-mercedes-benz-vito.webp",
       "gallery": [],
       "price_from": 40800,
       "currency": "AMD",
@@ -1815,7 +1832,8 @@
         "name": "Swift Rent",
         "reference": "car:15",
         "url": "https://swift.rent/car/mercedes-benz-vito",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-15-image-144.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -1861,7 +1879,7 @@
       }
     },
     {
-      "slug": "swift-car-range-rover-sport",
+      "slug": "car-range-rover-sport",
       "type": "transport",
       "title": {
         "hy": "Range Rover Sport կամ համարժեք",
@@ -1869,16 +1887,16 @@
         "en": "Range Rover Sport or similar"
       },
       "description": {
-        "hy": "Range Rover Sport կամ համարժեք՝ Swift Rent-ից։ 5 նստատեղ, 5 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Range Rover Sport - роскошный внедорожник для деловых поездок, особых случаев и комфортных путешествий по Армении и Грузии. Для этого автомобиля доступна услуга водителя. \nПри заказе с водителем на борту бесплатно предоставляются Wi-Fi и бутилированная вода, а водитель владеет русским и английским языками для удобного общения. Автомобиль подается в чистом состоянии и с полным баком топлива. \nУказанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Range Rover Sport is a luxury SUV choice for business travel, special occasions, and comfortable journeys across Armenia and Georgia. \nChauffeur service is available for this vehicle. When booked with driver, complimentary Wi-Fi and bottled water are provided onboard, and the driver speaks Russian and English for convenient communication. \nThe vehicle is delivered clean and with a full tank. The displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Range Rover Sport կամ համարժեք՝ 5 նստատեղով և 5 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Рендж Ровер Спорт или подобная: 5 мест, 5 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Range Rover Sport or similar with 5 seats and space for 5 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-14-image-133.webp?v=3",
+      "image": "/catalog/rentals/car-range-rover-sport.webp",
       "gallery": [],
       "price_from": 48000,
       "currency": "AMD",
@@ -1918,7 +1936,8 @@
         "name": "Swift Rent",
         "reference": "car:14",
         "url": "https://swift.rent/car/range-rover-sport",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-14-image-133.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -1964,7 +1983,7 @@
       }
     },
     {
-      "slug": "swift-car-mercedes-benz-sprinter",
+      "slug": "car-mercedes-benz-sprinter",
       "type": "transport",
       "title": {
         "hy": "Mercedes-Benz Sprinter կամ համարժեք",
@@ -1972,16 +1991,16 @@
         "en": "Mercedes-Benz Sprinter or similar"
       },
       "description": {
-        "hy": "Mercedes-Benz Sprinter կամ համարժեք՝ Swift Rent-ից։ 20 նստատեղ, 8 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Mercedes-Benz Sprinter - просторный и надежный вариант для групповых поездок, корпоративного транспорта, трансферов из аэропорта и дальних маршрутов по Армении и Грузии. \nАвтомобиль предоставляется только с водителем. На борту бесплатно предоставляются Wi-Fi и бутилированная вода, а водитель владеет русским и английским языками для удобного общения. Автомобиль подается в чистом состоянии и с полным баком топлива. \nУказанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Mercedes-Benz Sprinter is a spacious and reliable choice for group travel, corporate transportation, airport transfers, and long-distance journeys across Armenia and Georgia. \nThis vehicle is available only with driver. Free Wi-Fi and bottled water are provided onboard, and the driver speaks Russian and English for convenient communication. The vehicle is delivered clean and with a full tank. \nThe displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Mercedes-Benz Sprinter կամ համարժեք՝ 20 նստատեղով և 8 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Мерседес-Бенз Спринтер или подобная: 20 мест, 8 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Mercedes-Benz Sprinter or similar with 20 seats and space for 8 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-16-image-154.webp?v=3",
+      "image": "/catalog/rentals/car-mercedes-benz-sprinter.webp",
       "gallery": [],
       "price_from": 54000,
       "currency": "AMD",
@@ -2021,7 +2040,8 @@
         "name": "Swift Rent",
         "reference": "car:16",
         "url": "https://swift.rent/car/mercedes-benz-sprinter",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2024/9/fleet-product-16-image-154.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -2067,7 +2087,7 @@
       }
     },
     {
-      "slug": "swift-car-mercedes-benz-w222",
+      "slug": "car-mercedes-benz-w222",
       "type": "transport",
       "title": {
         "hy": "Mercedes-Benz W222 կամ համարժեք",
@@ -2075,16 +2095,16 @@
         "en": "Mercedes-Benz W222 or similar"
       },
       "description": {
-        "hy": "Mercedes-Benz W222 կամ համարժեք՝ Swift Rent-ից։ 4 նստատեղ, 4 ուղեբեռ։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
-        "ru": "Mercedes-Benz W222 - роскошный выбор для деловых поездок, VIP-трансферов, особых случаев и комфортных путешествий по Армении и Грузии. Для этого автомобиля доступна услуга водителя. \nПри заказе с водителем на борту бесплатно предоставляются Wi-Fi и бутилированная вода, а водитель владеет русским и английским языками для удобного общения. Автомобиль подается в чистом состоянии и с полным баком топлива. \nУказанная цена действует в текущем месяце и отражает минимальную стоимость аренды при бронировании на срок от 7 дней, если даты получения и возврата автомобиля отдельно не указаны.",
-        "en": "Mercedes-Benz W222 is a luxury choice for business travel, VIP transfers, special occasions, and refined journeys across Armenia and Georgia. Chauffeur service is available for this vehicle. \nWhen booked with driver, complimentary Wi-Fi and bottled water are provided onboard, and the driver speaks Russian and English for convenient communication. The vehicle is delivered clean and with a full tank. \nThe displayed price reflects the minimum rental rate for bookings of 7+ days and applies to the current month when pick-up and drop-off dates are not specified."
+        "hy": "Mercedes-Benz W222 կամ համարժեք՝ 4 նստատեղով և 4 ուղեբեռի տեղով։ Նշված մեկնարկային օրավարձը գործում է 7 և ավելի օրվա վարձակալության դեպքում՝ ընթացիկ սեզոնի համար։ Վերջնական գինն ու հասանելիությունը հաստատվում են ընտրված ամսաթվերի հիման վրա։",
+        "ru": "Мерседес-Бенз W222 или подобная: 4 мест, 4 места для багажа. Указана минимальная стоимость в сутки при аренде от 7 дней в текущем сезоне. Стоимость и доступность на выбранные даты подтвердит GoVista.",
+        "en": "Mercedes-Benz W222 or similar with 4 seats and space for 4 bags. The starting daily rate applies to rentals of 7+ days in the current season. GoVista will confirm pricing and availability for your dates."
       },
       "location": {
         "hy": "Երևան, Հայաստան",
         "ru": "Ереван, Армения",
         "en": "Yerevan, Armenia"
       },
-      "image": "https://swift.rent/uploads/swift/images/maximum/2025/12/fleet-product-17-image-259.webp?v=3",
+      "image": "/catalog/rentals/car-mercedes-benz-w222.webp",
       "gallery": [],
       "price_from": 66000,
       "currency": "AMD",
@@ -2124,7 +2144,8 @@
         "name": "Swift Rent",
         "reference": "car:17",
         "url": "https://swift.rent/car/mercedes-benz-w222",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://swift.rent/uploads/swift/images/maximum/2025/12/fleet-product-17-image-259.webp?v=3",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "minimum_days": 7,
         "tariffs": [
           {
@@ -2170,7 +2191,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-yerevan",
+      "slug": "transfer-zvartnots-yerevan",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Երևան",
@@ -2178,16 +2199,16 @@
         "en": "Zvartnots-Yerevan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Երևան երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Ереваном от Swift. Расстояние составляет примерно 12 км, а поездка обычно занимает около 25 минут при свободном движении и до 50 минут в часы пик.\n\nЭтот трансфер подходит туристам, семьям, деловым путешественникам и гостям отелей, которым нужен комфортный автомобиль, надежный водитель и фиксированная цена, согласованная заранее. Маршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Ереван или из Еревана в международный аэропорт Звартноц.\n\nВо время поездки предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Yerevan with Swift. The distance is approximately 12 km, and the trip usually takes around 25 minutes in light traffic or up to 50 minutes during peak hours.\n\nThis transfer is suitable for tourists, families, business travelers and hotel guests who want a comfortable car, a reliable driver and a fixed price agreed in advance. The route is available in both directions: from Zvartnots International Airport to Yerevan or from Yerevan to Zvartnots International Airport.\n\nComplimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Երևան երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Ереван. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Yerevan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Երևան",
         "ru": "Звартноц → Ереван",
         "en": "Zvartnots → Yerevan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/2/legacy-file-706378c3bcda4732b4dfd95338e20d11.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-yerevan.webp",
       "gallery": [],
       "price_from": 9000,
       "currency": "AMD",
@@ -2227,7 +2248,8 @@
         "name": "Swift Rent",
         "reference": "transfer:3",
         "url": "https://transfer.swift.rent/destinations/zvartnots-yerevan",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/2/legacy-file-706378c3bcda4732b4dfd95338e20d11.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -2269,7 +2291,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-gyumri",
+      "slug": "transfer-zvartnots-gyumri",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Գյումրի",
@@ -2277,16 +2299,16 @@
         "en": "Zvartnots-Gyumri"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Գյումրի երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Гюмри от Swift. Гюмри, второй по величине город Армении, расположен примерно в 120 км от аэропорта, а поездка обычно занимает около 1 часа 45 минут при свободном движении и до 2 часов 15 минут в более загруженное время.\n\nЭтот маршрут удобен для путешественников, которые после прибытия в Армению направляются в Гюмри, а также для гостей, которым нужен комфортный трансфер обратно в аэропорт Звартноц. Частный автомобиль, надежный водитель и фиксированная цена, согласованная заранее, помогают лучше спланировать поездку и избежать поиска транспорта после прилета.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Гюмри или из Гюмри в международный аэропорт Звартноц. Во время поездки предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Gyumri with Swift. Gyumri, Armenia’s second-largest city, is located approximately 120 km from the airport, and the trip usually takes around 1 hour and 45 minutes in light traffic or up to 2 hours and 15 minutes during busy periods.\n\nThis route is a convenient option for travelers heading to Gyumri after arrival in Armenia, as well as for guests who need a comfortable ride back to Zvartnots Airport. With a private car, a reliable driver and a fixed price agreed in advance, the journey is easier to plan and more comfortable than looking for transport on arrival.\n\nThe transfer is available in both directions: from Zvartnots International Airport to Gyumri or from Gyumri to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Գյումրի երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Гюмри. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Gyumri. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Գյումրի",
         "ru": "Звартноц → Гюмри",
         "en": "Zvartnots → Gyumri"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/2/legacy-file-32156ffe69514ef490f0479704b370b1.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-gyumri.webp",
       "gallery": [],
       "price_from": 30000,
       "currency": "AMD",
@@ -2326,7 +2348,8 @@
         "name": "Swift Rent",
         "reference": "transfer:4",
         "url": "https://transfer.swift.rent/destinations/zvartnots-gyumri",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/2/legacy-file-32156ffe69514ef490f0479704b370b1.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -2368,7 +2391,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-tsaghkadzor",
+      "slug": "transfer-zvartnots-tsaghkadzor",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Ծաղկաձոր",
@@ -2376,16 +2399,16 @@
         "en": "Zvartnots-Tsaghkadzor"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Ծաղկաձոր երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Организуйте комфортный частный трансфер между международным аэропортом Звартноц и Цахкадзором от Swift. Цахкадзор - одно из самых популярных горных курортных направлений Армении, расположенное примерно в 70 км от аэропорта. Поездка обычно занимает около 1 часа 30 минут при свободном движении и до 2 часов в более загруженное время, в зависимости от дорожной ситуации и погодных условий.\n\nЭтот трансфер удобен для гостей, которые направляются в отели Цахкадзора, на горнолыжный отдых, семейную поездку, wellness-отдых или короткий уикенд в горах. Вместо поиска транспорта после прилета вы можете заранее заказать частный автомобиль, поехать с надежным водителем и знать стоимость трансфера до начала поездки.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Цахкадзор или из Цахкадзора в международный аэропорт Звартноц. Во время поездки предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Plan a comfortable private transfer between Zvartnots International Airport and Tsaghkadzor with Swift. Tsaghkadzor is one of Armenia’s most popular mountain resort destinations, located approximately 70 km from the airport. The journey usually takes around 1 hour and 30 minutes in light traffic or up to 2 hours during busier periods, depending on road, traffic and weather conditions.\n\nThis transfer is a convenient choice for travelers going to Tsaghkadzor hotels, ski resorts, family vacations, wellness stays or weekend trips. Instead of looking for transport after arrival, you can book a private car in advance, travel with a reliable driver and know the transfer price before the trip.\n\nThe route is available in both directions: from Zvartnots International Airport to Tsaghkadzor or from Tsaghkadzor to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Ծաղկաձոր երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Цахкадзор. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Tsaghkadzor. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Ծաղկաձոր",
         "ru": "Звартноц → Цахкадзор",
         "en": "Zvartnots → Tsaghkadzor"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/2/legacy-file-29582647bbce408b9e298f8ce260ae16.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-tsaghkadzor.webp",
       "gallery": [],
       "price_from": 22000,
       "currency": "AMD",
@@ -2425,7 +2448,8 @@
         "name": "Swift Rent",
         "reference": "transfer:5",
         "url": "https://transfer.swift.rent/destinations/zvartnots-tsaghkadzor",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/2/legacy-file-29582647bbce408b9e298f8ce260ae16.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -2467,7 +2491,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-dilijan",
+      "slug": "transfer-zvartnots-dilijan",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Դիլիջան",
@@ -2475,16 +2499,16 @@
         "en": "Zvartnots-Dilijan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Դիլիջան երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Дилижаном от Swift. Дилижан - один из самых живописных зеленых курортных городов Армении, известный лесными пейзажами, горным воздухом и спокойной атмосферой. Расстояние от аэропорта составляет примерно 100 км, а поездка обычно занимает около 1 часа 40 минут при свободном движении и до 2 часов 15 минут в более загруженное время, в зависимости от дорожной ситуации и погодных условий.\n\nЭтот трансфер удобен для гостей, которые направляются в отели, гостевые дома, wellness-комплексы, на семейный отдых или природные маршруты в регионе Тавуш. Предварительное бронирование позволяет заранее организовать частный автомобиль, надежного водителя и фиксированную стоимость поездки, чтобы после прибытия в Армению не тратить время на поиск транспорта.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Дилижан или из Дилижана в международный аэропорт Звартноц. Во время поездки предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Travel from Zvartnots International Airport to Dilijan with a private transfer by Swift. Dilijan is one of Armenia’s most charming green resort towns, known for its forested landscapes, mountain air and relaxed atmosphere. The route from the airport is approximately 100 km, and the trip usually takes around 1 hour and 40 minutes in light traffic or up to 2 hours and 15 minutes during busier periods, depending on road, traffic and weather conditions.\n\nThis transfer is a comfortable choice for travelers going to Dilijan hotels, guesthouses, wellness stays, family vacations or nature trips in the Tavush region. By booking in advance, you get a private car, a reliable driver and a fixed transfer price, making the journey smoother and easier to plan after arrival in Armenia.\n\nThe route is available in both directions: from Zvartnots International Airport to Dilijan or from Dilijan to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Դիլիջան երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Дилижан. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Dilijan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Դիլիջան",
         "ru": "Звартноц → Дилижан",
         "en": "Zvartnots → Dilijan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/7/legacy-media-37.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-dilijan.webp",
       "gallery": [],
       "price_from": 30000,
       "currency": "AMD",
@@ -2524,7 +2548,8 @@
         "name": "Swift Rent",
         "reference": "transfer:6",
         "url": "https://transfer.swift.rent/destinations/zvartnots-dilijan",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/7/legacy-media-37.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -2566,7 +2591,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-etchmiadzin",
+      "slug": "transfer-zvartnots-etchmiadzin",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Էջմիածին",
@@ -2574,16 +2599,16 @@
         "en": "Zvartnots-Etchmiadzin"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Էջմիածին երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Эчмиадзином от Swift. Эчмиадзин, известный как духовный центр Армении, расположен примерно в 12 км от аэропорта, поэтому это один из самых удобных коротких маршрутов рядом с Ереваном. Поездка обычно занимает около 20 минут при свободном движении и до 30 минут в часы пик.\n\nЭтот трансфер подходит путешественникам, которые направляются к Эчмиадзинскому кафедральному собору, близлежащим церквям, культурным достопримечательностям, в местные отели или по частному адресу в городе. Предварительное бронирование помогает избежать поиска транспорта после прилета и заранее организовать частный автомобиль, надежного водителя и фиксированную стоимость поездки.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Эчмиадзин или из Эчмиадзина в международный аэропорт Звартноц. Во время поездки предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Etchmiadzin with Swift. Known as the spiritual center of Armenia, Etchmiadzin is located approximately 12 km from the airport, making this one of the most convenient short transfer routes near Yerevan. The trip usually takes around 20 minutes in light traffic or up to 30 minutes during peak hours.\n\nThis transfer is a good choice for travelers visiting Etchmiadzin Cathedral, nearby churches, cultural landmarks, local hotels or private addresses in the city. By booking in advance, you can avoid arranging transport after arrival and travel with a private car, a reliable driver and a fixed price agreed before the trip.\n\nThe route is available in both directions: from Zvartnots International Airport to Etchmiadzin or from Etchmiadzin to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Էջմիածին երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Эчмиадзин. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Etchmiadzin. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Էջմիածին",
         "ru": "Звартноц → Эчмиадзин",
         "en": "Zvartnots → Etchmiadzin"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-0a73f9f45cf34cf59d18ed73a8370a43.webp?v=1",
+      "image": "/catalog/rentals/transfer-zvartnots-etchmiadzin.webp",
       "gallery": [],
       "price_from": 11000,
       "currency": "AMD",
@@ -2623,7 +2648,8 @@
         "name": "Swift Rent",
         "reference": "transfer:12",
         "url": "https://transfer.swift.rent/destinations/zvartnots-etchmiadzin",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-0a73f9f45cf34cf59d18ed73a8370a43.webp?v=1",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -2665,7 +2691,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-jermuk",
+      "slug": "transfer-zvartnots-jermuk",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Ջերմուկ",
@@ -2673,16 +2699,16 @@
         "en": "Zvartnots-Jermuk"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Ջերմուկ երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Джермуком от Swift. Джермук - один из самых известных spa- и wellness-курортов Армении, популярный благодаря минеральным водам, горным пейзажам и спокойной курортной атмосфере. Город расположен примерно в 175 км от аэропорта Звартноц, а поездка обычно занимает около 2 часов 45 минут при свободном движении и до 3 часов 15 минут в более загруженное время.\n\nЭтот трансфер удобен для гостей, которые направляются в отели Джермука, лечебно-оздоровительные комплексы, санатории, spa-центры или частные апартаменты. Поскольку маршрут достаточно длинный, предварительное бронирование частного автомобиля помогает сделать поездку более комфортной, предсказуемой и удобной после прибытия в Армению.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Джермук или из Джермука в международный аэропорт Звартноц. Во время поездки предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Arrange a private transfer between Zvartnots International Airport and Jermuk with Swift. Jermuk is one of Armenia’s best-known spa and wellness resort towns, famous for its mineral waters, mountain scenery and calm resort atmosphere. The town is located approximately 175 km from Zvartnots International Airport, and the trip usually takes around 2 hours and 45 minutes in light traffic or up to 3 hours and 15 minutes during busier periods.\n\nThis transfer is a comfortable option for guests traveling to Jermuk hotels, health resorts, sanatoriums, spa centers or private accommodations. Because the route is relatively long, booking a private car in advance helps make the journey smoother, more predictable and more convenient after arrival in Armenia.\n\nThe route is available in both directions: from Zvartnots International Airport to Jermuk or from Jermuk to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Ջերմուկ երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Джермук. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Jermuk. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Ջերմուկ",
         "ru": "Звартноц → Джермук",
         "en": "Zvartnots → Jermuk"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-d0c67aabb40445d6b83c397de0d6bcba.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-jermuk.webp",
       "gallery": [],
       "price_from": 45000,
       "currency": "AMD",
@@ -2722,7 +2748,8 @@
         "name": "Swift Rent",
         "reference": "transfer:14",
         "url": "https://transfer.swift.rent/destinations/zvartnots-jermuk",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-d0c67aabb40445d6b83c397de0d6bcba.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -2764,7 +2791,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-ijevan",
+      "slug": "transfer-zvartnots-ijevan",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Իջևան",
@@ -2772,16 +2799,16 @@
         "en": "Zvartnots-Ijevan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Իջևան երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Иджеваном от Swift. Иджеван, административный центр Тавушской области Армении, расположен примерно в 145 км от аэропорта и известен зелеными пейзажами, горными дорогами и спокойной региональной атмосферой. Поездка обычно занимает около 2 часов 45 минут при свободном движении и до 3 часов 15 минут в более загруженное время.\n\nЭтот трансфер удобен для гостей, которые направляются в Иджеван, близлежащие гостевые дома, по частному адресу, на деловые встречи в регионе или природные маршруты на севере Армении. Поскольку маршрут достаточно длинный и проходит через участки с меняющимися дорожными условиями, предварительное бронирование частного трансфера помогает сделать поездку более предсказуемой, комфортной и удобной после прибытия.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Иджеван или из Иджевана в международный аэропорт Звартноц. Во время поездки предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Ijevan with Swift. Ijevan, the administrative center of Armenia’s Tavush region, is located approximately 145 km from the airport and is known for its green landscapes, mountain roads and calm regional atmosphere. The journey usually takes around 2 hours and 45 minutes in light traffic or up to 3 hours and 15 minutes during busier periods.\n\nThis transfer is a convenient option for travelers heading to Ijevan, nearby guesthouses, private addresses, regional business meetings or nature trips in northern Armenia. Since the route is long and passes through changing road conditions, booking a private transfer in advance helps make the trip more predictable, comfortable and easy to manage after arrival.\n\nThe route is available in both directions: from Zvartnots International Airport to Ijevan or from Ijevan to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Իջևան երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Иджеван. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Ijevan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Իջևան",
         "ru": "Звартноц → Иджеван",
         "en": "Zvartnots → Ijevan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-d78ba49d7a2e44dab9a505ef2bdfcdaf.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-ijevan.webp",
       "gallery": [],
       "price_from": 40000,
       "currency": "AMD",
@@ -2821,7 +2848,8 @@
         "name": "Swift Rent",
         "reference": "transfer:15",
         "url": "https://transfer.swift.rent/destinations/zvartnots-ijevan",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-d78ba49d7a2e44dab9a505ef2bdfcdaf.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -2863,7 +2891,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-marriott-yerevan",
+      "slug": "transfer-zvartnots-marriott-yerevan",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Marriott Yerevan",
@@ -2871,16 +2899,16 @@
         "en": "Zvartnots-Marriott Yerevan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Marriott Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Marriott Hotel Yerevan от Swift. Отель расположен в самом центре города, рядом с площадью Республики, примерно в 12 км от аэропорта. Поездка обычно занимает около 25 минут при свободном движении и до 45 минут в часы пик.\n\nЭтот маршрут удобен для гостей отеля, деловых путешественников и туристов, которым нужно комфортно добраться до центра Еревана после прилета. Вместо поиска такси в аэропорту или объяснения адреса отеля вы можете заранее заказать частный автомобиль, поехать с надежным водителем и знать стоимость трансфера до начала поездки.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Marriott Hotel Yerevan или из Marriott Hotel Yerevan в международный аэропорт Звартноц. Во время трансфера предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Marriott Hotel Yerevan with Swift. Located in the heart of the city, near Republic Square, Marriott Hotel Yerevan is approximately 12 km from the airport. The transfer usually takes around 25 minutes in light traffic or up to 45 minutes during peak hours.\n\nThis route is a practical choice for hotel guests, business travelers and visitors who want to reach central Yerevan comfortably after arrival. Instead of looking for a taxi at the airport or explaining the hotel address, you can arrange a private car in advance, travel with a reliable driver and know the transfer price before the trip.\n\nThe route is available in both directions: from Zvartnots International Airport to Marriott Hotel Yerevan or from Marriott Hotel Yerevan to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the transfer."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Marriott Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Марриот Ереван. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Marriott Yerevan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Marriott Yerevan",
         "ru": "Звартноц → Марриот Ереван",
         "en": "Zvartnots → Marriott Yerevan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-259297de4b8a466abc42da0d51a2148c.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-marriott-yerevan.webp",
       "gallery": [],
       "price_from": 9000,
       "currency": "AMD",
@@ -2920,7 +2948,8 @@
         "name": "Swift Rent",
         "reference": "transfer:7",
         "url": "https://transfer.swift.rent/destinations/zvartnots-marriott-yerevan",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-259297de4b8a466abc42da0d51a2148c.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -2962,7 +2991,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-radisson-blu-yerevan",
+      "slug": "transfer-zvartnots-radisson-blu-yerevan",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Radisson Blu Yerevan",
@@ -2970,16 +2999,16 @@
         "en": "Zvartnots-Radisson Blu Yerevan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Radisson Blu Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Radisson Blu Hotel Yerevan от Swift. Отель расположен в более спокойной части Еревана, примерно в 4 км от центра города и примерно в 16 км от аэропорта. Поездка обычно занимает около 35 минут при свободном движении и до 55 минут в часы пик.\n\nЭтот трансфер удобен для гостей, которым нужно комфортно добраться до Radisson Blu Hotel Yerevan после прилета, без ожидания такси и поиска маршрута по городу с багажом. Частный автомобиль, надежный водитель и фиксированная стоимость поездки помогают заранее спланировать трансфер, особенно для деловых путешественников, гостей отеля, семей и пассажиров, прибывающих поздно или в загруженное время.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Radisson Blu Hotel Yerevan или из Radisson Blu Hotel Yerevan в международный аэропорт Звартноц. Во время трансфера предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Arrange a private transfer between Zvartnots International Airport and Radisson Blu Hotel Yerevan with Swift. The hotel is located in a quieter area of Yerevan, about 4 km from the city center and approximately 16 km from the airport. The journey usually takes around 35 minutes in light traffic or up to 55 minutes during peak hours.\n\nThis transfer is a convenient option for guests who want to reach Radisson Blu Hotel Yerevan comfortably after arrival, without waiting for a taxi or navigating the city with luggage. A private car, reliable driver and fixed transfer price make the trip easier to plan, especially for business travelers, hotel guests, families and visitors arriving late or during busy hours.\n\nThe route is available in both directions: from Zvartnots International Airport to Radisson Blu Hotel Yerevan or from Radisson Blu Hotel Yerevan to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the transfer."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Radisson Blu Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц - Редисон Блу Ереван. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Radisson Blu Yerevan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Radisson Blu Yerevan",
         "ru": "Звартноц → Редисон Блу Ереван",
         "en": "Zvartnots → Radisson Blu Yerevan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/2/legacy-file-60d0bfe22de847099e1dc9abcd2c5fb5.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-radisson-blu-yerevan.webp",
       "gallery": [],
       "price_from": 9000,
       "currency": "AMD",
@@ -3019,7 +3048,8 @@
         "name": "Swift Rent",
         "reference": "transfer:8",
         "url": "https://transfer.swift.rent/destinations/zvartnots-radisson-blu-yerevan",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/2/legacy-file-60d0bfe22de847099e1dc9abcd2c5fb5.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -3061,7 +3091,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-alexander-yerevan",
+      "slug": "transfer-zvartnots-alexander-yerevan",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Alexander Yerevan",
@@ -3069,16 +3099,16 @@
         "en": "Zvartnots-Alexander Yerevan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Alexander Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и The Alexander, a Luxury Collection Hotel, Yerevan от Swift. Отель расположен в центре Еревана, рядом с основными деловыми, культурными и ресторанными локациями города, примерно в 12 км от аэропорта. Поездка обычно занимает около 25 минут при свободном движении и до 45 минут в часы пик.\n\nЭтот маршрут особенно удобен для гостей отеля, деловых путешественников и туристов, которым нужен спокойный и организованный приезд без поиска транспорта в аэропорту. Частный автомобиль, надежный водитель и фиксированная стоимость трансфера помогают заранее спланировать комфортную поездку в один из премиальных отелей центра Еревана.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в The Alexander Yerevan или из The Alexander Yerevan в международный аэропорт Звартноц. Во время трансфера предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and The Alexander, a Luxury Collection Hotel, Yerevan with Swift. The hotel is centrally located in Yerevan, close to the city’s main business, cultural and dining areas, and is approximately 12 km from the airport. The transfer usually takes around 25 minutes in light traffic or up to 45 minutes during peak hours.\n\nThis route is especially convenient for hotel guests, business travelers and visitors who want a smooth arrival experience with no need to search for transport at the airport. A private car, reliable driver and fixed transfer price help make the trip to one of Yerevan’s premium city-center hotels comfortable and easy to plan in advance.\n\nThe route is available in both directions: from Zvartnots International Airport to The Alexander Yerevan or from The Alexander Yerevan to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the transfer."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Alexander Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Александр Ереван. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Alexander Yerevan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Alexander Yerevan",
         "ru": "Звартноц → Александр Ереван",
         "en": "Zvartnots → Alexander Yerevan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/2/legacy-file-f58bc7b5fa334111a6ce711aeb8ed65a.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-alexander-yerevan.webp",
       "gallery": [],
       "price_from": 9000,
       "currency": "AMD",
@@ -3118,7 +3148,8 @@
         "name": "Swift Rent",
         "reference": "transfer:9",
         "url": "https://transfer.swift.rent/destinations/zvartnots-alexander-yerevan",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/2/legacy-file-f58bc7b5fa334111a6ce711aeb8ed65a.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -3160,7 +3191,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-ibis-yerevan",
+      "slug": "transfer-zvartnots-ibis-yerevan",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Ibis Yerevan",
@@ -3168,16 +3199,16 @@
         "en": "Zvartnots-Ibis Yerevan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Ibis Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и гостиницей Ibis Yerevan Center от Swift. Отель расположен в центральной части Еревана, рядом с Северным проспектом, площадью Республики, кафе, магазинами и основными городскими достопримечательностями. Расстояние от аэропорта составляет примерно 12 км, а поездка обычно занимает около 25 минут при свободном движении и до 45 минут в часы пик.\n\nЭтот маршрут удобен для туристов, гостей с коротким пребыванием, деловых путешественников и постояльцев отеля, которым нужно быстро и комфортно добраться до центра города после прилета. С заранее заказанным частным трансфером не нужно ждать транспорт в аэропорту или объяснять расположение отеля после прибытия - поездка организуется заранее с надежным водителем и фиксированной ценой.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Ibis Yerevan Center или из Ibis Yerevan Center в международный аэропорт Звартноц. Во время трансфера предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Ibis Yerevan Center with Swift. The hotel is located in the central part of Yerevan, close to Northern Avenue, Republic Square, cafés, shops and key city attractions. The distance from the airport is approximately 12 km, and the transfer usually takes around 25 minutes in light traffic or up to 45 minutes during peak hours.\n\nThis route is convenient for tourists, short-stay visitors, business travelers and hotel guests who want to reach the city center quickly and comfortably after landing. With a pre-booked private transfer, you do not need to wait for transport at the airport or explain the hotel location after arrival — your trip is arranged in advance with a reliable driver and a fixed price.\n\nThe route is available in both directions: from Zvartnots International Airport to Ibis Yerevan Center or from Ibis Yerevan Center to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the transfer."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Ibis Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Ибис Ереван. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Ibis Yerevan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Ibis Yerevan",
         "ru": "Звартноц → Ибис Ереван",
         "en": "Zvartnots → Ibis Yerevan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-60309f130ca740698cf1adcb4c8fa167.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-ibis-yerevan.webp",
       "gallery": [],
       "price_from": 9000,
       "currency": "AMD",
@@ -3217,7 +3248,8 @@
         "name": "Swift Rent",
         "reference": "transfer:11",
         "url": "https://transfer.swift.rent/destinations/zvartnots-ibis-yerevan",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-60309f130ca740698cf1adcb4c8fa167.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -3259,7 +3291,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-doubletree-by-hilton",
+      "slug": "transfer-zvartnots-doubletree-by-hilton",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → DoubleTree By Hilton Yerevan",
@@ -3267,16 +3299,16 @@
         "en": "Zvartnots-DoubleTree By Hilton Yerevan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → DoubleTree By Hilton Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и DoubleTree by Hilton Yerevan от Swift. Отель расположен в центральной части Еревана, рядом с деловыми районами, ресторанами, культурными объектами и основными городскими локациями. Расстояние от аэропорта составляет примерно 11 км, а поездка обычно занимает около 25 минут при свободном движении и до 45 минут в часы пик.\n\nЭтот маршрут удобен для гостей отеля, деловых путешественников, участников конференций и семей, которым нужен организованный приезд без ожидания такси и лишних сложностей с багажом после посадки. Заранее заказанный частный автомобиль, надежный водитель и фиксированная цена делают поездку до DoubleTree by Hilton Yerevan простой, комфортной и предсказуемой.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в DoubleTree by Hilton Yerevan или из DoubleTree by Hilton Yerevan в международный аэропорт Звартноц. Во время трансфера предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and DoubleTree by Hilton Yerevan with Swift. The hotel is located in central Yerevan, close to business areas, restaurants, cultural sites and key city attractions. The distance from the airport is approximately 11 km, and the transfer usually takes around 25 minutes in light traffic or up to 45 minutes during peak hours.\n\nThis route is convenient for hotel guests, business travelers, conference visitors and families who want an organized arrival without waiting for a taxi or dealing with luggage after landing. A pre-booked private car, reliable driver and fixed transfer price make the trip to DoubleTree by Hilton Yerevan simple, comfortable and easy to plan in advance.\n\nThe route is available in both directions: from Zvartnots International Airport to DoubleTree by Hilton Yerevan or from DoubleTree by Hilton Yerevan to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the transfer."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → DoubleTree By Hilton Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-ДаблТри Бай Хилтон Ереван. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-DoubleTree By Hilton Yerevan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → DoubleTree By Hilton Yerevan",
         "ru": "Звартноц → ДаблТри Бай Хилтон Ереван",
         "en": "Zvartnots → DoubleTree By Hilton Yerevan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-0c2d7e32a36345aeb2802c091ca96ac2.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-doubletree-by-hilton.webp",
       "gallery": [],
       "price_from": 9000,
       "currency": "AMD",
@@ -3316,7 +3348,8 @@
         "name": "Swift Rent",
         "reference": "transfer:18",
         "url": "https://transfer.swift.rent/destinations/zvartnots-doubletree-by-hilton",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-0c2d7e32a36345aeb2802c091ca96ac2.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -3358,7 +3391,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-ramada-yerevan",
+      "slug": "transfer-zvartnots-ramada-yerevan",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Ramada Yerevan",
@@ -3366,16 +3399,16 @@
         "en": "Zvartnots-Ramada Yerevan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Ramada Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и гостиницей Ramada Hotel & Suites by Wyndham Yerevan от Swift. Отель расположен в центральной части Еревана, рядом с площадью Республики, городскими кафе, ресторанами, магазинами и основными культурными достопримечательностями. Расстояние от аэропорта составляет примерно 12 км, а поездка обычно занимает около 25 минут при свободном движении и до 45 минут в часы пик.\n\nЭтот маршрут удобен для гостей отеля, туристов и деловых путешественников, которым нужен спокойный приезд в центр Еревана без ожидания такси и лишних сложностей с багажом после перелета. Заранее организованный частный автомобиль, надежный водитель и фиксированная стоимость трансфера делают поездку до отеля Ramada Yerevan более комфортной, предсказуемой и простой для планирования.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в отель Ramada Hotel & Suites by Wyndham Yerevan или из Ramada Hotel & Suites by Wyndham Yerevan в международный аэропорт Звартноц. Во время трансфера предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Ramada Hotel & Suites by Wyndham Yerevan with Swift. The hotel is located in the central part of Yerevan, close to Republic Square, city cafés, restaurants, shops and main cultural attractions. The distance from the airport is approximately 12 km, and the transfer usually takes around 25 minutes in light traffic or up to 45 minutes during peak hours.\n\nThis route is a convenient choice for hotel guests, tourists and business travelers who want a smooth arrival in central Yerevan without waiting for a taxi or managing luggage after a flight. With a pre-arranged private car, reliable driver and fixed transfer price, the trip to Ramada Yerevan becomes more comfortable, predictable and easy to plan in advance.\n\nThe route is available in both directions: from Zvartnots International Airport to Ramada Hotel & Suites by Wyndham Yerevan or from Ramada Hotel & Suites by Wyndham Yerevan to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the transfer."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Ramada Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Рамада Ереван. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Ramada Yerevan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Ramada Yerevan",
         "ru": "Звартноц → Рамада Ереван",
         "en": "Zvartnots → Ramada Yerevan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-d55c1bbb49fa4efdbd3d7ecd8b429e28.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-ramada-yerevan.webp",
       "gallery": [],
       "price_from": 9000,
       "currency": "AMD",
@@ -3415,7 +3448,8 @@
         "name": "Swift Rent",
         "reference": "transfer:19",
         "url": "https://transfer.swift.rent/destinations/zvartnots-ramada-yerevan",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-d55c1bbb49fa4efdbd3d7ecd8b429e28.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -3457,7 +3491,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-grand-yerevan",
+      "slug": "transfer-zvartnots-grand-yerevan",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Grand Yerevan",
@@ -3465,16 +3499,16 @@
         "en": "Zvartnots-Grand Yerevan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Grand Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Grand Hotel Yerevan от Swift. Grand Hotel Yerevan - один из известных центральных отелей города, расположенный недалеко от площади Республики, Северного проспекта, музеев, ресторанов и основных прогулочных зон Еревана. Расстояние от аэропорта составляет примерно 12 км, а поездка обычно занимает около 25 минут при свободном движении и до 45 минут в часы пик.\n\nЭтот маршрут подходит гостям, которым нужен спокойный и комфортный приезд в исторический центр Еревана без ожидания такси и уточнения маршрута после перелета. Заранее заказанный частный автомобиль, надежный водитель и фиксированная стоимость трансфера помогают сделать поездку до Grand Hotel Yerevan организованной, предсказуемой и удобной для планирования.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Grand Hotel Yerevan или из Grand Hotel Yerevan в международный аэропорт Звартноц. Во время трансфера предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Arrange a private transfer between Zvartnots International Airport and Grand Hotel Yerevan with Swift. Grand Hotel Yerevan is one of the city’s well-known central hotels, located close to Republic Square, Northern Avenue, museums, restaurants and the main walking areas of Yerevan. The distance from the airport is approximately 12 km, and the transfer usually takes around 25 minutes in light traffic or up to 45 minutes during peak hours.\n\nThis route is a comfortable choice for guests who want a smooth arrival to the historic center of Yerevan without waiting for a taxi or handling route details after a flight. A pre-booked private car, reliable driver and fixed transfer price help make the trip to Grand Hotel Yerevan organized, calm and easy to plan in advance.\n\nThe route is available in both directions: from Zvartnots International Airport to Grand Hotel Yerevan or from Grand Hotel Yerevan to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the transfer."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Grand Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Гранд Ереван. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Grand Yerevan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Grand Yerevan",
         "ru": "Звартноц → Гранд Ереван",
         "en": "Zvartnots → Grand Yerevan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-34f586fc725945c698f6803f7c6a1cbd.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-grand-yerevan.webp",
       "gallery": [],
       "price_from": 9000,
       "currency": "AMD",
@@ -3514,7 +3548,8 @@
         "name": "Swift Rent",
         "reference": "transfer:20",
         "url": "https://transfer.swift.rent/destinations/zvartnots-grand-yerevan",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-34f586fc725945c698f6803f7c6a1cbd.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -3556,7 +3591,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-ani-grand-yerevan",
+      "slug": "transfer-zvartnots-ani-grand-yerevan",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Ani Grand Yerevan",
@@ -3564,16 +3599,16 @@
         "en": "Zvartnots-Ani Grand Yerevan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Ani Grand Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Ani Grand Hotel Yerevan от Swift. Гостиница Ani Grand Hotel расположен в центральной части Еревана, недалеко от площади Республики, рынка Вернисаж, кафе, ресторанов и основных культурных локаций города. Расстояние от аэропорта составляет примерно 11 км, а поездка обычно занимает около 25 минут при свободном движении и до 45 минут в часы пик.\n\nЭтот маршрут удобен для путешественников, которым нужно добраться до отеля в центре Еревана без поиска транспорта после прилета и лишних сложностей с багажом в зоне аэропортового такси. Заранее заказанный частный автомобиль, надежный водитель и фиксированная стоимость трансфера позволяют организовать поездку до Ani Grand Hotel Yerevan заранее и спокойно начать маршрут сразу после посадки.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Ani Grand Hotel Yerevan или из Ani Grand Hotel Yerevan в международный аэропорт Звартноц. Во время трансфера предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Ani Grand Hotel Yerevan with Swift. Ani Grand Hotel is located in the central part of Yerevan, within easy reach of Republic Square, Vernissage market, cafés, restaurants and the main cultural spots of the city. The distance from the airport is approximately 11 km, and the transfer usually takes around 25 minutes in light traffic or up to 45 minutes during peak hours.\n\nThis route is convenient for travelers who want to reach their hotel in central Yerevan without searching for transport after arrival or carrying luggage through the airport taxi area. With a pre-booked private car, a reliable driver and a fixed transfer price, your trip to Ani Grand Hotel Yerevan is arranged in advance and starts calmly right after landing.\n\nThe route is available in both directions: from Zvartnots International Airport to Ani Grand Hotel Yerevan or from Ani Grand Hotel Yerevan to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the transfer."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Ani Grand Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Ани Гранд Ереван. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Ani Grand Yerevan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Ani Grand Yerevan",
         "ru": "Звартноц → Ани Гранд Ереван",
         "en": "Zvartnots → Ani Grand Yerevan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-2b215b2377874ae3a71f0b3b9a73fe76.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-ani-grand-yerevan.webp",
       "gallery": [],
       "price_from": 9000,
       "currency": "AMD",
@@ -3613,7 +3648,8 @@
         "name": "Swift Rent",
         "reference": "transfer:21",
         "url": "https://transfer.swift.rent/destinations/zvartnots-ani-grand-yerevan",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-2b215b2377874ae3a71f0b3b9a73fe76.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -3655,7 +3691,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-seven-visions-the-dvin-yerevan",
+      "slug": "transfer-zvartnots-seven-visions-the-dvin-yerevan",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Seven Visions, The Dvin Yerevan",
@@ -3663,16 +3699,16 @@
         "en": "Zvartnots-Seven Visions, The Dvin Yerevan"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Seven Visions, The Dvin Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Seven Visions Resort and Places, The Dvin от Swift. Этот премиальный гостиничный комплекс расположен в Ереване, примерно в 11 км от аэропорта, с удобным доступом к центру города, ресторанам, культурным локациям и деловым районам. Поездка обычно занимает около 25 минут при свободном движении и до 45 минут в часы пик.\n\nЭтот маршрут подходит гостям, которым нужен стильный и комфортный приезд из аэропорта в один из самых заметных luxury-отелей Еревана. Заранее заказанный частный автомобиль, надежный водитель и фиксированная стоимость трансфера позволяют избежать ожидания транспорта после прилета и начать пребывание в Ереване спокойно и организованно.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Seven Visions Resort and Places, The Dvin или из Seven Visions Resort and Places, The Dvin в международный аэропорт Звартноц. Во время трансфера предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Seven Visions Resort and Places, The Dvin with Swift. This premium hotel complex is located in Yerevan, approximately 11 km from the airport, offering convenient access to the city center, restaurants, cultural venues and business areas. The transfer usually takes around 25 minutes in light traffic or up to 45 minutes during peak hours.\n\nThis route is a good choice for guests who want a polished and comfortable arrival experience from the airport to one of Yerevan’s distinctive luxury hotel destinations. With a pre-arranged private car, reliable driver and fixed transfer price, you can avoid waiting for transport after landing and start your stay in Yerevan in a calm, organized way.\n\nThe route is available in both directions: from Zvartnots International Airport to Seven Visions Resort and Places, The Dvin or from Seven Visions Resort and Places, The Dvin to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the transfer."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Seven Visions, The Dvin Yerevan երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Севен Виженс, Двин Ереван. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Seven Visions, The Dvin Yerevan. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Seven Visions, The Dvin Yerevan",
         "ru": "Звартноц → Севен Виженс, Двин Ереван",
         "en": "Zvartnots → Seven Visions, The Dvin Yerevan"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-a442dd04d76340d49099eed33c332a2c.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-seven-visions-the-dvin-yerevan.webp",
       "gallery": [],
       "price_from": 9000,
       "currency": "AMD",
@@ -3712,7 +3748,8 @@
         "name": "Swift Rent",
         "reference": "transfer:22",
         "url": "https://transfer.swift.rent/destinations/zvartnots-seven-visions-the-dvin-yerevan",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-a442dd04d76340d49099eed33c332a2c.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -3754,7 +3791,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-myler",
+      "slug": "transfer-zvartnots-myler",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → MyLer",
@@ -3762,16 +3799,16 @@
         "en": "Zvartnots-MyLer"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → MyLer երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и горным курортом Майлер Маунтин Резорт от Swift. Майлер Маунтин Резорт - одно из современных направлений Армении для горнолыжного отдыха и активного отдыха в горах, расположенное примерно в 65 км от аэропорта. Поездка обычно занимает около 1 часа 25 минут при свободном движении и до 1 часа 50 минут в более загруженное время, в зависимости от дорожной ситуации, трафика и погодных условий.\n\nЭтот трансфер удобен для гостей, которые направляются в Майлер на горнолыжный отдых, зимние каникулы, активные развлечения в горах или короткую поездку на курорт. Поскольку маршрут проходит за пределы Еревана и может зависеть от сезонных дорожных условий, предварительное бронирование частного автомобиля помогает сделать поездку более комфортной, предсказуемой и простой для организации после прилета.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Майлер Маунтин Резорт или из Майлер Маунтин Резорт в международный аэропорт Звартноц. Во время поездки предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and MyLer Mountain Resort with Swift. MyLer Mountain is one of Armenia’s modern ski and mountain recreation destinations, located approximately 65 km from the airport. The journey usually takes around 1 hour and 25 minutes in light traffic or up to 1 hour and 50 minutes during busier periods, depending on road, traffic and weather conditions.\n\nThis transfer is a convenient option for travelers heading to MyLer for skiing, winter holidays, mountain activities or a short resort getaway. Since the route leads outside Yerevan and may depend on seasonal road conditions, booking a private car in advance helps make the trip more comfortable, predictable and easy to organize after arrival.\n\nThe route is available in both directions: from Zvartnots International Airport to MyLer Mountain Resort or from MyLer Mountain Resort to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → MyLer երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-МайЛер. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-MyLer. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → MyLer",
         "ru": "Звартноц → МайЛер",
         "en": "Zvartnots → MyLer"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-2e531aa08aab4d709bff01fc78a6fbaf.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-myler.webp",
       "gallery": [],
       "price_from": 17000,
       "currency": "AMD",
@@ -3811,7 +3848,8 @@
         "name": "Swift Rent",
         "reference": "transfer:10",
         "url": "https://transfer.swift.rent/destinations/zvartnots-myler",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-2e531aa08aab4d709bff01fc78a6fbaf.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -3853,7 +3891,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-sevan-lake",
+      "slug": "transfer-zvartnots-sevan-lake",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Սևանա լիճ",
@@ -3861,16 +3899,16 @@
         "en": "Zvartnots-Sevan Lake"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Սևանա լիճ երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и озером Севан от Swift. Севан - крупнейшее озеро Армении и одно из самых популярных природных направлений страны, известное широкими водными пейзажами, горными видами, прибрежными ресторанами и зонами летнего отдыха. Озеро расположено примерно в 75 км от аэропорта, а поездка обычно занимает около 1 часа 30 минут при свободном движении и до 1 часа 55 минут в более загруженное время.\n\nЭтот трансфер удобен для путешественников, которые направляются на Севан для однодневной поездки, отдыха в отеле у озера, семейного выезда, посещения ресторанов или прогулки к Севанаванку и другим прибрежным местам. Предварительное бронирование частного автомобиля помогает избежать поиска транспорта после прилета и делает поездку из аэропорта к озеру более комфортной, предсказуемой и простой для планирования.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц к озеру Севан или от озера Севан в международный аэропорт Звартноц. Во время поездки предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Lake Sevan with Swift. Lake Sevan is Armenia’s largest lake and one of the country’s most popular natural destinations, known for its wide blue waters, mountain views, lakeside restaurants and summer recreation areas. The lake is located approximately 75 km from the airport, and the trip usually takes around 1 hour and 30 minutes in light traffic or up to 1 hour and 55 minutes during busier periods.\n\nThis transfer is a convenient option for travelers going to Sevan for a day trip, lakeside hotel stay, family vacation, restaurant visit or sightseeing around Sevanavank and nearby coastal areas. Booking a private car in advance helps you avoid arranging transport after arrival and makes the route from the airport to the lake more comfortable, predictable and easy to plan.\n\nThe route is available in both directions: from Zvartnots International Airport to Lake Sevan or from Lake Sevan to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Սևանա լիճ երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Севан. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Sevan Lake. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Սևանա լիճ",
         "ru": "Звартноц → Севан",
         "en": "Zvartnots → Sevan Lake"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-0691177d74414118b252b333c6295f35.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-sevan-lake.webp",
       "gallery": [],
       "price_from": 25000,
       "currency": "AMD",
@@ -3910,7 +3948,8 @@
         "name": "Swift Rent",
         "reference": "transfer:13",
         "url": "https://transfer.swift.rent/destinations/zvartnots-sevan-lake",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-0691177d74414118b252b333c6295f35.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -3952,7 +3991,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-lastiver-resort",
+      "slug": "transfer-zvartnots-lastiver-resort",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Lastiver Resort",
@@ -3960,16 +3999,16 @@
         "en": "Zvartnots-Lastiver Resort"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Lastiver Resort երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Ластивер Резорт от Swift. Ластивер Резорт расположен в одном из самых живописных природных районов Армении, среди лесов, гор и спокойных пейзажей недалеко от Тавушской области. Курорт находится примерно в 155 км от аэропорта, а поездка обычно занимает около 2 часов 45 минут при свободном движении и до 3 часов 15 минут в более загруженное время.\n\nЭтот трансфер удобен для гостей, которые направляются в Ластивер Резорт на отдых на природе, семейную поездку, романтический уикенд, короткий выезд за город или активный отдых вдали от городской суеты. Поскольку маршрут достаточно длинный и проходит через участки с меняющимися дорожными и горными условиями, предварительное бронирование частного автомобиля помогает сделать поездку более комфортной, безопасной и простой для планирования после прибытия в Армению.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Ластивер Резорт или из Ластивер Резорт в международный аэропорт Звартноц. Во время поездки предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Lastiver Resort with Swift. Lastiver Resort is located in one of Armenia’s most scenic natural areas, surrounded by forests, mountains and peaceful landscapes near the Tavush region. The resort is approximately 155 km from the airport, and the journey usually takes around 2 hours and 45 minutes in light traffic or up to 3 hours and 15 minutes during busier periods.\n\nThis transfer is a comfortable choice for travelers heading to Lastiver Resort for a nature escape, family vacation, romantic getaway, weekend trip or outdoor experience away from the city. Since the route is long and passes through changing road and mountain-area conditions, arranging a private car in advance helps make the trip smoother, safer and easier to plan after arrival in Armenia.\n\nThe route is available in both directions: from Zvartnots International Airport to Lastiver Resort or from Lastiver Resort to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Lastiver Resort երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Ластивер Резорт. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Lastiver Resort. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Lastiver Resort",
         "ru": "Звартноц → Ластивер Резорт",
         "en": "Zvartnots → Lastiver Resort"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-b051f308b2bb4f6aa421f65143d4e910.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-lastiver-resort.webp",
       "gallery": [],
       "price_from": 50000,
       "currency": "AMD",
@@ -4009,7 +4048,8 @@
         "name": "Swift Rent",
         "reference": "transfer:16",
         "url": "https://transfer.swift.rent/destinations/zvartnots-lastiver-resort",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-b051f308b2bb4f6aa421f65143d4e910.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -4051,7 +4091,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-yell-extreme-park",
+      "slug": "transfer-zvartnots-yell-extreme-park",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Yell Extreme Park",
@@ -4059,16 +4099,16 @@
         "en": "Zvartnots - Yell Extreme Park"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Yell Extreme Park երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите частный трансфер между международным аэропортом Звартноц и Йелл Экстрим Парк от Swift. Йелл Экстрим Парк - одно из самых ярких направлений Армении для активного отдыха на природе, популярное благодаря зиплайну, внедорожным маршрутам, конным прогулкам и другим outdoor-развлечениям. Парк расположен примерно в 155 км от аэропорта, а поездка обычно занимает около 2 часов 45 минут при свободном движении и до 3 часов 15 минут в более загруженное время.\n\nЭтот трансфер удобен для гостей, которые направляются в Йелл Экстрим Парк на активную однодневную поездку, групповое приключение, уикенд за городом или отдых на природе в армянских пейзажах. Поскольку маршрут достаточно длинный и проходит за пределами основных городских зон, предварительное бронирование частного автомобиля помогает сделать поездку более комфортной, организованной и простой для планирования после прибытия.\n\nМаршрут доступен в обоих направлениях: из международного аэропорта Звартноц в Йелл Экстрим Парк или из Йелл Экстрим Парк в международный аэропорт Звартноц. Во время поездки предоставляются бесплатная бутилированная вода и Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Yell Extreme Park with Swift. Yell Extreme Park is one of Armenia’s most exciting outdoor adventure destinations, popular for ziplining, off-road activities, horseback riding and nature-based experiences. The park is located approximately 155 km from the airport, and the journey usually takes around 2 hours and 45 minutes in light traffic or up to 3 hours and 15 minutes during busier periods.\n\nThis transfer is a practical choice for travelers heading to Yell Extreme Park for an active day trip, group adventure, weekend escape or outdoor experience in the Armenian countryside. Because the route is long and leads outside the main city areas, booking a private car in advance helps make the trip more comfortable, organized and easier to plan after arrival.\n\nThe route is available in both directions: from Zvartnots International Airport to Yell Extreme Park or from Yell Extreme Park to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Yell Extreme Park երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартоц - Йелл Экстрим Парк. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots - Yell Extreme Park. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Yell Extreme Park",
         "ru": "Звартоц → Йелл Экстрим Парк",
         "en": "Zvartnots → Yell Extreme Park"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-88bb3132657e4cab82a340592ef538ce.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-yell-extreme-park.webp",
       "gallery": [],
       "price_from": 50000,
       "currency": "AMD",
@@ -4108,7 +4148,8 @@
         "name": "Swift Rent",
         "reference": "transfer:17",
         "url": "https://transfer.swift.rent/destinations/zvartnots-yell-extreme-park",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/3/legacy-file-88bb3132657e4cab82a340592ef538ce.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -4150,7 +4191,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-tbilisi",
+      "slug": "transfer-zvartnots-tbilisi",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Թբիլիսի",
@@ -4158,16 +4199,16 @@
         "en": "Zvartnots-Tbilisi"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Թբիլիսի երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите индивидуальный трансфер из международного аэропорта «Звартноц» в Тбилиси с компанией Swift. Тбилиси, столица Грузии, расположенная примерно в 285 км от аэропорта «Звартноц». Поездка обычно занимает около 5 часов 45 минут при небольшом трафике или до 7 часов 15 минут в часы пик.\n\nSwift предлагает комфортабельный и надежный трансфер через границу с опытными водителями, прозрачными ценами и удобным онлайн-бронированием. Этот маршрут - удобный выбор для деловых поездок, семейных путешествий и длительных поездок между Арменией и Грузией.\n\nТрансфер доступен в обоих направлениях: из международного аэропорта «Звартноц» в Тбилиси или из Тбилиси в международный аэропорт «Звартноц». Во время поездки предоставляются бесплатная вода в бутылках и бесплатный Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Tbilisi with Swift. Tbilisi, the capital of Georgia, is located approximately 285 km from the airport. The journey usually takes around 5 hours and 45 minutes in light traffic or up to 7 hours and 15 minutes during busier periods.\n\nSwift offers a comfortable and reliable cross-border transfer service with experienced drivers, transparent pricing, and easy online booking. This route is a convenient choice for business trips, family travel, and longer journeys between Armenia and Georgia.\n\nThe transfer is available in both directions: from Zvartnots International Airport to Tbilisi or from Tbilisi to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Թբիլիսի երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Тбилиси. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Tbilisi. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Թբիլիսի",
         "ru": "Звартноц → Тбилиси",
         "en": "Zvartnots → Tbilisi"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/6/legacy-file-42fd04d2051148ad94af6b4f6094835d.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-tbilisi.webp",
       "gallery": [],
       "price_from": 70000,
       "currency": "AMD",
@@ -4207,7 +4248,8 @@
         "name": "Swift Rent",
         "reference": "transfer:23",
         "url": "https://transfer.swift.rent/destinations/zvartnots-tbilisi",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/6/legacy-file-42fd04d2051148ad94af6b4f6094835d.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -4249,7 +4291,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-kutaisi",
+      "slug": "transfer-zvartnots-kutaisi",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Քութաիսի",
@@ -4257,16 +4299,16 @@
         "en": "Zvartnots-Kutaisi"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Քութաիսի երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите индивидуальный трансфер из международного аэропорта «Звартноц» в Кутаиси с компанией Swift. Кутаиси, город в Грузии, расположенная примерно в 510 км от аэропорта «Звартноц». Поездка обычно занимает около 9 часов при небольшом трафике или до 10 часов 30 минут в часы пик.\n\nSwift предлагает комфортабельный и надежный трансфер через границу с опытными водителями, прозрачными ценами и удобным онлайн-бронированием. Этот маршрут - удобный выбор для деловых поездок, семейных путешествий и длительных поездок между Арменией и Грузией.\n\nТрансфер доступен в обоих направлениях: из международного аэропорта «Звартноц» в Кутаиси или из Кутаиси в международный аэропорт «Звартноц». Во время поездки предоставляются бесплатная вода в бутылках и бесплатный Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Kutaisi with Swift. Kutaisi, the city of Georgia, is located approximately 510 km from the airport. The journey usually takes around 9 hours in light traffic or up to 10 hours and 30 minutes during busier periods.\n\nSwift offers a comfortable and reliable cross-border transfer service with experienced drivers, transparent pricing, and easy online booking. This route is a convenient choice for business trips, family travel, and longer journeys between Armenia and Georgia.\n\nThe transfer is available in both directions: from Zvartnots International Airport to Kutaisi or from Kutaisi to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Քութաիսի երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Кутаиси. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Kutaisi. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Քութաիսի",
         "ru": "Звартноц → Кутаиси",
         "en": "Zvartnots → Kutaisi"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/6/legacy-file-84fdace327f34e349a132acadc6a1e63.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-kutaisi.webp",
       "gallery": [],
       "price_from": 110000,
       "currency": "AMD",
@@ -4306,7 +4348,8 @@
         "name": "Swift Rent",
         "reference": "transfer:24",
         "url": "https://transfer.swift.rent/destinations/zvartnots-kutaisi",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/6/legacy-file-84fdace327f34e349a132acadc6a1e63.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",
@@ -4348,7 +4391,7 @@
       }
     },
     {
-      "slug": "swift-transfer-zvartnots-batumi",
+      "slug": "transfer-zvartnots-batumi",
       "type": "transfer",
       "title": {
         "hy": "Զվարթնոց օդանավակայան → Բաթումի",
@@ -4356,16 +4399,16 @@
         "en": "Zvartnots-Batumi"
       },
       "description": {
-        "hy": "Անհատական տրանսֆեր Swift Rent-ի վարորդով՝ Զվարթնոց օդանավակայան → Բաթումի երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
-        "ru": "Закажите индивидуальный трансфер из международного аэропорта «Звартноц» в Батуми с компанией Swift. Батуми, город в Грузии, расположенная примерно в 510 км от аэропорта «Звартноц». Поездка обычно занимает около 12 часов при небольшом трафике или до 13 часов 30 минут в часы пик.\n\nSwift предлагает комфортабельный и надежный трансфер через границу с опытными водителями, прозрачными ценами и удобным онлайн-бронированием. Этот маршрут - удобный выбор для деловых поездок, семейных путешествий и длительных поездок между Арменией и Грузией.\n\nТрансфер доступен в обоих направлениях: из международного аэропорта «Звартноц» в Батуми или из Батуми в международный аэропорт «Звартноц». Во время поездки предоставляются бесплатная вода в бутылках и бесплатный Wi-Fi.",
-        "en": "Book a private transfer between Zvartnots International Airport and Batumi with Swift. Batumi, the city of Georgia, is located approximately 650 km from the airport. The journey usually takes around 12 hours in light traffic or up to 13 hours and 30 minutes during busier periods.\n\nSwift offers a comfortable and reliable cross-border transfer service with experienced drivers, transparent pricing, and easy online booking. This route is a convenient choice for business trips, family travel, and longer journeys between Armenia and Georgia.\n\nThe transfer is available in both directions: from Zvartnots International Airport to Batumi or from Batumi to Zvartnots International Airport. Complimentary bottled water and free Wi-Fi are provided during the trip."
+        "hy": "Անհատական տրանսֆեր վարորդով՝ Զվարթնոց օդանավակայան → Բաթումի երթուղով։ Գինը մեկ ուղղությամբ ամբողջ մեքենայի համար է։ Ընտրեք մեքենայի դասը՝ ուղևորների և ուղեբեռի քանակին համապատասխան։ Վերջնական պայմաններն ու հասանելիությունը կհաստատենք ձեր հայտի հիման վրա։",
+        "ru": "Индивидуальный трансфер с водителем: Звартноц-Батуми. Цена указана в одну сторону за автомобиль. Выберите класс по количеству пассажиров и багажа. GoVista подтвердит окончательные условия и доступность по вашему запросу.",
+        "en": "Private transfer with a driver: Zvartnots-Batumi. Prices are one way, per vehicle. Choose a class for your passenger and luggage count. GoVista will confirm final terms and availability after your request."
       },
       "location": {
         "hy": "Զվարթնոց օդանավակայան → Բաթումի",
         "ru": "Звартноц → Батуми",
         "en": "Zvartnots → Batumi"
       },
-      "image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/6/legacy-file-3d6f230c4e7b42b891f26ade3265535e.webp?v=2",
+      "image": "/catalog/rentals/transfer-zvartnots-batumi.webp",
       "gallery": [],
       "price_from": 120000,
       "currency": "AMD",
@@ -4405,7 +4448,8 @@
         "name": "Swift Rent",
         "reference": "transfer:25",
         "url": "https://transfer.swift.rent/destinations/zvartnots-batumi",
-        "synced_at": "2026-11-01T18:26:34.903Z",
+        "source_image": "https://transfer.swift.rent/uploads/swift/images/maximum/2026/6/legacy-file-3d6f230c4e7b42b891f26ade3265535e.webp?v=2",
+        "synced_at": "2026-11-01T18:51:44.774Z",
         "tariffs": [
           {
             "key": "standard",

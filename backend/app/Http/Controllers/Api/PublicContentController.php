@@ -147,7 +147,12 @@ class PublicContentController extends Controller
 
     public function service(Request $request, string $slug): JsonResponse
     {
-        $service = Service::query()->where('slug', $slug)->where('active', true)->firstOrFail();
+        $service = Service::query()->where('active', true)->where(function (Builder $query) use ($slug) {
+            $query->where('slug', $slug);
+            if (preg_match('/^swift-(car|transfer)-[a-z0-9-]+$/', $slug)) {
+                $query->orWhere(fn (Builder $legacy) => $legacy->where('slug', substr($slug, 6))->where('supplier->code', 'swift'));
+            }
+        })->firstOrFail();
 
         return response()->json([
             'service' => $service->toLocalizedArray($this->locale($request)),

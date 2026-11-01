@@ -14,13 +14,12 @@ const select = tariff => openBooking(props.item, { message: `${tariff.label[loca
 
 <template>
   <section class="supplier-details">
-    <p class="supplier-name">{{ item.supplier.name }}</p>
     <h3>{{ copy.title }}</h3>
     <div class="supplier-table-wrap"><table class="supplier-rates">
       <thead><tr><th scope="col">{{ copy.option }}</th><th v-if="isTransfer" scope="col">{{ copy.capacity }}</th><th scope="col">{{ copy.price }}</th><th v-if="isTransfer" scope="col"><span class="sr-only">{{ copy.request }}</span></th></tr></thead>
-      <tbody><tr v-for="tariff in item.supplier.tariffs" :key="tariff.key"><th scope="row">{{ tariff.label[locale] }}</th><td v-if="isTransfer">{{ tariff.passengers }} / {{ tariff.luggage }}</td><td>{{ amount(tariff.price) }} {{ item.currency }}</td><td v-if="isTransfer"><button type="button" class="supplier-select" @click="select(tariff)">{{ copy.request }}</button></td></tr></tbody>
+      <tbody><tr v-for="tariff in item.rental_terms.tariffs" :key="tariff.key"><th scope="row">{{ tariff.label[locale] }}</th><td v-if="isTransfer">{{ tariff.passengers }} / {{ tariff.luggage }}</td><td>{{ amount(tariff.price) }} {{ item.currency }}</td><td v-if="isTransfer"><button type="button" class="supplier-select" @click="select(tariff)">{{ copy.request }}</button></td></tr></tbody>
     </table></div>
-    <p v-if="!isTransfer && item.supplier.deposit">{{ copy.deposit }}: {{ amount(item.supplier.deposit) }} {{ item.currency }}</p>
+    <p v-if="!isTransfer && item.rental_terms.deposit">{{ copy.deposit }}: {{ amount(item.rental_terms.deposit) }} {{ item.currency }}</p>
     <p>{{ copy.note }}</p>
   </section>
 </template>

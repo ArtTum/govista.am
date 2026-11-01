@@ -17,7 +17,7 @@ class SwiftCatalogImport
             'captured_at' => ['required', 'date'],
             'records' => ['required', 'array', 'min:1', 'max:1000'],
             'records.*' => ['array:slug,type,title,description,location,image,gallery,price_from,currency,unit,features,icon,rating,review_count,featured,active,sort_order,supplier'],
-            'records.*.slug' => ['required', 'distinct', 'max:190', 'regex:/^swift-(car|transfer)-[a-z0-9-]+$/'],
+            'records.*.slug' => ['required', 'distinct', 'max:190', 'regex:/^(car|transfer)-[a-z0-9-]+$/'],
             'records.*.type' => ['required', Rule::in(['transport', 'transfer'])],
             'records.*.price_from' => ['required', 'numeric', 'gt:0', 'max:99999999'],
             'records.*.currency' => ['required', Rule::in(['AMD'])],
@@ -49,10 +49,13 @@ class SwiftCatalogImport
                 }
             }
             $isCar = $record['type'] === 'transport';
-            if (! str_starts_with($record['supplier']['reference'], $isCar ? 'car:' : 'transfer:') || ! str_starts_with($record['slug'], $isCar ? 'swift-car-' : 'swift-transfer-')) {
+            if (! str_starts_with($record['supplier']['reference'], $isCar ? 'car:' : 'transfer:') || ! str_starts_with($record['slug'], $isCar ? 'car-' : 'transfer-')) {
                 throw ValidationException::withMessages(['records' => ['Supplier reference/type mismatch.']]);
             }
-            foreach ([$record['image'] ?? '', $record['supplier']['url'] ?? ''] as $url) {
+            if (! preg_match('#^/catalog/rentals/'.preg_quote($record['slug'], '#').'\.(webp|png|jpe?g)$#', $record['image'] ?? '')) {
+                throw ValidationException::withMessages(['records' => ['Invalid GoVista catalog image path.']]);
+            }
+            foreach ([$record['supplier']['source_image'] ?? '', $record['supplier']['url'] ?? ''] as $url) {
                 if (parse_url($url, PHP_URL_SCHEME) !== 'https' || ! in_array(parse_url($url, PHP_URL_HOST), ['swift.rent', 'transfer.swift.rent'], true) || parse_url($url, PHP_URL_USER) || parse_url($url, PHP_URL_PASS)) {
                     throw ValidationException::withMessages(['records' => ['Invalid Swift public URL.']]);
                 }
@@ -75,7 +78,12 @@ class SwiftCatalogImport
                 if ($existing && (data_get($existing->supplier, 'code') !== 'swift' || data_get($existing->supplier, 'reference') !== $record['supplier']['reference'])) {
                     throw ValidationException::withMessages(['records' => ['A supplier slug conflicts with an existing GoVista service.']]);
                 }
-                Service::updateOrCreate(['slug' => $record['slug']], $record);
+                $source = Service::where('supplier->code', 'swift')->where('supplier->reference', $record['supplier']['reference'])->first();
+                if ($source) {
+                    $source->fill($record)->save();
+                } else {
+                    Service::create($record);
+                }
             }
             Service::where('supplier->code', 'swift')->whereNotIn('slug', array_column($manifest['records'], 'slug'))->update(['active' => false]);
         });
