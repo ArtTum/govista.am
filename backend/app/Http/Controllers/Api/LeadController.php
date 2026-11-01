@@ -102,6 +102,9 @@ class LeadController extends Controller
             }
 
             $data['item_title'] = $item->toLocalizedArray($data['locale'] ?? 'hy')['title'];
+            if ($item instanceof Service && data_get($item->supplier, 'code') === 'swift') {
+                $data['request_details']['supplier'] = collect($item->supplier)->only(['code', 'name', 'reference', 'url', 'synced_at'])->all();
+            }
         }
 
         $customer = $request->user('sanctum');

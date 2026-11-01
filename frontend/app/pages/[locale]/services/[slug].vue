@@ -8,8 +8,8 @@ const { openBooking } = useBooking()
 const { data, error } = await useAsyncData(`travel-service-${locale.value}-${route.params.slug}`, () => api(`/v1/services/${route.params.slug}`, { query: { locale: locale.value } }))
 if (error.value) throw createError({ statusCode: error.value.statusCode === 404 ? 404 : 503 })
 const service = computed(() => data.value?.service)
-if (['accommodation', 'transport'].includes(service.value?.type)) {
-  const section = service.value.type === 'accommodation' ? 'stays' : 'cars'
+if (['accommodation', 'transport', 'transfer'].includes(service.value?.type)) {
+  const section = service.value.type === 'accommodation' ? 'stays' : service.value.type === 'transfer' ? 'transfers' : 'cars'
   await navigateTo({ path: localePath(`/${section}/${service.value.slug}`), query: route.query, hash: route.hash }, { redirectCode: 301, replace: true })
 }
 useSeoMeta({ title: () => `${service.value?.title} | GoVista`, description: () => service.value?.description?.slice(0, 160) })

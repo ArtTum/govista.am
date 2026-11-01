@@ -78,7 +78,9 @@ try {
     check(alias.status === 301 && alias.headers.get('location') === `/en/${section}/${slug}?date=2026-12-12&guests=3`, `${slug}: duplicate service route must consolidate without losing booking preferences`)
     check((await request(`/en/${section}/${slug}`)).status === 200, `${slug}: canonical rental target must remain accessible`)
   }
-  check((await request('/en/services/seo-transfer')).status === 200, 'A transfer service must keep its own public details page')
+  const transferAlias = await request('/en/services/seo-transfer')
+  check(transferAlias.status === 301 && transferAlias.headers.get('location') === '/en/transfers/seo-transfer', 'Transfer services must use their canonical transfer details route')
+  check((await request('/en/transfers/seo-transfer')).status === 200, 'Canonical transfer details must remain accessible')
   const catalog = await request('/en/tours')
   check(catalog.status === 200, 'Canonical tour catalog must remain accessible')
   const catalogHtml = await catalog.text()

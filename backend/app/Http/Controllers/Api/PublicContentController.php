@@ -40,7 +40,7 @@ class PublicContentController extends Controller
                 $locale
             ),
             'cars' => $this->localized(
-                Service::query()->where('active', true)->where('type', 'transport')->orderByDesc('featured')->orderBy('sort_order')->take(4)->get(),
+                Service::query()->where('active', true)->where('type', 'transport')->orderByRaw('CASE WHEN supplier IS NULL THEN 1 ELSE 0 END')->orderByDesc('featured')->orderBy('sort_order')->take(4)->get(),
                 $locale
             ),
             'destinations' => $this->localized(

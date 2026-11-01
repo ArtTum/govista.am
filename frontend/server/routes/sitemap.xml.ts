@@ -41,6 +41,7 @@ export default defineEventHandler(async (event) => {
     { path: '/international-tours', changefreq: 'daily', priority: '0.9' },
     { path: '/stays', changefreq: 'daily', priority: '0.9' },
     { path: '/cars', changefreq: 'daily', priority: '0.9' },
+    { path: '/transfers', changefreq: 'daily', priority: '0.9' },
     { path: '/destinations', changefreq: 'weekly', priority: '0.8' },
     { path: '/blog', changefreq: 'weekly', priority: '0.8' },
     { path: '/travel', changefreq: 'weekly', priority: '0.9' },
@@ -110,7 +111,7 @@ export default defineEventHandler(async (event) => {
     ...services
       .filter(item => item.slug && ['accommodation', 'transport', 'transfer', 'activity'].includes(String(item.type)))
       .map(item => ({
-          path: `/${item.type === 'accommodation' ? 'stays' : item.type === 'transport' ? 'cars' : 'services'}/${item.slug}`,
+          path: `/${item.type === 'accommodation' ? 'stays' : item.type === 'transport' ? 'cars' : item.type === 'transfer' ? 'transfers' : 'services'}/${item.slug}`,
           lastmod: dateOnly(item.updated_at),
           changefreq: 'weekly' as const,
           priority: '0.8',

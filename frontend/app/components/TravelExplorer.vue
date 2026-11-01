@@ -90,6 +90,7 @@ const price = item => item.price == null ? copy.value.onRequest : `${new Intl.Nu
       <NuxtLink :to="localePath('/travel')" class="travel-back"><ArrowLeft :size="16" /> {{ copy.allServices }}</NuxtLink>
       <h1>{{ copy.services[service] }}<span>.</span></h1><p>{{ copy.descriptions[service] }}</p>
     </section>
+    <TransferHighlights v-if="service === 'transfers'" />
     <div class="container">
       <nav class="travel-tabs" :aria-label="copy.allServices"><NuxtLink v-for="(label, key) in copy.services" :key="key" :to="localePath(`/travel/${key}`)" :aria-current="service === key ? 'page' : undefined">{{ label }}</NuxtLink></nav>
       <form class="travel-search-form" :aria-busy="loading" @submit.prevent="search()">

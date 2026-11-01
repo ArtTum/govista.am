@@ -14,7 +14,7 @@ useSeoMeta({ title: () => `${copy.value.travel} | GoVista`, description: () => c
       <p>{{ copy.intro }}</p>
     </section>
     <section class="container travel-service-grid" :aria-label="copy.allServices">
-      <NuxtLink v-for="(icon, key) in icons" :key="key" :to="localePath(`/travel/${key}`)" class="travel-service-card" :class="`travel-tone-${key}`">
+      <NuxtLink v-for="(icon, key) in icons" :key="key" :to="localePath(key === 'transfers' ? '/transfers' : `/travel/${key}`)" class="travel-service-card" :class="`travel-tone-${key}`">
         <div class="travel-service-top"><component :is="icon" :size="28" /><ArrowUpRight :size="21" /></div>
         <h2>{{ copy.services[key] }}</h2>
         <p>{{ copy.descriptions[key] }}</p>

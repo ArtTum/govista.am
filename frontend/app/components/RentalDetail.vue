@@ -2,7 +2,7 @@
 import { ArrowLeft, BedDouble, CalendarDays, CarFront, Check, MapPin, ShieldCheck, Star } from '@lucide/vue'
 
 const props = defineProps({
-  type: { type: String, required: true, validator: value => ['accommodation', 'transport'].includes(value) },
+  type: { type: String, required: true, validator: value => ['accommodation', 'transport', 'transfer'].includes(value) },
 })
 const api = useGovistaApi()
 const { locale, t, localePath } = useLocale()
@@ -12,7 +12,10 @@ const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl).replace(/\/$/, '')
 const absoluteImage = value => value?.startsWith('/') ? `${siteUrl}${value}` : value
 const isStay = computed(() => props.type === 'accommodation')
-const routeSegment = computed(() => isStay.value ? 'stays' : 'cars')
+const isTransfer = computed(() => props.type === 'transfer')
+const travel = useTravelText()
+const kindLabel = computed(() => isStay.value ? t('nav.stays') : isTransfer.value ? travel.value.services.transfers : t('nav.cars'))
+const routeSegment = computed(() => isStay.value ? 'stays' : isTransfer.value ? 'transfers' : 'cars')
 
 const { data, error } = await useAsyncData(
   () => `rental-${props.type}-${locale.value}-${route.params.slug}`,
@@ -48,7 +51,7 @@ useHead(() => ({
       '@context': 'https://schema.org',
       '@graph': [
         {
-          '@type': isStay.value ? 'LodgingBusiness' : 'Product',
+          '@type': isStay.value ? 'LodgingBusiness' : isTransfer.value ? 'Service' : 'Product',
           name: item.value.title,
           description: item.value.description,
           image: [item.value.image, ...(item.value.gallery || [])].filter(Boolean).map(absoluteImage),
@@ -63,14 +66,15 @@ useHead(() => ({
             url: `${siteUrl}${localePath(`/${routeSegment.value}/${item.value.slug}`)}`,
             price: Number(item.value.price_from || 0),
             priceCurrency: item.value.currency,
-            availability: 'https://schema.org/InStock',
+            availability: item.value.supplier ? undefined : 'https://schema.org/InStock',
+            eligibleDuration: item.value.supplier?.minimum_days ? { '@type': 'QuantitativeValue', minValue: item.value.supplier.minimum_days, unitCode: 'DAY' } : undefined,
           },
         },
         {
           '@type': 'BreadcrumbList',
           itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'GoVista', item: `${siteUrl}/${locale.value}` },
-            { '@type': 'ListItem', position: 2, name: isStay.value ? t('nav.stays') : t('nav.cars'), item: `${siteUrl}${localePath(`/${routeSegment.value}`)}` },
+            { '@type': 'ListItem', position: 2, name: kindLabel.value, item: `${siteUrl}${localePath(`/${routeSegment.value}`)}` },
             { '@type': 'ListItem', position: 3, name: item.value.title, item: `${siteUrl}${localePath(`/${routeSegment.value}/${item.value.slug}`)}` },
           ],
         },
@@ -85,10 +89,10 @@ useHead(() => ({
     <section class="rental-detail-hero">
       <div class="rental-detail-media" :style="{ backgroundImage: `linear-gradient(90deg, rgba(5,20,32,.82), rgba(5,20,32,.16)), url('${item.image}')` }"></div>
       <div class="container rental-detail-hero-copy">
-        <NuxtLink :to="localePath(`/${routeSegment}`)" class="back-link"><ArrowLeft :size="17" />{{ isStay ? t('nav.stays') : t('nav.cars') }}</NuxtLink>
-        <p class="rental-detail-kind"><BedDouble v-if="isStay" :size="16" /><CarFront v-else :size="16" />{{ isStay ? t('nav.stays') : t('nav.cars') }}</p>
+        <NuxtLink :to="localePath(`/${routeSegment}`)" class="back-link"><ArrowLeft :size="17" />{{ kindLabel }}</NuxtLink>
+        <p class="rental-detail-kind"><BedDouble v-if="isStay" :size="16" /><CarFront v-else :size="16" />{{ kindLabel }}</p>
         <h1>{{ item.title }}</h1>
-        <div class="detail-meta"><span><MapPin :size="18" />{{ item.location }}</span><span><Star :size="17" fill="currentColor" />{{ item.rating }} ({{ item.review_count }} {{ t('common.reviews') }})</span></div>
+        <div class="detail-meta"><span><MapPin :size="18" />{{ item.location }}</span><span v-if="Number(item.review_count) > 0"><Star :size="17" fill="currentColor" />{{ item.rating }} ({{ item.review_count }} {{ t('common.reviews') }})</span><span v-if="item.supplier?.name">{{ item.supplier.name }}</span></div>
       </div>
     </section>
 
@@ -98,6 +102,7 @@ useHead(() => ({
           <p class="section-eyebrow">{{ t('ui.verified') }}</p>
           <h2>{{ locale === 'hy' ? 'Ամեն ինչ այս տարբերակի մասին' : locale === 'ru' ? 'Всё об этом варианте' : 'Everything about this option' }}</h2>
           <p class="detail-description">{{ item.description }}</p>
+          <SupplierDetails v-if="item.supplier" :item="item" />
           <div class="rental-detail-features">
             <span v-for="feature in item.features || []" :key="feature"><Check :size="17" />{{ feature }}</span>
           </div>
@@ -111,7 +116,8 @@ useHead(() => ({
           <small>{{ item.unit }}</small>
           <div class="booking-divider"></div>
           <div class="rental-booking-note"><CalendarDays :size="18" /><span>{{ isStay ? t('forms.checkIn') : t('forms.date') }}<strong>{{ locale === 'hy' ? 'Ընտրեք ամրագրման ժամանակ' : locale === 'ru' ? 'Выберите при бронировании' : 'Choose while booking' }}</strong></span></div>
-          <button @click="openBooking(item)">{{ isStay ? t('common.book') : t('common.rent') }}</button>
+          <p v-if="item.supplier" class="supplier-request-note">{{ travel.requestNote }}</p>
+          <button @click="openBooking(item)">{{ isStay || isTransfer ? t('common.book') : t('common.rent') }}</button>
           <div class="booking-assurance"><ShieldCheck :size="18" /><span>{{ t('ui.verified') }}<br><strong>{{ t('ui.support') }}</strong></span></div>
         </aside>
       </div>

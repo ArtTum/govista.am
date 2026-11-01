@@ -22,6 +22,7 @@ class Service extends Model
             'gallery' => 'array',
             'unit' => 'array',
             'features' => 'array',
+            'supplier' => 'array',
             'featured' => 'boolean',
             'active' => 'boolean',
             'price_from' => 'decimal:2',

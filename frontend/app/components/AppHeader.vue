@@ -26,6 +26,7 @@ const nav = computed(() => [
   { label: t('nav.international'), to: localePath('/international-tours') },
   { label: t('nav.stays'), to: localePath('/stays') },
   { label: t('nav.cars'), to: localePath('/cars') },
+  { label: travel.value.services.transfers, to: localePath('/transfers') },
   { label: t('nav.destinations'), to: localePath('/destinations') },
   { label: travel.value.allServices, to: localePath('/travel') },
 ])

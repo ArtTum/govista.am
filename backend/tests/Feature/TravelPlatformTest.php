@@ -154,7 +154,7 @@ class TravelPlatformTest extends TestCase
         $service = Service::firstOrFail()->replicate();
         $service->fill(['slug' => 'test-airport-transfer', 'type' => 'transfer', 'title' => ['hy' => 'Տրանսֆեր', 'en' => 'Airport shuttle'], 'active' => true])->save();
         $input = ['service' => 'transfers', 'locale' => 'en', 'adults' => 2, 'destination' => 'shuttle', 'departure_time' => '12:00', 'start_date' => now()->addWeek()->toDateString()];
-        $this->postJson('/api/v1/travel/search', $input)->assertOk()->assertJsonPath('data.0.url', '/en/services/test-airport-transfer');
+        $this->postJson('/api/v1/travel/search', $input)->assertOk()->assertJsonPath('data.0.url', '/en/transfers/test-airport-transfer');
         $service->update(['active' => false]);
         $this->postJson('/api/v1/travel/search', $input)->assertOk()->assertJsonCount(0, 'data');
     }

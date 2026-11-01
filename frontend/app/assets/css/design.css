@@ -461,3 +461,19 @@ body { background: #fff; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+.supplier-name { display: block; color: var(--color-primary, #b16e31); font-size: 12px; font-weight: 700; margin-block: 8px; }
+.supplier-catalog-link { display: inline-block; margin-top: 18px; font-weight: 700; }
+.supplier-details { margin-block: 28px; padding: 22px; border: 1px solid #dfe5df; border-radius: 16px; background: #fafbf7; }
+.supplier-details h3 { margin-bottom: 18px; font-size: 22px; }
+.rental-detail-layout > * { min-width: 0; }
+.rental-detail-layout h2 { overflow-wrap: anywhere; font-size: clamp(26px, 3vw, 42px); }
+.supplier-details { min-width: 0; max-width: 100%; }
+.supplier-details > p:last-child, .supplier-request-note { margin-top: 16px; color: #566866; font-size: 13px; line-height: 1.6; }
+.supplier-table-wrap { overflow-x: auto; }
+.supplier-rates { width: 100%; border-collapse: collapse; font-size: 14px; text-align: left; }
+.supplier-rates th, .supplier-rates td { padding: 12px 10px; border-bottom: 1px solid #dfe5df; vertical-align: middle; white-space: nowrap; }
+.supplier-rates thead { font-size: 12px; color: #566866; }
+.supplier-select { padding: 9px 12px; border-radius: 9px; background: #12343b; color: white; cursor: pointer; }
+.transfer-highlights { margin-block: 40px; }
+@media (max-width: 640px) { .supplier-details { padding: 15px; } .supplier-rates { font-size: 12px; } .supplier-rates th, .supplier-rates td { padding: 10px 6px; } }

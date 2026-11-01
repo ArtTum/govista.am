@@ -270,6 +270,29 @@ responses. It uses an isolated fixture API and does not modify real records.
 The broader runtime smoke script modifies and cleans up QA records, so run it
 separately from checks that expect exact catalog or sitemap counts.
 
+## Swift Rent public catalog
+
+Swift cars and transfer routes are imported as GoVista inquiry services. They
+retain supplier references for operators; no customer data is sent to Swift and
+no supplier booking or payment is performed by this import.
+
+Refresh the reviewed snapshot with `node scripts/sync-swift-catalog.mjs --write`.
+The fixed public APIs supply English/Russian content, already discounted AMD
+rental tariffs and per-vehicle transfer rates. Armenian content is localized
+for GoVista. The displayed car starting rate is the published 7+ day tariff;
+seasonal discounts must not be applied a second time. Transfer class/capacity
+tables preserve each route's published prices. Ratings are not fabricated.
+
+After the non-destructive supplier-column migration, preview with
+`php artisan swift:import-catalog`. Apply with
+`php artisan swift:import-catalog --apply --backup=/private/new-services-backup.json`
+using a new private backup path. The import is transactional and idempotent,
+rejects collisions with manually managed services, and deactivates only Swift
+records removed from a complete later snapshot. Other services are preserved.
+There is no scheduled refresh; quoted availability and final prices are confirmed
+for the requested dates. Canonical listings are `/hy/cars` and `/hy/transfers`
+(also `/ru` and `/en`); imported records are included in the sitemap.
+
 ## Travel service launch requirements
 
 - Apply `2026_09_10_000400_add_travel_platform` with `php artisan migrate --force`; preserve the current database and `APP_KEY`.

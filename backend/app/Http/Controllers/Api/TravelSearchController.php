@@ -115,7 +115,7 @@ class TravelSearchController extends Controller
         $data = collect($page->items())->map(function ($item) use ($locale, $service, $type) {
             $data = $item->toLocalizedArray($locale);
             $path = match ($service) {
-                'tours', 'packages' => 'tours', 'hotels' => 'stays', 'cars' => 'cars', 'places' => 'destinations', default => 'services'
+                'tours', 'packages' => 'tours', 'hotels' => 'stays', 'cars' => 'cars', 'transfers' => 'transfers', 'places' => 'destinations', default => 'services'
             };
 
             return ['id' => (string) $item->id, 'item_id' => $item->id, 'provider' => 'local', 'source' => 'GoVista', 'title' => $data['title'], 'description' => $data['description'] ?? '', 'image' => $data['image'] ?? null, 'price' => $data['price'] ?? $data['price_from'] ?? null, 'currency' => $data['currency'] ?? null, 'price_basis' => 'from', 'type' => $data['type'] ?? $type, 'url' => '/'.$locale.'/'.$path.'/'.$item->slug, 'action' => 'details'];
